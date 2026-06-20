@@ -1,0 +1,250 @@
+:root {
+  --bg: #fdfdfc;
+  --fg: #1a1d24;
+  --muted: #6b6b6b;
+  --line: #e3e1dc;
+  --accent: #1f3a5f;
+  --accent-soft: #eef2f7;
+  --ok: #1d6b3f;
+  --warn: #9a3b2f;
+  --max: 56rem;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.6;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  color: var(--fg);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+.brand strong {
+  color: var(--accent);
+}
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+.site-main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+.site-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer .legal {
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+h2 {
+  font-size: 1.3rem;
+  margin: 2rem 0 0.5rem;
+}
+h3 {
+  margin: 0 0 0.4rem;
+}
+.lede {
+  font-size: 1.1rem;
+  color: #33363d;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hero {
+  padding: 1rem 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.btn:hover {
+  text-decoration: none;
+  opacity: 0.92;
+}
+.btn-secondary {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  background: #fff;
+}
+.card-reserved {
+  background: #faf9f7;
+  opacity: 0.92;
+}
+.card-links {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+.card-links li {
+  margin: 0.25rem 0;
+}
+.chip {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.chip-program {
+  margin: 0 0.4rem 0.4rem 0;
+}
+.program-chips {
+  margin: 0.75rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.mark-active {
+  color: var(--ok);
+}
+.mark-suspended,
+.mark-expired {
+  color: var(--warn);
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+  margin: 1.25rem 0;
+}
+.search-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  width: 100%;
+}
+.search-form input {
+  flex: 1 1 16rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.search-form button {
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.result-card {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  background: #fff;
+}
+.verify-ok {
+  color: var(--ok);
+  font-weight: 600;
+}
+.verify-fail {
+  color: var(--warn);
+}
+dl dt {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+dl dd {
+  margin: 0 0 0.25rem;
+}
+
+.property-list {
+  list-style: none;
+  padding: 0;
+}
+.property-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.property-list .role {
+  color: var(--muted);
+}
+.article-list {
+  list-style: none;
+  padding: 0;
+}
+.article-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
