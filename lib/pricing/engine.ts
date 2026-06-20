@@ -1,3 +1,7 @@
+// ⚠ SUPERSEDED — DO NOT WIRE. ICS pricing adopts the existing PF calculator
+// (~/paleo-foundation/src/lib/pricing.ts). This is a reference artifact of
+// application-crm-spec.md §3 that also caught two spec-example errors. See ./README.md.
+//
 // Pricing engine — pure, deterministic, versioned.
 //
 // Core invariant (the founder's central requirement):

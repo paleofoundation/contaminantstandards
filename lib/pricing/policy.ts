@@ -1,3 +1,7 @@
+// ⚠ SUPERSEDED — DO NOT WIRE. ICS pricing adopts the existing PF calculator
+// (~/paleo-foundation/src/lib/pricing.ts: revenue-band × cert-count × multi-year).
+// This file is a reference artifact of application-crm-spec.md §3. See ./README.md.
+//
 // Versioned discount policy — the rate card and the four discount families.
 //
 // THESE NUMBERS ARE THE SPEC'S DEFAULTS AND ARE OPEN §7 DECISIONS FOR KAREN
