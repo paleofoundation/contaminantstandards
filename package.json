@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:firewall": "node tools/firewall-parent-lint.mjs"
+    "lint:firewall": "node tools/firewall-parent-lint.mjs",
+    "test": "node --import tsx --test lib/**/*.test.ts"
   },
   "dependencies": {
     "next": "^15.5.0",
@@ -20,6 +21,7 @@
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.0"
   }
 }
