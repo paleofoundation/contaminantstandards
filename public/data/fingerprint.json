@@ -1,0 +1,185 @@
+{
+  "_note": "Per-metal study volume (depth of evidence). NOT risk level or threshold.",
+  "metals": [
+    {
+      "metal": "Lead",
+      "slug": "lead",
+      "count": 896
+    },
+    {
+      "metal": "Cadmium",
+      "slug": "cadmium",
+      "count": 861
+    },
+    {
+      "metal": "Chromium",
+      "slug": "chromium",
+      "count": 376
+    },
+    {
+      "metal": "Nickel",
+      "slug": "nickel",
+      "count": 362
+    },
+    {
+      "metal": "Arsenic",
+      "slug": "arsenic",
+      "count": 352
+    },
+    {
+      "metal": "Mercury",
+      "slug": "mercury",
+      "count": 275
+    },
+    {
+      "metal": "Arsenic, Total",
+      "slug": "arsenic-total",
+      "count": 250
+    },
+    {
+      "metal": "Copper",
+      "slug": "copper",
+      "count": 235
+    },
+    {
+      "metal": "Zinc",
+      "slug": "zinc",
+      "count": 216
+    },
+    {
+      "metal": "Mercury, Total",
+      "slug": "mercury-total",
+      "count": 212
+    },
+    {
+      "metal": "Aluminum",
+      "slug": "aluminum",
+      "count": 138
+    },
+    {
+      "metal": "Iron",
+      "slug": "iron",
+      "count": 123
+    },
+    {
+      "metal": "Manganese",
+      "slug": "manganese",
+      "count": 117
+    },
+    {
+      "metal": "Cobalt",
+      "slug": "cobalt",
+      "count": 97
+    },
+    {
+      "metal": "Arsenic, Inorganic",
+      "slug": "arsenic-inorganic",
+      "count": 66
+    },
+    {
+      "metal": "Chromium, Hexavalent",
+      "slug": "chromium-hexavalent",
+      "count": 63
+    },
+    {
+      "metal": "Tin",
+      "slug": "tin",
+      "count": 61
+    },
+    {
+      "metal": "Antimony",
+      "slug": "antimony",
+      "count": 48
+    },
+    {
+      "metal": "Methylmercury",
+      "slug": "mercury-methyl",
+      "count": 44
+    },
+    {
+      "metal": "Barium",
+      "slug": "barium",
+      "count": 31
+    },
+    {
+      "metal": "Molybdenum",
+      "slug": "molybdenum",
+      "count": 26
+    },
+    {
+      "metal": "Vanadium",
+      "slug": "vanadium",
+      "count": 23
+    },
+    {
+      "metal": "Uranium",
+      "slug": "uranium",
+      "count": 21
+    },
+    {
+      "metal": "Silver",
+      "slug": "silver",
+      "count": 15
+    },
+    {
+      "metal": "Magnesium",
+      "slug": "magnesium",
+      "count": 12
+    },
+    {
+      "metal": "Organotins",
+      "slug": "organotins",
+      "count": 12
+    },
+    {
+      "metal": "Thallium",
+      "slug": "thallium",
+      "count": 11
+    },
+    {
+      "metal": "Tin, Inorganic",
+      "slug": "tin-inorganic",
+      "count": 11
+    },
+    {
+      "metal": "Lithium",
+      "slug": "lithium",
+      "count": 10
+    },
+    {
+      "metal": "Beryllium",
+      "slug": "beryllium",
+      "count": 8
+    },
+    {
+      "metal": "Titanium",
+      "slug": "titanium",
+      "count": 7
+    },
+    {
+      "metal": "Cesium",
+      "slug": "cesium",
+      "count": 4
+    },
+    {
+      "metal": "Gold",
+      "slug": "gold",
+      "count": 2
+    },
+    {
+      "metal": "Palladium",
+      "slug": "palladium",
+      "count": 2
+    },
+    {
+      "metal": "Platinum",
+      "slug": "platinum",
+      "count": 2
+    },
+    {
+      "metal": "Tellurium",
+      "slug": "tellurium",
+      "count": 2
+    }
+  ]
+}

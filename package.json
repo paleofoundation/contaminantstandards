@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "feeds": "node tools/build-data-feeds.mjs",
+    "prebuild": "node tools/firewall-parent-lint.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,14 +15,19 @@
     "test": "node --import tsx --test lib/**/*.test.ts"
   },
   "dependencies": {
+    "d3-geo": "^3.1.1",
+    "i18n-iso-countries": "^7.14.0",
     "next": "^15.5.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/topojson-client": "^3.1.5",
     "tsx": "^4.22.4",
     "typescript": "^5.7.0"
   }

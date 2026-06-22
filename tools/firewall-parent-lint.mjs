@@ -82,6 +82,43 @@ if (fs.existsSync(registryFile)) {
   }
 }
 
+// ---- 4. data feeds: keys must not encode contamination/threshold data --------
+// The parent's public/data/*.json feeds carry literature/stewardship counts ONLY
+// (study counts, jurisdictions, years, page counts). We scan KEYS (not string
+// VALUES, so a "_note" disclaimer like "no contamination values" is not flagged).
+const dataDir = path.join(root, "public/data")
+if (fs.existsSync(dataDir)) {
+  const FORBIDDEN_KEY =
+    /contamination|ppb|µg|ug_?kg|\bthreshold\b|percentile|\bp(?:97|45|90)\b|clean_?dirty|\bdirty\b|limit_ppb|published_limit|pass_?margin/i
+  for (const f of fs.readdirSync(dataDir)) {
+    if (!f.endsWith(".json")) continue
+    const rel = `public/data/${f}`
+    let json
+    try {
+      json = JSON.parse(fs.readFileSync(path.join(dataDir, f), "utf8"))
+    } catch {
+      errors.push(`DATA_FEED_PARSE: ${rel} is not valid JSON.`)
+      continue
+    }
+    const offending = new Set()
+    const walkKeys = (obj) => {
+      if (Array.isArray(obj)) return obj.forEach(walkKeys)
+      if (obj && typeof obj === "object") {
+        for (const [k, v] of Object.entries(obj)) {
+          if (FORBIDDEN_KEY.test(k)) offending.add(k)
+          walkKeys(v)
+        }
+      }
+    }
+    walkKeys(json)
+    if (offending.size) {
+      errors.push(
+        `DATA_FEED_FORBIDDEN_KEY: ${rel} has key(s) [${[...offending].join(", ")}] — feeds carry literature/stewardship counts only, never contamination/threshold data.`,
+      )
+    }
+  }
+}
+
 // ---- report -----------------------------------------------------------------
 if (errors.length) {
   console.error(`firewall-parent-lint: ${errors.length} violation(s):`)

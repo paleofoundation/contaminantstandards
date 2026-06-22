@@ -1,0 +1,725 @@
+{
+  "_note": "Number of studies in the ICS corpus by study jurisdiction. NOT contamination levels.",
+  "jurisdictions": [
+    {
+      "code": "US",
+      "count": 358
+    },
+    {
+      "code": "EU",
+      "count": 280
+    },
+    {
+      "code": "CN",
+      "count": 256
+    },
+    {
+      "code": "IR",
+      "count": 99
+    },
+    {
+      "code": "IN",
+      "count": 98
+    },
+    {
+      "code": "NG",
+      "count": 97
+    },
+    {
+      "code": "PL",
+      "count": 93
+    },
+    {
+      "code": "IT",
+      "count": 74
+    },
+    {
+      "code": "CA",
+      "count": 67
+    },
+    {
+      "code": "TR",
+      "count": 66
+    },
+    {
+      "code": "ES",
+      "count": 63
+    },
+    {
+      "code": "JP",
+      "count": 61
+    },
+    {
+      "code": "BD",
+      "count": 57
+    },
+    {
+      "code": "PK",
+      "count": 57
+    },
+    {
+      "code": "EG",
+      "count": 54
+    },
+    {
+      "code": "BR",
+      "count": 51
+    },
+    {
+      "code": "GB",
+      "count": 49
+    },
+    {
+      "code": "FR",
+      "count": 48
+    },
+    {
+      "code": "AU",
+      "count": 45
+    },
+    {
+      "code": "GLOBAL",
+      "count": 44
+    },
+    {
+      "code": "KR",
+      "count": 44
+    },
+    {
+      "code": "DE",
+      "count": 43
+    },
+    {
+      "code": "INTERNATIONAL",
+      "count": 41
+    },
+    {
+      "code": "MX",
+      "count": 33
+    },
+    {
+      "code": "IQ",
+      "count": 30
+    },
+    {
+      "code": "SA",
+      "count": 29
+    },
+    {
+      "code": "DK",
+      "count": 28
+    },
+    {
+      "code": "ET",
+      "count": 27
+    },
+    {
+      "code": "TH",
+      "count": 27
+    },
+    {
+      "code": "ID",
+      "count": 26
+    },
+    {
+      "code": "MY",
+      "count": 22
+    },
+    {
+      "code": "EC",
+      "count": 22
+    },
+    {
+      "code": "RO",
+      "count": 22
+    },
+    {
+      "code": "NZ",
+      "count": 21
+    },
+    {
+      "code": "GH",
+      "count": 21
+    },
+    {
+      "code": "PE",
+      "count": 21
+    },
+    {
+      "code": "PT",
+      "count": 20
+    },
+    {
+      "code": "BE",
+      "count": 20
+    },
+    {
+      "code": "UK",
+      "count": 20
+    },
+    {
+      "code": "SE",
+      "count": 20
+    },
+    {
+      "code": "NO",
+      "count": 18
+    },
+    {
+      "code": "US-CA",
+      "count": 18
+    },
+    {
+      "code": "TW",
+      "count": 17
+    },
+    {
+      "code": "WHO",
+      "count": 17
+    },
+    {
+      "code": "RU",
+      "count": 17
+    },
+    {
+      "code": "CO",
+      "count": 16
+    },
+    {
+      "code": "MA",
+      "count": 15
+    },
+    {
+      "code": "LK",
+      "count": 15
+    },
+    {
+      "code": "LY",
+      "count": 14
+    },
+    {
+      "code": "AR",
+      "count": 14
+    },
+    {
+      "code": "HK",
+      "count": 14
+    },
+    {
+      "code": "GR",
+      "count": 14
+    },
+    {
+      "code": "SK",
+      "count": 13
+    },
+    {
+      "code": "ZA",
+      "count": 12
+    },
+    {
+      "code": "KZ",
+      "count": 12
+    },
+    {
+      "code": "CZ",
+      "count": 12
+    },
+    {
+      "code": "RS",
+      "count": 12
+    },
+    {
+      "code": "VN",
+      "count": 12
+    },
+    {
+      "code": "TZ",
+      "count": 11
+    },
+    {
+      "code": "NL",
+      "count": 11
+    },
+    {
+      "code": "KE",
+      "count": 10
+    },
+    {
+      "code": "CL",
+      "count": 10
+    },
+    {
+      "code": "HR",
+      "count": 10
+    },
+    {
+      "code": "HU",
+      "count": 10
+    },
+    {
+      "code": "LB",
+      "count": 9
+    },
+    {
+      "code": "FI",
+      "count": 9
+    },
+    {
+      "code": "UA",
+      "count": 9
+    },
+    {
+      "code": "CH",
+      "count": 8
+    },
+    {
+      "code": "NP",
+      "count": 8
+    },
+    {
+      "code": "AT",
+      "count": 8
+    },
+    {
+      "code": "JO",
+      "count": 7
+    },
+    {
+      "code": "AE",
+      "count": 7
+    },
+    {
+      "code": "IE",
+      "count": 7
+    },
+    {
+      "code": "CY",
+      "count": 7
+    },
+    {
+      "code": "TN",
+      "count": 6
+    },
+    {
+      "code": "TT",
+      "count": 6
+    },
+    {
+      "code": "DZ",
+      "count": 6
+    },
+    {
+      "code": "GE",
+      "count": 5
+    },
+    {
+      "code": "IL",
+      "count": 5
+    },
+    {
+      "code": "PH",
+      "count": 5
+    },
+    {
+      "code": "BA",
+      "count": 4
+    },
+    {
+      "code": "SI",
+      "count": 4
+    },
+    {
+      "code": "HN",
+      "count": 4
+    },
+    {
+      "code": "CI",
+      "count": 4
+    },
+    {
+      "code": "UG",
+      "count": 4
+    },
+    {
+      "code": "BG",
+      "count": 4
+    },
+    {
+      "code": "MT",
+      "count": 4
+    },
+    {
+      "code": "CM",
+      "count": 4
+    },
+    {
+      "code": "LV",
+      "count": 4
+    },
+    {
+      "code": "ZM",
+      "count": 4
+    },
+    {
+      "code": "US-WA",
+      "count": 4
+    },
+    {
+      "code": "BF",
+      "count": 3
+    },
+    {
+      "code": "BO",
+      "count": 3
+    },
+    {
+      "code": "ZW",
+      "count": 3
+    },
+    {
+      "code": "CU",
+      "count": 3
+    },
+    {
+      "code": "US-FDA",
+      "count": 3
+    },
+    {
+      "code": "CR",
+      "count": 3
+    },
+    {
+      "code": "INTL",
+      "count": 3
+    },
+    {
+      "code": "CD",
+      "count": 3
+    },
+    {
+      "code": "NA",
+      "count": 3
+    },
+    {
+      "code": "IS",
+      "count": 3
+    },
+    {
+      "code": "TJ",
+      "count": 3
+    },
+    {
+      "code": "PS",
+      "count": 2
+    },
+    {
+      "code": "BW",
+      "count": 2
+    },
+    {
+      "code": "GT",
+      "count": 2
+    },
+    {
+      "code": "POLAND",
+      "count": 2
+    },
+    {
+      "code": "UY",
+      "count": 2
+    },
+    {
+      "code": "ML",
+      "count": 2
+    },
+    {
+      "code": "SR",
+      "count": 2
+    },
+    {
+      "code": "SPAIN",
+      "count": 2
+    },
+    {
+      "code": "INT",
+      "count": 2
+    },
+    {
+      "code": "ITALY",
+      "count": 2
+    },
+    {
+      "code": "AM",
+      "count": 2
+    },
+    {
+      "code": "AZ",
+      "count": 2
+    },
+    {
+      "code": "DO",
+      "count": 2
+    },
+    {
+      "code": "DJ",
+      "count": 2
+    },
+    {
+      "code": "US-NY",
+      "count": 2
+    },
+    {
+      "code": "BY",
+      "count": 2
+    },
+    {
+      "code": "KG",
+      "count": 2
+    },
+    {
+      "code": "CODEX",
+      "count": 2
+    },
+    {
+      "code": "CAC",
+      "count": 1
+    },
+    {
+      "code": "KS",
+      "count": 1
+    },
+    {
+      "code": "LA",
+      "count": 1
+    },
+    {
+      "code": "ASEAN",
+      "count": 1
+    },
+    {
+      "code": "KP",
+      "count": 1
+    },
+    {
+      "code": "OM",
+      "count": 1
+    },
+    {
+      "code": "QA",
+      "count": 1
+    },
+    {
+      "code": "SD",
+      "count": 1
+    },
+    {
+      "code": "MK",
+      "count": 1
+    },
+    {
+      "code": "KW",
+      "count": 1
+    },
+    {
+      "code": "MU",
+      "count": 1
+    },
+    {
+      "code": "PY",
+      "count": 1
+    },
+    {
+      "code": "MW",
+      "count": 1
+    },
+    {
+      "code": "AG",
+      "count": 1
+    },
+    {
+      "code": "BZ",
+      "count": 1
+    },
+    {
+      "code": "GY",
+      "count": 1
+    },
+    {
+      "code": "KN",
+      "count": 1
+    },
+    {
+      "code": "LC",
+      "count": 1
+    },
+    {
+      "code": "VC",
+      "count": 1
+    },
+    {
+      "code": "CARIBBEAN",
+      "count": 1
+    },
+    {
+      "code": "GL",
+      "count": 1
+    },
+    {
+      "code": "ME",
+      "count": 1
+    },
+    {
+      "code": "EE",
+      "count": 1
+    },
+    {
+      "code": "LT",
+      "count": 1
+    },
+    {
+      "code": "RW",
+      "count": 1
+    },
+    {
+      "code": "JAPAN",
+      "count": 1
+    },
+    {
+      "code": "GA",
+      "count": 1
+    },
+    {
+      "code": "US-ME",
+      "count": 1
+    },
+    {
+      "code": "XK",
+      "count": 1
+    },
+    {
+      "code": "SY",
+      "count": 1
+    },
+    {
+      "code": "SC",
+      "count": 1
+    },
+    {
+      "code": "BRAZIL",
+      "count": 1
+    },
+    {
+      "code": "MERCOSUR",
+      "count": 1
+    },
+    {
+      "code": "MM",
+      "count": 1
+    },
+    {
+      "code": "KSA",
+      "count": 1
+    },
+    {
+      "code": "SWEDEN",
+      "count": 1
+    },
+    {
+      "code": "SERBIA",
+      "count": 1
+    },
+    {
+      "code": "MR",
+      "count": 1
+    },
+    {
+      "code": "PA",
+      "count": 1
+    },
+    {
+      "code": "SUB-SAHARAN-AFRICA",
+      "count": 1
+    },
+    {
+      "code": "MEDITERRANEAN-EUROPE",
+      "count": 1
+    },
+    {
+      "code": "LU",
+      "count": 1
+    },
+    {
+      "code": "MG",
+      "count": 1
+    },
+    {
+      "code": "AO",
+      "count": 1
+    },
+    {
+      "code": "JM",
+      "count": 1
+    },
+    {
+      "code": "MC",
+      "count": 1
+    },
+    {
+      "code": "LMICS",
+      "count": 1
+    },
+    {
+      "code": "MZ",
+      "count": 1
+    },
+    {
+      "code": "FJ",
+      "count": 1
+    },
+    {
+      "code": "GN",
+      "count": 1
+    },
+    {
+      "code": "KH",
+      "count": 1
+    },
+    {
+      "code": "US-VT",
+      "count": 1
+    },
+    {
+      "code": "CIV",
+      "count": 1
+    },
+    {
+      "code": "PG",
+      "count": 1
+    },
+    {
+      "code": "VE",
+      "count": 1
+    },
+    {
+      "code": "MN",
+      "count": 1
+    },
+    {
+      "code": "BJ",
+      "count": 1
+    },
+    {
+      "code": "SG",
+      "count": 1
+    },
+    {
+      "code": "TM",
+      "count": 1
+    },
+    {
+      "code": "UZ",
+      "count": 1
+    }
+  ]
+}
