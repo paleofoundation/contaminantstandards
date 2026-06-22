@@ -60,8 +60,8 @@ export default function EvidenceCoverageAtlas() {
     <figure className="atlas">
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Evidence Coverage Atlas — studies in the corpus by jurisdiction" className="atlas-svg">
         <rect x={0} y={0} width={W} height={H} fill="transparent" />
-        {paths.filter(Boolean).map((p: { id: string; d: string; fill: string }) => (
-          <path key={p.id} d={p.d} fill={p.fill} stroke="#ffffff" strokeWidth={0.4} />
+        {paths.filter(Boolean).map((p: { id: string; d: string; fill: string }, i: number) => (
+          <path key={i} d={p.d} fill={p.fill} stroke="#ffffff" strokeWidth={0.4} />
         ))}
       </svg>
       <div className="atlas-legend">
