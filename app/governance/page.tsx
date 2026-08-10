@@ -8,7 +8,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Governance",
   description:
-    "How the Institute for Contaminant Standards governs its certification programs: standards-setting independence, the firewall, mark use, and enforcement.",
+    "How the Institute of Contaminant Standards governs its certification programs: standards-setting independence, the firewall, mark use, and enforcement.",
   alternates: { canonical: "/governance" },
 }
 
@@ -110,7 +110,16 @@ export default function GovernancePage() {
 
       <p className="muted">
         Current program: Heavy Metal Tested &amp; Certified (standard version and effective dates
-        are published on <a href="https://heavymetalcertified.com/standards/">the program&apos;s standards index</a>).
+        are published on{" "}
+        <a
+          href="https://heavymetalcertified.com/standards/"
+          target="_blank"
+          rel="noopener"
+          title="Heavy Metal Tested & Certified — published standards index"
+        >
+          the program&apos;s standards index
+        </a>
+        ).
       </p>
     </>
   )

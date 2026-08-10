@@ -36,7 +36,15 @@ export default function CorpusGrowthChart({ since = 2000 }: { since?: number }) 
       </svg>
       <figcaption className="growth-caption">
         Indexed studies by publication year (corpus coverage over time). Source records on the{" "}
-        <a href="https://heavymetalindex.com/sources/">Heavy Metal Index</a>.
+        <a
+          href="https://heavymetalindex.com/sources/"
+          target="_blank"
+          rel="noopener"
+          title="Heavy Metal Index — source records"
+        >
+          Heavy Metal Index
+        </a>
+        .
       </figcaption>
     </figure>
   )

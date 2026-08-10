@@ -81,7 +81,15 @@ export default function EvidenceCoverageAtlas() {
           </span>
         ))}
         . The evidence behind every figure lives on the{" "}
-        <a href="https://heavymetalindex.com">Heavy Metal Index</a>.
+        <a
+          href="https://heavymetalindex.com"
+          target="_blank"
+          rel="noopener"
+          title="Heavy Metal Index — the independent literature evidence base"
+        >
+          Heavy Metal Index
+        </a>
+        .
       </figcaption>
     </figure>
   )

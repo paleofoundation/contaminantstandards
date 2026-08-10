@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "next dev",
     "feeds": "node tools/build-data-feeds.mjs",
-    "prebuild": "node tools/firewall-parent-lint.mjs",
+    "prebuild": "node tools/firewall-parent-lint.mjs && node tools/crosslink-lint.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:firewall": "node tools/firewall-parent-lint.mjs",
+    "lint:crosslink": "node tools/crosslink-lint.mjs",
     "test": "node --import tsx --test lib/**/*.test.ts"
   },
   "dependencies": {

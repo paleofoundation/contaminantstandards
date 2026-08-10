@@ -102,5 +102,23 @@ export function httpsUrl(domain: string): string {
   return `https://${domain}`
 }
 
+/**
+ * Anchor attributes for an outbound link to an OWNED sibling property in the ICS
+ * network (the index, a cert program, the tested/journal site). Deliberately
+ * `rel="noopener"` and NOT `noopener noreferrer`: these are our own properties,
+ * so we want the Referer header to pass through — that is the cross-property
+ * referral/authority signal answer engines and analytics read to see that the
+ * ICS network drives traffic between its faces. The links stay dofollow (never
+ * nofollow) so link equity flows. Third-party outbound links keep the stricter
+ * `noopener noreferrer`; this helper is for siblings only.
+ */
+export function siblingLinkAttrs(title?: string): {
+  target: "_blank"
+  rel: "noopener"
+  title?: string
+} {
+  return { target: "_blank", rel: "noopener", ...(title ? { title } : {}) }
+}
+
 /** The parent's own base URL, used for self-canonical (never cross-domain). */
 export const PARENT_BASE = httpsUrl(PARENT.domain)

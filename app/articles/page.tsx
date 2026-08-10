@@ -10,7 +10,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Articles",
   description:
-    "Institutional analysis from the Institute for Contaminant Standards: how contaminant standards are set, kept independent, and governed across programs.",
+    "Institutional analysis from the Institute of Contaminant Standards: how contaminant standards are set, kept independent, and governed across programs.",
   alternates: { canonical: "/articles" },
 }
 
@@ -37,7 +37,15 @@ export default function ArticlesPage() {
         Analysis from the institution: how contaminant standards are set, kept independent, and
         governed across programs. For the standards themselves and how to get certified, the
         authoritative source is the program — {""}
-        <a href="https://heavymetalcertified.com">Heavy Metal Certified</a>.
+        <a
+          href="https://heavymetalcertified.com"
+          target="_blank"
+          rel="noopener"
+          title="Heavy Metal Tested & Certified — the certification program"
+        >
+          Heavy Metal Certified
+        </a>
+        .
       </p>
       <ul className="article-list">
         {ARTICLES.map((a) => (

@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import { VERTICALS, PARENT, PORTAL, VERIFY, httpsUrl } from "../../lib/site-registry"
+import { VERTICALS, PARENT, PORTAL, VERIFY, httpsUrl, siblingLinkAttrs } from "../../lib/site-registry"
 
 export const metadata: Metadata = {
   title: "The network",
   description:
-    "The properties of the Institute for Contaminant Standards network: per-contaminant literature indexes, certification programs, the registry, and verification — and how the firewall keeps them independent.",
+    "The properties of the Institute of Contaminant Standards network: per-contaminant literature indexes, certification programs, the registry, and verification — and how the firewall keeps them independent.",
   alternates: { canonical: "/network" },
 }
 
@@ -39,7 +39,12 @@ export default function NetworkPage() {
               <li key={s.role}>
                 <span className="role">{ROLE_LABEL[s.role]}</span>
                 {s.publicLink ? (
-                  <a href={httpsUrl(s.domain)}>{s.domain}</a>
+                  <a
+                    href={httpsUrl(s.domain)}
+                    {...siblingLinkAttrs(`${v.displayName} — ${ROLE_LABEL[s.role]}`)}
+                  >
+                    {s.domain}
+                  </a>
                 ) : (
                   <span className="muted">{s.domain || "domain reserved"}</span>
                 )}

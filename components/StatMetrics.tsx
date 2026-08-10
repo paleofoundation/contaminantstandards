@@ -25,7 +25,14 @@ export default function StatMetrics() {
   return (
     <div className="stat-metrics">
       {tiles.map((t) => (
-        <a key={t.label} className="stat-tile" href={t.href}>
+        <a
+          key={t.label}
+          className="stat-tile"
+          href={t.href}
+          target="_blank"
+          rel="noopener"
+          title={`${t.label} — on the Heavy Metal Index`}
+        >
           <span className="stat-value">{fmt(t.value)}</span>
           <span className="stat-label">{t.label}</span>
         </a>

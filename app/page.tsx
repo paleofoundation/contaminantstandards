@@ -1,4 +1,4 @@
-import { VERTICALS, siteOf, httpsUrl } from "../lib/site-registry"
+import { VERTICALS, siteOf, httpsUrl, siblingLinkAttrs } from "../lib/site-registry"
 import StatMetrics from "../components/StatMetrics"
 import EvidenceCoverageAtlas from "../components/EvidenceCoverageAtlas"
 import FingerprintGrid from "../components/FingerprintGrid"
@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <h1>The Institute for Contaminant Standards</h1>
+        <h1>The Institute of Contaminant Standards</h1>
         <p className="lede">
           An independent standards body for contaminants in food and the supply chain. Each
           program is backed by its own independent index of the complete scientific literature and a
@@ -73,12 +73,22 @@ export default function HomePage() {
                   <ul className="card-links">
                     {cert?.publicLink && (
                       <li>
-                        <a href={httpsUrl(cert.domain)}>Get {v.displayName} Certified →</a>
+                        <a
+                          href={httpsUrl(cert.domain)}
+                          {...siblingLinkAttrs(`${v.displayName} Tested & Certified — the certification program`)}
+                        >
+                          Get {v.displayName} Certified →
+                        </a>
                       </li>
                     )}
                     {index?.publicLink && (
                       <li>
-                        <a href={httpsUrl(index.domain)}>The literature index</a>
+                        <a
+                          href={httpsUrl(index.domain)}
+                          {...siblingLinkAttrs(`${v.displayName} — the independent literature index`)}
+                        >
+                          The literature index
+                        </a>
                       </li>
                     )}
                   </ul>
@@ -112,7 +122,7 @@ export default function HomePage() {
         <p>
           <a href="/governance">How standards are governed</a> ·{" "}
           <a href="/registry">Look up a certified brand</a> · <a href="/verify">Verify a certificate</a> ·{" "}
-          <a href="/apply">Apply for certification</a>
+          <a href="/articles">Read the articles</a> · <a href="/apply">Apply for certification</a>
         </p>
       </section>
     </>

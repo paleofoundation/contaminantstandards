@@ -34,7 +34,7 @@ export function parentOrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${PARENT_BASE}/#organization`,
-    name: "The Institute for Contaminant Standards",
+    name: "The Institute of Contaminant Standards",
     alternateName: "ICS",
     url: PARENT_BASE,
     description:

@@ -18,7 +18,14 @@ export default function FingerprintGrid({ limit = 12 }: { limit?: number }) {
         const t = Math.log(m.count + 1) / Math.log(max + 1)
         const dash = C * t
         return (
-          <a key={m.slug} className="fp-tile" href={`${HMI}/metals/${m.slug}`}>
+          <a
+            key={m.slug}
+            className="fp-tile"
+            href={`${HMI}/metals/${m.slug}`}
+            target="_blank"
+            rel="noopener"
+            title={`${m.slug} — metal review on the Heavy Metal Index`}
+          >
             <svg viewBox={`0 0 ${RING} ${RING}`} className="fp-ring" aria-hidden="true">
               <circle cx={RING / 2} cy={RING / 2} r={R} fill="none" stroke="#e3e1dc" strokeWidth={3} />
               <circle
