@@ -7,13 +7,14 @@
   "scripts": {
     "dev": "next dev",
     "feeds": "node tools/build-data-feeds.mjs",
-    "prebuild": "node tools/firewall-parent-lint.mjs && node tools/crosslink-lint.mjs",
+    "prebuild": "node tools/firewall-parent-lint.mjs && node tools/crosslink-lint.mjs && node tools/audit-transformer-parity.mjs --warn-only",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:firewall": "node tools/firewall-parent-lint.mjs",
     "lint:crosslink": "node tools/crosslink-lint.mjs",
-    "test": "node --import tsx --test lib/**/*.test.ts"
+    "test": "node --import tsx --test lib/**/*.test.ts",
+    "lint:transformer-parity": "node tools/audit-transformer-parity.mjs"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",
