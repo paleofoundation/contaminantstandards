@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { getPublicBrand } from "../../lib/brands"
+import { PageHero, SiteFrame } from "../site-chrome"
 
 // Certificate verification — single owner for all certs from all verticals. In
 // production this lives on verify.contaminantstandards.com (noindex, single-record)
@@ -38,43 +39,45 @@ export default async function VerifyPage({
   const record = cert ? resolveCertificate(cert) : null
 
   return (
-    <>
-      <h1>Verify a certificate</h1>
-      <p className="lede">
-        Enter a certificate number to confirm it is genuine, which program issued it, and whether
-        the mark is currently active. Verification confirms which standard a product was certified
-        to; it does not publish the threshold value.
-      </p>
-
-      <form method="get" className="search-form">
-        <label htmlFor="cert">Certificate number</label>
-        <input id="cert" name="cert" type="text" defaultValue={cert ?? ""} placeholder="e.g. HMTC-EX-0001" autoComplete="off" />
-        <button type="submit">Verify</button>
-      </form>
-
-      {cert && (
-        <div className="verify-result" aria-live="polite">
-          {record ? (
-            <div className="result-card">
-              <p className="verify-ok">✓ Valid certificate</p>
-              <dl>
-                <dt>Brand</dt>
-                <dd>
-                  <a href={`/registry/${record.brand.slug}`}>{record.brand.displayName}</a>
-                </dd>
-                <dt>Programs</dt>
-                <dd>{record.brand.programs.join(", ")}</dd>
-                <dt>Mark status</dt>
-                <dd className={`mark mark-${record.brand.markStatus}`}>{record.brand.markStatus}</dd>
-                <dt>Certificate</dt>
-                <dd>{record.certId}</dd>
-              </dl>
+    <SiteFrame>
+      <main>
+        <PageHero
+          index="04 / VERIFY"
+          eyebrow="Single-record verification"
+          title={<>A certificate is valid<br /><em>only in its current state.</em></>}
+          description="Enter one certificate number to confirm its issuing program and present mark status. This surface does not provide a directory."
+        />
+        <section className="utility-section">
+          <form method="get" className="search-form">
+            <label htmlFor="cert">Certificate number</label>
+            <div>
+              <input id="cert" name="cert" type="text" defaultValue={cert ?? ""} placeholder="Enter the full certificate number" autoComplete="off" />
+              <button type="submit">Verify</button>
             </div>
-          ) : (
-            <p className="verify-fail">No certificate matches that number.</p>
+          </form>
+          {cert && (
+            <div className="verify-result" aria-live="polite">
+              {record ? (
+                <div className="result-card">
+                  <p className="verify-ok">Valid certificate</p>
+                  <dl>
+                    <dt>Brand</dt>
+                    <dd><a href={`/registry/${record.brand.slug}`}>{record.brand.displayName}</a></dd>
+                    <dt>Programs</dt>
+                    <dd>{record.brand.programs.join(", ")}</dd>
+                    <dt>Mark status</dt>
+                    <dd className={`mark mark-${record.brand.markStatus}`}>{record.brand.markStatus}</dd>
+                    <dt>Certificate</dt>
+                    <dd>{record.certId}</dd>
+                  </dl>
+                </div>
+              ) : (
+                <p className="verify-fail">No certificate matches that number.</p>
+              )}
+            </div>
           )}
-        </div>
-      )}
-    </>
+        </section>
+      </main>
+    </SiteFrame>
   )
 }

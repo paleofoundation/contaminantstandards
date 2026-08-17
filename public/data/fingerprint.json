@@ -2,179 +2,179 @@
   "_note": "Per-metal study volume (depth of evidence). NOT risk level or threshold.",
   "metals": [
     {
-      "metal": "Lead",
-      "slug": "lead",
-      "count": 896
-    },
-    {
       "metal": "Cadmium",
       "slug": "cadmium",
-      "count": 861
+      "count": 1572
     },
     {
-      "metal": "Chromium",
-      "slug": "chromium",
-      "count": 376
-    },
-    {
-      "metal": "Nickel",
-      "slug": "nickel",
-      "count": 362
+      "metal": "Lead",
+      "slug": "lead",
+      "count": 1440
     },
     {
       "metal": "Arsenic",
       "slug": "arsenic",
-      "count": 352
+      "count": 878
     },
     {
       "metal": "Mercury",
       "slug": "mercury",
-      "count": 275
+      "count": 876
     },
     {
-      "metal": "Arsenic, Total",
-      "slug": "arsenic-total",
-      "count": 250
+      "metal": "Chromium",
+      "slug": "chromium",
+      "count": 871
     },
     {
-      "metal": "Copper",
-      "slug": "copper",
-      "count": 235
-    },
-    {
-      "metal": "Zinc",
-      "slug": "zinc",
-      "count": 216
-    },
-    {
-      "metal": "Mercury, Total",
-      "slug": "mercury-total",
-      "count": 212
+      "metal": "Nickel",
+      "slug": "nickel",
+      "count": 766
     },
     {
       "metal": "Aluminum",
       "slug": "aluminum",
-      "count": 138
+      "count": 534
     },
     {
-      "metal": "Iron",
-      "slug": "iron",
-      "count": 123
+      "metal": "Arsenic, Total",
+      "slug": "arsenic-total",
+      "count": 364
     },
     {
-      "metal": "Manganese",
-      "slug": "manganese",
-      "count": 117
+      "metal": "Copper",
+      "slug": "copper",
+      "count": 314
     },
     {
-      "metal": "Cobalt",
-      "slug": "cobalt",
-      "count": 97
+      "metal": "Zinc",
+      "slug": "zinc",
+      "count": 283
     },
     {
-      "metal": "Arsenic, Inorganic",
-      "slug": "arsenic-inorganic",
-      "count": 66
-    },
-    {
-      "metal": "Chromium, Hexavalent",
-      "slug": "chromium-hexavalent",
-      "count": 63
+      "metal": "Mercury, Total",
+      "slug": "mercury-total",
+      "count": 270
     },
     {
       "metal": "Tin",
       "slug": "tin",
-      "count": 61
+      "count": 227
+    },
+    {
+      "metal": "Iron",
+      "slug": "iron",
+      "count": 172
+    },
+    {
+      "metal": "Manganese",
+      "slug": "manganese",
+      "count": 164
+    },
+    {
+      "metal": "Cobalt",
+      "slug": "cobalt",
+      "count": 133
+    },
+    {
+      "metal": "Arsenic, Inorganic",
+      "slug": "arsenic-inorganic",
+      "count": 106
+    },
+    {
+      "metal": "Chromium, Hexavalent",
+      "slug": "chromium-hexavalent",
+      "count": 70
     },
     {
       "metal": "Antimony",
       "slug": "antimony",
-      "count": 48
+      "count": 68
     },
     {
       "metal": "Methylmercury",
       "slug": "mercury-methyl",
-      "count": 44
+      "count": 62
     },
     {
       "metal": "Barium",
       "slug": "barium",
-      "count": 31
-    },
-    {
-      "metal": "Molybdenum",
-      "slug": "molybdenum",
-      "count": 26
+      "count": 45
     },
     {
       "metal": "Vanadium",
       "slug": "vanadium",
-      "count": 23
+      "count": 34
+    },
+    {
+      "metal": "Molybdenum",
+      "slug": "molybdenum",
+      "count": 28
     },
     {
       "metal": "Uranium",
       "slug": "uranium",
-      "count": 21
+      "count": 25
     },
     {
       "metal": "Silver",
       "slug": "silver",
-      "count": 15
+      "count": 20
     },
     {
       "metal": "Magnesium",
       "slug": "magnesium",
-      "count": 12
+      "count": 17
     },
     {
       "metal": "Organotins",
       "slug": "organotins",
-      "count": 12
-    },
-    {
-      "metal": "Thallium",
-      "slug": "thallium",
-      "count": 11
+      "count": 16
     },
     {
       "metal": "Tin, Inorganic",
       "slug": "tin-inorganic",
-      "count": 11
+      "count": 14
     },
     {
       "metal": "Lithium",
       "slug": "lithium",
-      "count": 10
+      "count": 13
+    },
+    {
+      "metal": "Thallium",
+      "slug": "thallium",
+      "count": 13
     },
     {
       "metal": "Beryllium",
       "slug": "beryllium",
-      "count": 8
+      "count": 11
     },
     {
       "metal": "Titanium",
       "slug": "titanium",
-      "count": 7
+      "count": 10
     },
     {
       "metal": "Cesium",
       "slug": "cesium",
+      "count": 5
+    },
+    {
+      "metal": "Palladium",
+      "slug": "palladium",
+      "count": 4
+    },
+    {
+      "metal": "Platinum",
+      "slug": "platinum",
       "count": 4
     },
     {
       "metal": "Gold",
       "slug": "gold",
-      "count": 2
-    },
-    {
-      "metal": "Palladium",
-      "slug": "palladium",
-      "count": 2
-    },
-    {
-      "metal": "Platinum",
-      "slug": "platinum",
-      "count": 2
+      "count": 3
     },
     {
       "metal": "Tellurium",

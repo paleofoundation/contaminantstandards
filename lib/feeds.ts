@@ -9,6 +9,7 @@ function read<T>(file: string): T {
 }
 
 export interface AuthorityStats {
+  generated?: string | null
   sources_total: number
   peer_reviewed: number
   government: number

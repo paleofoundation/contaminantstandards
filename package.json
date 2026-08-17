@@ -2,7 +2,7 @@
   "name": "contaminantstandards",
   "version": "0.1.0",
   "private": true,
-  "description": "The Institute for Contaminant Standards (ICS) — parent authority site: network hub, master registry, certificate verification, governance, apply hub. Separate deploy from the per-vertical index and cert sites (firewall invariant).",
+  "description": "The Institute of Contaminant Standards (ICS) — parent authority site: network hub, master registry, certificate verification, governance, apply hub. Separate deploy from the per-vertical index and cert sites (firewall invariant).",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,7 @@
     "prebuild": "node tools/firewall-parent-lint.mjs && node tools/crosslink-lint.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "lint:firewall": "node tools/firewall-parent-lint.mjs",
     "lint:crosslink": "node tools/crosslink-lint.mjs",
     "test": "node --import tsx --test lib/**/*.test.ts"
@@ -18,17 +18,19 @@
   "dependencies": {
     "d3-geo": "^3.1.1",
     "i18n-iso-countries": "^7.14.0",
-    "next": "^15.5.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^16.3.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@types/d3-geo": "^3.1.0",
     "@types/node": "^22.10.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "@types/topojson-client": "^3.1.5",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
     "tsx": "^4.22.4",
     "typescript": "^5.7.0"
   }

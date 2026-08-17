@@ -1,130 +1,370 @@
-import { VERTICALS, siteOf, httpsUrl, siblingLinkAttrs } from "../lib/site-registry"
-import StatMetrics from "../components/StatMetrics"
-import EvidenceCoverageAtlas from "../components/EvidenceCoverageAtlas"
-import FingerprintGrid from "../components/FingerprintGrid"
-import CorpusGrowthChart from "../components/CorpusGrowthChart"
+import { SiteFrame, Status } from "./site-chrome";
+import { publications } from "./site-data";
+import { authorityStats } from "../lib/feeds";
+import Image from "next/image";
 
-// The PARENT homepage answers an institutional question — "who governs contaminant
-// certification, and how is it kept independent" — NOT a transactional one ("get
-// certified"). The authority modules (metrics, the Evidence Coverage Atlas, the
-// coverage fingerprint, corpus growth) describe the SHAPE of the evidence base and
-// link to the index for every actual claim; they never reproduce a claim, a
-// threshold, or a contamination value (the firewall). H1 leads with the institution.
+const evidence = authorityStats();
+const formatCount = (value: number) => value.toLocaleString("en-US");
+const corpus = [
+  ["Peer-reviewed studies", formatCount(evidence.peer_reviewed)],
+  ["Government reports & datasets", formatCount(evidence.government)],
+  ["Programmatic databases", formatCount(evidence.databases)],
+  ["Jurisdictions covered", formatCount(evidence.jurisdictions)],
+  ["A-tier curated sources", formatCount(evidence.a_tier)],
+  ["Sources with a DOI", formatCount(evidence.dois)],
+];
+const corpusDate = evidence.generated
+  ? new Date(`${evidence.generated}T00:00:00Z`)
+      .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" })
+      .toUpperCase()
+  : "CURRENT";
 
-export default function HomePage() {
+const futurePrograms = [
+  {
+    code: "HM",
+    title: "Heavy metals",
+    status: "Operational",
+    description: "The active literature index and certification program.",
+    tone: "live" as const,
+  },
+  {
+    code: "MP",
+    title: "Microplastics",
+    status: "In development",
+    description: "The same independent-index and certification architecture.",
+    tone: "quiet" as const,
+  },
+  {
+    code: "PF",
+    title: "Forever chemicals (PFAS)",
+    status: "In development",
+    description: "A separate evidence index and standard under common governance.",
+    tone: "quiet" as const,
+  },
+];
+
+export default function Home() {
   return (
-    <>
-      <section className="hero">
-        <h1>The Institute of Contaminant Standards</h1>
-        <p className="lede">
-          An independent standards body for contaminants in food and the supply chain. Each
-          program is backed by its own independent index of the complete scientific literature and a
-          separate certification standard — governed in common, kept independent by a hard
-          data-class firewall.
-        </p>
-        <p className="hero-actions">
-          <a href="/network" className="btn">
-            See the network
-          </a>
-          <a href="/governance" className="btn btn-secondary">
-            How standards are governed
-          </a>
-        </p>
-      </section>
+    <SiteFrame>
+      <main id="top">
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              Independent institutional governance
+              <span>across contaminant programs</span>
+            </p>
+            <h1 id="hero-title">
+              Standards should be <em>traceable.</em>
+            </h1>
+            <p className="hero-dek">
+              The Institute of Contaminant Standards governs how contaminant
+              certification standards are set, kept independent, versioned, and
+              enforced across a growing network of evidence and program sites.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="/network">
+                View the network <span aria-hidden="true">→</span>
+              </a>
+              <a className="button button-quiet" href="/governance">
+                Read the governance rules <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <p className="founder-credit">
+              <span>Named accountability</span>
+              Founded and led by Karen Pendergrass, Standards Architect.
+              <a href="/people/karen-pendergrass">View research profile →</a>
+            </p>
+          </div>
 
-      <section className="band">
-        <h2 className="band-title">The evidence base, by the numbers</h2>
-        <p className="band-sub">
-          The standards rest on the complete heavy-metals literature — curated, traceable, and
-          complete within scope. Every figure links to the independent index.
-        </p>
-        <StatMetrics />
-      </section>
+          <aside className="ledger-wrap" aria-label="Heavy Metal Index corpus snapshot">
+            <div className="ledger-shadow ledger-shadow-one" aria-hidden="true" />
+            <div className="ledger-shadow ledger-shadow-two" aria-hidden="true" />
+            <div className="ledger-card">
+              <div className="ledger-head">
+                <span>Current evidence system</span>
+                <span>{corpusDate}</span>
+              </div>
+              <div className="ledger-seal" aria-hidden="true">
+                <span>ICS</span>
+                <small>GOVERNED NETWORK</small>
+              </div>
+              <dl>
+                {corpus.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="ledger-note">
+                Counts are rebuilt from the Heavy Metal Index evidence corpus. The
+                Institute governs the architecture; the Index remains the public
+                literature surface.
+              </p>
+            </div>
+          </aside>
+        </section>
 
-      <section className="band">
-        <h2 className="band-title">A global problem, unevenly studied</h2>
-        <EvidenceCoverageAtlas />
-      </section>
+        <section className="proof-strip" aria-label="Institutional mandate">
+          <span>Govern the method.</span>
+          <i aria-hidden="true" />
+          <span>Separate the data.</span>
+          <i aria-hidden="true" />
+          <span>Version the standard.</span>
+          <i aria-hidden="true" />
+          <span>Enforce the mark.</span>
+        </section>
 
-      <section className="band">
-        <h2 className="band-title">Where the literature concentrates</h2>
-        <p className="band-sub">
-          Depth of evidence per contaminant — the ring shows relative study volume, not level of
-          risk. Click through to the metal&apos;s review on the index.
-        </p>
-        <FingerprintGrid limit={12} />
-      </section>
+        <section className="operational-proof" aria-labelledby="proof-title">
+          <div className="operational-proof-head">
+            <p className="section-kicker section-kicker-light">THE NETWORK IN OPERATION</p>
+            <h2 id="proof-title">Authority should resolve to a public record.</h2>
+            <p>
+              Evidence, standards, and named methodological leadership are published
+              on separate, source-linked surfaces under one disclosed institution.
+            </p>
+          </div>
+          <div className="proof-records">
+            <a href="https://heavymetalindex.com" target="_blank" rel="noopener">
+              <span>01 / EVIDENCE</span>
+              <strong>Heavy Metal Index</strong>
+              <p>{formatCount(evidence.peer_reviewed)} peer-reviewed studies · {formatCount(evidence.jurisdictions)} jurisdictions · source-resolving evidence records.</p>
+              <b>Open the public index ↗</b>
+            </a>
+            <a href="https://heavymetalcertified.com/standards" target="_blank" rel="noopener">
+              <span>02 / STANDARD</span>
+              <strong>Heavy Metal Tested &amp; Certified</strong>
+              <p>Published limits, Big 8 analyte coverage, standards editions, and current program rules.</p>
+              <b>Open published standards ↗</b>
+            </a>
+            <a href="/people/karen-pendergrass">
+              <span>03 / NAMED AUTHORITY</span>
+              <strong>Karen Pendergrass</strong>
+              <p>15+ years in standards architecture · microbial metallomics research · ORCID-linked record.</p>
+              <b>Open research profile →</b>
+            </a>
+          </div>
+        </section>
 
-      <section className="band">
-        <h2 className="band-title">Programs</h2>
-        <div className="card-grid">
-          {VERTICALS.map((v) => {
-            const cert = siteOf(v, "cert")
-            const index = siteOf(v, "index")
-            const isLive = v.status === "live"
-            return (
-              <article key={v.key} className={`card ${isLive ? "card-live" : "card-reserved"}`}>
-                <h3>
-                  {v.displayName}
-                  {!isLive && <span className="chip">In development</span>}
-                </h3>
-                <p>{v.blurb}</p>
-                {isLive ? (
-                  <ul className="card-links">
-                    {cert?.publicLink && (
-                      <li>
-                        <a
-                          href={httpsUrl(cert.domain)}
-                          {...siblingLinkAttrs(`${v.displayName} Tested & Certified — the certification program`)}
-                        >
-                          Get {v.displayName} Certified →
-                        </a>
-                      </li>
-                    )}
-                    {index?.publicLink && (
-                      <li>
-                        <a
-                          href={httpsUrl(index.domain)}
-                          {...siblingLinkAttrs(`${v.displayName} — the independent literature index`)}
-                        >
-                          The literature index
-                        </a>
-                      </li>
-                    )}
-                  </ul>
-                ) : (
-                  <p className="reserved-note">
-                    The {v.displayName} program is in development. The same architecture — an
-                    independent index and a separate certification standard — applies.
-                  </p>
-                )}
+        <section className="section mandate-section" id="mandate">
+          <div className="section-heading">
+            <p className="section-kicker">01 / INSTITUTIONAL MANDATE</p>
+            <h2>One institution behind the scenes. Separate public faces in front.</h2>
+            <p>
+              ICS does not publish contaminant thresholds or brand-level data. It
+              establishes the governance rules that determine which surface may
+              publish what, who can decide, and how a current certification remains
+              verifiable.
+            </p>
+          </div>
+
+          <div className="mandate-grid">
+            <article>
+              <span>G / 01</span>
+              <h3>Govern</h3>
+              <p>
+                Define how standards are created, reviewed, versioned, tightened,
+                and superseded across contaminant programs.
+              </p>
+            </article>
+            <article>
+              <span>S / 02</span>
+              <h3>Separate</h3>
+              <p>
+                Keep literature evidence, certification arithmetic, and private
+                program records in distinct data classes and public properties.
+              </p>
+            </article>
+            <article>
+              <span>E / 03</span>
+              <h3>Enforce</h3>
+              <p>
+                Govern mark use, certification status, suspension, withdrawal, and
+                the verification record that reflects the relationship now.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className="architecture-section" id="architecture">
+          <div className="architecture-intro">
+            <p className="section-kicker section-kicker-light">02 / SEPARATION OF POWERS</p>
+            <h2>Three faces. Three data classes. One-way citation.</h2>
+            <p>
+              Common operation is disclosed. Independence is protected by what each
+              surface can read, calculate, and publish.
+            </p>
+          </div>
+
+          <div className="face-grid">
+            <article>
+              <span className="face-letter">A</span>
+              <p className="face-label">PUBLIC LITERATURE</p>
+              <h3>The index</h3>
+              <p>
+                Reports occurrence, toxicology, methods, and regulatory values as
+                the sources state them. It sets no certification threshold and
+                endorses no certifier.
+              </p>
+              <a href="https://heavymetalindex.com" target="_blank" rel="noopener">
+                Open the active index ↗
+              </a>
+            </article>
+            <article>
+              <span className="face-letter">B</span>
+              <p className="face-label">CONFORMITY SYSTEM</p>
+              <h3>The program</h3>
+              <p>
+                Publishes the current standard, methodology, analyte coverage, mark
+                rules, and certification pathway. It may cite the index one way for
+                literature context.
+              </p>
+              <a href="https://heavymetalcertified.com" target="_blank" rel="noopener">
+                Open the active program ↗
+              </a>
+            </article>
+            <article className="face-institute">
+              <span className="face-letter">C</span>
+              <p className="face-label">INSTITUTIONAL AUTHORITY</p>
+              <h3>The Institute</h3>
+              <p>
+                Governs the method, impartiality structure, registry, verification,
+                and enforcement. It publishes neither threshold tables nor private
+                brand data.
+              </p>
+              <a href="/governance">Read the rules →</a>
+            </article>
+          </div>
+
+          <div className="citation-rule" aria-label="One-way citation rule">
+            <span>INDEX</span>
+            <b aria-hidden="true">←</b>
+            <span>PROGRAM CITES LITERATURE CONTEXT</span>
+            <i aria-hidden="true">NO REVERSE ENDORSEMENT</i>
+          </div>
+        </section>
+
+        <section className="section network-preview" id="network">
+          <div className="section-heading">
+            <p className="section-kicker">03 / CONTAMINANT NETWORK</p>
+            <h2>A repeatable architecture, built to extend beyond heavy metals.</h2>
+            <p>
+              Each contaminant receives its own independent evidence index and its
+              own certification program. ICS supplies the common governance layer,
+              not a blended data pool.
+            </p>
+          </div>
+
+          <div className="program-rail">
+            {futurePrograms.map((program) => (
+              <article key={program.code}>
+                <div className="program-rail-head">
+                  <span>{program.code}</span>
+                  <Status tone={program.tone}>{program.status}</Status>
+                </div>
+                <h3>{program.title}</h3>
+                <p>{program.description}</p>
               </article>
-            )
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
 
-      <section className="band">
-        <h2 className="band-title">A deepening, current record</h2>
-        <CorpusGrowthChart since={2000} />
-      </section>
+          <a className="text-link" href="/network">
+            See domains, public faces, and development status <span aria-hidden="true">→</span>
+          </a>
+        </section>
 
-      <section className="institutional">
-        <h2>Independence is the product</h2>
-        <p>
-          ICS does not test products and does not sell a badge. It governs standards: how a
-          certification limit is set, how the evidence behind it is kept independent and traceable,
-          how the mark is used, and how enforcement works. The threshold math, the certified-product
-          directory, and the application live on each program&apos;s own site; the literature lives
-          on the independent index. ICS describes how those pieces fit and keeps them apart — it
-          publishes no threshold values and no brand-level data itself.
-        </p>
-        <p>
-          <a href="/governance">How standards are governed</a> ·{" "}
-          <a href="/registry">Look up a certified brand</a> · <a href="/verify">Verify a certificate</a> ·{" "}
-          <a href="/articles">Read the articles</a> · <a href="/apply">Apply for certification</a>
-        </p>
-      </section>
-    </>
-  )
+        <section className="governance-preview">
+          <div className="governance-preview-copy">
+            <p className="section-kicker section-kicker-light">04 / GOVERNANCE</p>
+            <h2>The institution publishes the rules. Each program publishes the standard.</h2>
+            <p>
+              Initial HMTc values begin with the strictest applicable credible
+              sovereign maximum in the product&apos;s native basis. Public occurrence
+              evidence describes markets and research gaps; it does not choose the
+              initial limit. Later tightening uses only eligible certified-lot data
+              under the separate governed ratchet.
+            </p>
+            <a className="button button-outline-light" href="/governance">
+              Read the complete governance model <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div className="governance-register">
+            {[
+              ["01", "Government-anchored initial values"],
+              ["02", "Native-basis and species discipline"],
+              ["03", "Versioned standards with stable history"],
+              ["04", "Named authority and conflict disclosure"],
+              ["05", "Current-state mark verification"],
+            ].map(([number, label]) => (
+              <div key={number}>
+                <span>{number}</span>
+                <p>{label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="research-leadership" id="people">
+          <div className="research-leadership-portrait">
+            <Image src="/karen-pendergrass.avif" width={1023} height={1537} sizes="(max-width: 880px) 100vw, 38vw" alt="Karen Pendergrass" />
+            <span>FOUNDER · STANDARDS ARCHITECT · RESEARCH LEAD</span>
+          </div>
+          <div className="research-leadership-copy">
+            <p className="section-kicker section-kicker-light">05 / RESEARCH &amp; STANDARDS LEADERSHIP</p>
+            <h2>Karen Pendergrass</h2>
+            <p className="research-leadership-dek">
+              More than fifteen years building certification frameworks, now joined
+              to a research program in heavy metals, food metallomics, and microbial
+              metallomics.
+            </p>
+            <p>
+              Karen is the architect of the Heavy Metal Index evidence system and
+              the Heavy Metal Tested &amp; Certified methodology. Her executive,
+              methodological, and research responsibilities are named so the work
+              remains attributable and open to review.
+            </p>
+            <div className="research-leadership-links">
+              <a className="button button-paper" href="/people/karen-pendergrass">Research profile <span aria-hidden="true">→</span></a>
+              <a href="https://orcid.org/0000-0002-2348-7259" target="_blank" rel="noopener">ORCID 0000-0002-2348-7259 ↗</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section latest-publications">
+          <div className="section-heading">
+            <p className="section-kicker">06 / LATEST PUBLICATIONS</p>
+            <h2>Institutional arguments, published with sources.</h2>
+            <p>
+              ICS analysis explains the governance architecture behind traceable
+              contaminant standards. Each paper has a stable record, named author,
+              publication status, references, and suggested citation.
+            </p>
+          </div>
+          <div className="latest-publication-grid">
+            {publications.map((publication) => (
+              <a href={`/articles/${publication.slug}`} key={publication.identifier}>
+                <span>{publication.identifier}</span>
+                <h3>{publication.title}</h3>
+                <p>{publication.description}</p>
+                <b>Read analysis →</b>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="closing-section">
+          <div>
+            <p className="section-kicker section-kicker-light">CURRENT PROGRAM</p>
+            <h2>One active standard.<br />A network built to grow.</h2>
+          </div>
+          <div className="closing-actions">
+            <a className="button button-paper" href="https://heavymetalcertified.com" target="_blank" rel="noopener">
+              Heavy Metal Tested &amp; Certified <span aria-hidden="true">↗</span>
+            </a>
+            <a href="/network">View the future network →</a>
+          </div>
+        </section>
+      </main>
+    </SiteFrame>
+  );
 }

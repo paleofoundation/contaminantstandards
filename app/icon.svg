@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect width="96" height="96" rx="4" fill="#10232b"/>
+  <rect x="5" y="5" width="86" height="86" fill="none" stroke="#fbf9f3" stroke-width="2"/>
+  <path d="M34 5v86M62 5v86" stroke="#fbf9f3" stroke-width="2"/>
+  <g fill="#fbf9f3" font-family="Georgia, 'Times New Roman', serif" font-size="31" text-anchor="middle">
+    <text x="20" y="59">I</text>
+    <text x="48" y="59">C</text>
+    <text x="76" y="59">S</text>
+  </g>
+</svg>

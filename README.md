@@ -1,4 +1,4 @@
-# The Institute for Contaminant Standards (ICS) — parent site
+# The Institute of Contaminant Standards (ICS) — parent site
 
 The institutional authority site at `contaminantstandards.com`: network hub, master brand registry, certificate verification, governance, and the application hub. A **separate deploy** (Next.js App Router) from the per-vertical index and cert sites — the firewall invariant.
 
@@ -20,6 +20,29 @@ The parent owns **institutional / governance** intent ("who certifies contaminan
 - `lib/org-schema.ts` — the cross-site `@id` Organization graph.
 - `lib/brands.ts` — Class A brand projection + the firewall-safe `resolveBrand` (no enumeration).
 - `app/` — homepage hub, `/network`, `/registry` (search-only), `/registry/[slug]`, `/verify` (noindex), `/governance`, `/apply` (referral), `/articles`.
+
+## Institutional maintenance contract
+
+The Heavy Metal Index delegates these canonical records to this site. They must
+remain public, versioned, and internally linked:
+
+- the legal operator, ICS trade-name identity, and stable Organization entity;
+- named leadership, decision rights, affiliations, and conflict disclosures;
+- the evidence/program separation rule and standards-governance policies;
+- the impartiality, recusal, publication, correction, consultation, and appeal records;
+- editorial, licensing, media, regulatory, legal, and privacy contact routes;
+- the institutional publication register and persistent author identifiers;
+- the search-only brand registry and single-record certificate verification boundary.
+
+The parent may report literature stewardship counts, but it must read them from
+committed Heavy Metal Index-derived feeds rather than hard-code them in page copy:
+
+```bash
+HMI_REPO=/path/to/heavymetalindex FEED_DATE=YYYY-MM-DD npm run feeds
+```
+
+Commit the regenerated `public/data/*.json` files with the corresponding site
+change. The source-level firewall remains build-blocking.
 
 ## Backend (Step 6, not yet wired)
 

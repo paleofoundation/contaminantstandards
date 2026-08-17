@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { PORTAL, httpsUrl } from "../../lib/site-registry"
+import { PageHero, SiteFrame } from "../site-chrome"
 
 // Apply hub — a single SSO entry point to the authenticated portal. The parent's
 // CTA is always a REFERRAL to the portal, never a conversion page on the parent
@@ -16,34 +18,38 @@ export const metadata: Metadata = {
 export default function ApplyPage() {
   const portalUrl = httpsUrl(PORTAL.domain)
   return (
-    <>
-      <h1>Apply for certification</h1>
-      <p className="lede">
-        One account, one brand profile, one application — across every ICS program. Add your
-        products once, assign them to the programs you want, satisfy a combined evidence checklist
-        (one lab report can cover several programs), and review a single quote and invoice.
-      </p>
-
-      <p className="hero-actions">
-        <a href={portalUrl} className="btn">
-          Start an application →
-        </a>
-      </p>
-
-      <h2>How it works</h2>
-      <ol>
-        <li>Sign in once on the application portal.</li>
-        <li>Create or select your brand profile (shared across every program).</li>
-        <li>Add your products and assign them to program lines — heavy metals today, more as programs come online.</li>
-        <li>Upload accredited lab evidence; it auto-matches the checklist where coverage, limit of quantitation, and scope allow.</li>
-        <li>Review one combined quote with any bundle discounts, pay once, and download your marks on issuance.</li>
-      </ol>
-
-      <p className="muted">
-        The application, your documents, and your billing live in the authenticated portal. They
-        are never public. To confirm an existing certification, use{" "}
-        <a href="/registry">the registry</a> or <a href="/verify">certificate verification</a>.
-      </p>
-    </>
+    <SiteFrame>
+      <main>
+        <PageHero
+          index="09 / APPLY"
+          eyebrow="Program-routed application"
+          title={<>One account.<br /><em>One governed pathway.</em></>}
+          description="Applications, private evidence, and billing remain outside the public institutional record."
+        />
+        <section className="utility-section">
+          <p className="utility-lead">
+            Add products once, assign them to the programs in scope, satisfy the
+            evidence checklist, and review one quote and invoice.
+          </p>
+          <a href={portalUrl} className="button button-primary">
+            Start an application <span aria-hidden="true">→</span>
+          </a>
+          <div className="utility-process">
+            <h2>How it works</h2>
+            <ol>
+              <li>Sign in through the authenticated application portal.</li>
+              <li>Create or select the brand profile used across ICS programs.</li>
+              <li>Add products and assign the relevant program lines.</li>
+              <li>Upload accredited laboratory evidence against the program checklist.</li>
+              <li>Review the combined quote, payment, and mark issuance record.</li>
+            </ol>
+          </div>
+          <p className="utility-note">
+            Application documents are not public. To confirm an existing relationship,
+            use <Link href="/registry">the registry</Link> or <Link href="/verify">certificate verification</Link>.
+          </p>
+        </section>
+      </main>
+    </SiteFrame>
   )
 }

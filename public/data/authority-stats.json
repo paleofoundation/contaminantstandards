@@ -1,15 +1,15 @@
 {
   "_note": "Literature/stewardship counts only. No contamination values, thresholds, or percentiles.",
-  "generated": null,
-  "sources_total": 2001,
-  "peer_reviewed": 1590,
-  "government": 178,
-  "databases": 55,
-  "a_tier": 1417,
-  "dois": 1976,
-  "jurisdictions": 180,
+  "generated": "2026-08-17",
+  "sources_total": 3066,
+  "peer_reviewed": 2547,
+  "government": 179,
+  "databases": 57,
+  "a_tier": 1503,
+  "dois": 3041,
+  "jurisdictions": 187,
   "ingredients": 257,
-  "products": 414,
+  "products": 416,
   "metals": 36,
-  "regulations": 60
+  "regulations": 176
 }
