@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 const navigation = [
-  { href: "/", label: "Institute" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/articles", label: "Publications" },
   { href: "/network", label: "Network" },
   { href: "/governance", label: "Governance" },
   { href: "/about", label: "About" },
-  { href: "/articles", label: "Publications" },
   { href: "/registry", label: "Registry" },
 ];
 

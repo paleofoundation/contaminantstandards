@@ -18,6 +18,15 @@ const corpusDate = evidence.generated
       .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" })
       .toUpperCase()
   : "CURRENT";
+const leadPublication = publications[0];
+const additionalPublications = publications.slice(1);
+const formatPublicationDate = (value: string) =>
+  new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 
 const futurePrograms = [
   {
@@ -113,6 +122,89 @@ export default function Home() {
           <span>Version the standard.</span>
           <i aria-hidden="true" />
           <span>Enforce the mark.</span>
+        </section>
+
+        <section className="journal-home" aria-labelledby="journal-home-title">
+          <header className="journal-home-head">
+            <div>
+              <p className="section-kicker">PUBLICATIONS</p>
+              <h2 id="journal-home-title">Latest from the Institute</h2>
+            </div>
+            <a href="/articles">View all publications →</a>
+          </header>
+
+          <div className="journal-home-grid">
+            <a className="journal-lead" href={`/articles/${leadPublication.slug}`}>
+              <p className="journal-meta">
+                <span>{leadPublication.topic}</span>
+                <time dateTime={leadPublication.datePublished}>
+                  {formatPublicationDate(leadPublication.datePublished)}
+                </time>
+              </p>
+              <h3>{leadPublication.title}</h3>
+              <p className="journal-dek">{leadPublication.description}</p>
+              <p className="journal-byline">
+                <span>By Karen Pendergrass</span>
+                <span>{leadPublication.identifier}</span>
+                <span>{leadPublication.readingTime}</span>
+              </p>
+            </a>
+
+            <div className="journal-latest">
+              <p className="journal-latest-label">LATEST ANALYSIS</p>
+              {additionalPublications.map((publication) => (
+                <a href={`/articles/${publication.slug}`} key={publication.identifier}>
+                  <p className="journal-meta">
+                    <span>{publication.topic}</span>
+                    <time dateTime={publication.datePublished}>
+                      {formatPublicationDate(publication.datePublished)}
+                    </time>
+                  </p>
+                  <h3>{publication.title}</h3>
+                  <p>{publication.description}</p>
+                  <b>Read analysis →</b>
+                </a>
+              ))}
+              <a className="journal-register-link" href="/articles">
+                Publication register, citations, and article records →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="evidence-home" aria-labelledby="evidence-home-title">
+          <div className="evidence-home-head">
+            <div>
+              <p className="section-kicker">EVIDENCE STEWARDSHIP</p>
+              <h2 id="evidence-home-title">The public record behind the work.</h2>
+            </div>
+            <p>
+              Current corpus totals are regenerated from the Heavy Metal Index.
+              Detailed evidence remains on the independent index; ICS maintains the
+              governance and provenance boundary around it.
+            </p>
+          </div>
+          <div className="evidence-home-stats">
+            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
+              <strong>{formatCount(evidence.peer_reviewed)}</strong>
+              <span>Peer-reviewed studies</span>
+            </a>
+            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
+              <strong>{formatCount(evidence.sources_total)}</strong>
+              <span>Source records</span>
+            </a>
+            <a href="https://heavymetalindex.com/regulations/" target="_blank" rel="noopener">
+              <strong>{formatCount(evidence.jurisdictions)}</strong>
+              <span>Jurisdictions represented</span>
+            </a>
+            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
+              <strong>{formatCount(evidence.dois)}</strong>
+              <span>Sources with a DOI</span>
+            </a>
+          </div>
+          <a className="evidence-home-link" href="/evidence">
+            View the coverage atlas and complete stewardship record →
+          </a>
         </section>
 
         <section className="operational-proof" aria-labelledby="proof-title">
@@ -327,28 +419,6 @@ export default function Home() {
               <a className="button button-paper" href="/people/karen-pendergrass">Research profile <span aria-hidden="true">→</span></a>
               <a href="https://orcid.org/0000-0002-2348-7259" target="_blank" rel="noopener">ORCID 0000-0002-2348-7259 ↗</a>
             </div>
-          </div>
-        </section>
-
-        <section className="section latest-publications">
-          <div className="section-heading">
-            <p className="section-kicker">06 / LATEST PUBLICATIONS</p>
-            <h2>Institutional arguments, published with sources.</h2>
-            <p>
-              ICS analysis explains the governance architecture behind traceable
-              contaminant standards. Each paper has a stable record, named author,
-              publication status, references, and suggested citation.
-            </p>
-          </div>
-          <div className="latest-publication-grid">
-            {publications.map((publication) => (
-              <a href={`/articles/${publication.slug}`} key={publication.identifier}>
-                <span>{publication.identifier}</span>
-                <h3>{publication.title}</h3>
-                <p>{publication.description}</p>
-                <b>Read analysis →</b>
-              </a>
-            ))}
           </div>
         </section>
 
