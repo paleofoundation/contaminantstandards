@@ -6,7 +6,8 @@ import { publications } from "./site-data";
 const evidence = authorityStats();
 const formatCount = (value: number) => value.toLocaleString("en-US");
 const leadPublication = publications[0];
-const additionalPublications = publications.slice(1);
+const additionalPublications = publications.slice(1, 2);
+const publicationCards = publications.slice(2);
 const formatPublicationDate = (value: string) =>
   new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -105,6 +106,25 @@ export default function Home() {
                 Publication register, citations, and article records →
               </a>
             </div>
+          </div>
+
+          <div className="journal-card-grid" aria-label="More Institute publications">
+            {publicationCards.map((publication) => (
+              <a href={`/articles/${publication.slug}`} key={publication.identifier}>
+                <div className="journal-card-meta">
+                  <span>{publication.topic}</span>
+                  <span>{publication.identifier}</span>
+                </div>
+                <h3>{publication.title}</h3>
+                <p>{publication.description}</p>
+                <div className="journal-card-foot">
+                  <time dateTime={publication.datePublished}>
+                    {formatPublicationDate(publication.datePublished)}
+                  </time>
+                  <b>Read analysis →</b>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 

@@ -22,16 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-const forthcoming = [
-  {
-    number: "03",
-    title: "Standards as living, versioned documents",
-    description:
-      "How a standard changes across editions, why superseded versions remain at stable addresses, and what that means for a certificate cited years later.",
-    topic: "Version governance",
-  },
-];
-
 export default function ArticlesPage() {
   return (
     <SiteFrame>
@@ -66,17 +56,6 @@ export default function ArticlesPage() {
                   <a className="article-open" href={`/articles/${article.slug}`}>{article.identifier} · Read analysis →</a>
                 </div>
                 <Status tone="live">Published</Status>
-              </article>
-            ))}
-            {forthcoming.map((article) => (
-              <article key={article.number}>
-                <span className="article-number">{article.number}</span>
-                <div>
-                  <p className="article-topic">{article.topic}</p>
-                  <h2>{article.title}</h2>
-                  <p>{article.description}</p>
-                </div>
-                <Status>In preparation</Status>
               </article>
             ))}
           </div>

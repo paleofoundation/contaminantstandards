@@ -103,6 +103,11 @@ export function PublicationHeader({
   record: PublicationRecord;
   dek: string;
 }) {
+  const publicationDate = new Date(`${record.datePublished}T00:00:00Z`).toLocaleDateString(
+    "en-GB",
+    { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" },
+  );
+
   return (
     <header className="publication-header">
       <div className="publication-masthead">
@@ -118,7 +123,7 @@ export function PublicationHeader({
           <a href="/people/karen-pendergrass">Karen Pendergrass</a>
           <small>Standards Architect &amp; Research Lead</small>
         </div>
-        <div><span>PUBLISHED</span><b>17 August 2026</b></div>
+        <div><span>PUBLISHED</span><b>{publicationDate}</b></div>
         <div><span>RECORD</span><b>{record.identifier}</b></div>
         <div><span>FORMAT</span><b>Institutional analysis · {record.readingTime}</b></div>
       </div>

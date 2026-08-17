@@ -39,6 +39,45 @@ export const publications = [
     dateModified: "2026-08-17",
     readingTime: "11 min read",
   },
+  {
+    slug: "standards-as-living-records",
+    identifier: "ICS-IA-2026-003",
+    number: "03",
+    title: "Standards as Living Records: Why Version History Is Part of Conformity",
+    shortTitle: "Standards as living records",
+    description:
+      "Why an auditable standard needs stable editions, explicit effective dates, durable superseded records, and certificates that resolve to the rule in force.",
+    topic: "Version governance",
+    datePublished: "2026-08-17",
+    dateModified: "2026-08-17",
+    readingTime: "9 min read",
+  },
+  {
+    slug: "a-number-without-a-basis-is-not-a-comparable-result",
+    identifier: "ICS-IA-2026-004",
+    number: "04",
+    title: "A Number Without a Basis Is Not a Comparable Result",
+    shortTitle: "A number without a basis is not a comparable result",
+    description:
+      "How product form, edible portion, preparation, moisture, units, and sampling identity determine what an elemental result actually means.",
+    topic: "Measurement comparability",
+    datePublished: "2026-08-17",
+    dateModified: "2026-08-17",
+    readingTime: "10 min read",
+  },
+  {
+    slug: "analyte-identity-is-not-a-footnote",
+    identifier: "ICS-IA-2026-005",
+    number: "05",
+    title: "Analyte Identity Is Not a Footnote: Why “Total Metal” Can Answer the Wrong Question",
+    shortTitle: "Analyte identity is not a footnote",
+    description:
+      "Why total-element results, chemical species, operational fractions, and method-defined analytes must remain distinct in evidence and standards.",
+    topic: "Analytical identity",
+    datePublished: "2026-08-17",
+    dateModified: "2026-08-17",
+    readingTime: "10 min read",
+  },
 ];
 
 export function canonical(path = "/") {
