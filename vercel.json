@@ -5,5 +5,18 @@
     "deploymentEnabled": {
       "main": true
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www\\.contaminantstandards\\.com"
+        }
+      ],
+      "destination": "https://contaminantstandards.com/:path*",
+      "statusCode": 308
+    }
+  ]
 }
