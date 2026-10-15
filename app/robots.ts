@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: canonical("/sitemap.xml"),
+    sitemap: [canonical("/sitemap.xml"), canonical("/network-sitemap.xml")],
     host: "contaminantstandards.com",
   };
 }

@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
+import { publicNetworkSites, httpsUrl, siblingLinkAttrs } from "../lib/site-registry";
+
 const navigation = [
   { href: "/evidence", label: "Evidence" },
   { href: "/articles", label: "Publications" },
@@ -34,14 +36,9 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <a
-        className="header-action"
-        href="https://heavymetalcertified.com"
-        target="_blank"
-        rel="noopener"
-      >
-        Current program <span aria-hidden="true">↗</span>
-      </a>
+      <Link className="header-action" href="/network">
+        Current programs <span aria-hidden="true">→</span>
+      </Link>
     </header>
   );
 }
@@ -63,12 +60,11 @@ export function SiteFooter() {
             {item.label}
           </a>
         ))}
-        <a href="https://heavymetalindex.com" target="_blank" rel="noopener">
-          Heavy Metal Index ↗
-        </a>
-        <a href="https://heavymetalcertified.com" target="_blank" rel="noopener">
-          HMTc program ↗
-        </a>
+        {publicNetworkSites().map((site) => (
+          <a key={site.domain} href={httpsUrl(site.domain)} {...siblingLinkAttrs()}>
+            {site.label} ↗
+          </a>
+        ))}
         <a href="/people/karen-pendergrass">Karen Pendergrass</a>
         <a href="/governance/policies">Policy register</a>
         <a href="/contact">Contact</a>
