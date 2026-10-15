@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { parentOrganizationJsonLd } from "../lib/org-schema";
 import { JsonLd } from "./json-ld";
 import {
   KAREN_ID,
@@ -70,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: socialImage,
           width: 1200,
           height: 630,
-          alt: "Institute of Contaminant Standards — Standards should be traceable.",
+          alt: "Institute of Contaminant Standards : Standards should be traceable.",
         },
       ],
     },
@@ -95,7 +96,7 @@ export default function RootLayout({
         <JsonLd
           data={[
             {
-              "@context": "https://schema.org",
+              ...parentOrganizationJsonLd(),
               "@type": "Organization",
               "@id": ORGANIZATION_ID,
               name: "Institute of Contaminant Standards",
@@ -112,18 +113,6 @@ export default function RootLayout({
                 name: "Paleo Certified, Inc.",
                 url: "https://paleofoundation.com/",
               },
-              hasPart: [
-                {
-                  "@type": "WebSite",
-                  name: "Heavy Metal Index",
-                  url: "https://heavymetalindex.com/",
-                },
-                {
-                  "@type": "Organization",
-                  name: "Heavy Metal Tested & Certified",
-                  url: "https://heavymetalcertified.com/",
-                },
-              ],
               knowsAbout: [
                 "Contaminant standards",
                 "Heavy metals",

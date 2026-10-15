@@ -1,124 +1,110 @@
-// SiteRegistry — the single source of truth for every property in the ICS
-// network, keyed by ROLE, never by a hardcoded domain string. Canonicals, the
-// network-hub cards, the schema.org subOrganization edges, and the firewall all
-// derive from this. A domain flip (e.g. heavymetalcertified.com → a freed
-// heavymetaltested.com) is a one-row edit here, not a code change across the app.
-//
-// In production this is a database table (SiteRegistry) the parent owns; for the
-// scaffold it is a typed literal. Reserved verticals render as "in development"
-// cards on the PARENT ONLY (no live link, no indexable stub) — the multi-vertical
-// institutional story ("a standards body for contaminants, plural") is the whole
-// reason ICS exists.
-
+// Single source of truth for ICS network destinations. Each face has its own
+// activation gate. Reserved domains never become public merely because another
+// face of the same vertical is live.
 export type SiteRole = "parent" | "index" | "cert" | "portal" | "verify"
 export type SiteStatus = "live" | "reserved" | "interim"
 
 export interface SiteEntry {
   role: SiteRole
-  /** Domain WITHOUT protocol. Empty string for a reserved property not yet secured. */
+  label: string
+  /** Domain without protocol; empty until a reserved name is approved. */
   domain: string
   status: SiteStatus
-  /** Whether this property is indexable / linkable from the public hub. */
   publicLink: boolean
 }
 
 export interface Vertical {
   key: string
-  /** Program names, not domain strings — the pattern reads as a repeatable system. */
   displayName: string
   status: SiteStatus
-  /** One-line institutional description (governance intent, never transactional). */
   blurb: string
-  sites: SiteEntry[]
+  sites: [SiteEntry & { role: "index" }, SiteEntry & { role: "cert" }]
+  /** TODO Q11: informational target only, never a public application link yet. */
+  certificationHub: { path: string; status: "reserved"; publicLink: false }
 }
 
 export const PARENT: SiteEntry = {
-  role: "parent",
-  domain: "contaminantstandards.com",
-  status: "live",
-  publicLink: true,
+  role: "parent", label: "Institute of Contaminant Standards",
+  domain: "contaminantstandards.com", status: "live", publicLink: true,
 }
-
 export const PORTAL: SiteEntry = {
-  // ONE auth host (plan S2). Aliases (portal./app.) 301 here, never serve.
-  role: "portal",
-  domain: "apply.contaminantstandards.com",
-  status: "live",
-  publicLink: false, // noindex, auth-gated
+  role: "portal", label: "Application portal",
+  domain: "apply.contaminantstandards.com", status: "live", publicLink: false,
+}
+export const VERIFY: SiteEntry = {
+  role: "verify", label: "Certificate verification",
+  domain: "verify.contaminantstandards.com", status: "live", publicLink: false,
 }
 
-export const VERIFY: SiteEntry = {
-  role: "verify",
-  domain: "verify.contaminantstandards.com",
-  status: "live",
-  publicLink: false, // noindex, single-record
-}
+const certificationHub = (program: string): Vertical["certificationHub"] => ({
+  // TODO Q11: cert sites will link here only after the hub exists and is approved.
+  path: `/certify?program=${program}`, status: "reserved", publicLink: false,
+})
 
 export const VERTICALS: Vertical[] = [
   {
-    key: "heavy-metals",
-    displayName: "Heavy Metals",
-    status: "live",
-    blurb:
-      "Certification against the complete heavy-metals food-and-supply-chain literature. Ten-analyte panel, published per subcategory in native basis.",
+    key: "heavy-metals", displayName: "Heavy Metals", status: "live",
+    blurb: "Independent heavy-metals evidence and a separate certification standard per product category with scheduled retesting.",
     sites: [
-      { role: "index", domain: "heavymetalindex.com", status: "live", publicLink: true },
-      { role: "cert", domain: "heavymetalcertified.com", status: "live", publicLink: true },
+      { role: "index", label: "Heavy Metal Index", domain: "heavymetalindex.com", status: "live", publicLink: true },
+      { role: "cert", label: "Heavy Metal Tested & Certified", domain: "heavymetalcertified.com", status: "live", publicLink: true },
     ],
+    certificationHub: certificationHub("heavy-metals"),
   },
   {
-    key: "microplastics",
-    displayName: "Microplastics",
-    status: "reserved",
-    blurb:
-      "A contaminant standard for microplastics, in development. The same architecture: an independent literature index and a certification authority, governed in common, firewalled by data class.",
+    key: "forever-chemicals", displayName: "Forever Chemicals (PFAS)", status: "reserved",
+    blurb: "An independent PFAS literature index and a separate certification program are in development.",
     sites: [
-      { role: "index", domain: "microplasticsindex.com", status: "reserved", publicLink: false },
-      { role: "cert", domain: "microplasticstested.com", status: "reserved", publicLink: false },
+      // TODO ICS-HUB-WIRE-1: flip ONLY the PFAS index after Elon FCI deploy PASS.
+      // The cert requires its own separate activation PASS; keep both reserved in PREP.
+      { role: "index", label: "Forever Chemicals Index", domain: "foreverchemicalsindex.com", status: "reserved", publicLink: false },
+      { role: "cert", label: "Forever Chemicals Tested", domain: "foreverchemicalstested.com", status: "reserved", publicLink: false },
     ],
+    certificationHub: certificationHub("pfas"),
   },
   {
-    key: "forever-chemicals",
-    displayName: "Forever Chemicals (PFAS)",
-    status: "reserved",
-    blurb:
-      "A contaminant standard for PFAS, in development. Same model, same firewall — an independent index of the literature and a separate certification standard.",
+    key: "microplastics", displayName: "Microplastics", status: "reserved",
+    blurb: "An independent microplastics literature index and a separate certification program are in development.",
     sites: [
-      { role: "index", domain: "foreverchemicalsindex.com", status: "reserved", publicLink: false },
-      { role: "cert", domain: "foreverchemicalstested.com", status: "reserved", publicLink: false },
+      { role: "index", label: "Microplastics Index", domain: "microplasticsindex.com", status: "reserved", publicLink: false },
+      { role: "cert", label: "Microplastics Tested", domain: "microplasticstested.com", status: "reserved", publicLink: false },
     ],
+    certificationHub: certificationHub("microplastics"),
   },
+  ...[3, 4, 5, 6].map((position): Vertical => ({
+    key: `vertical-${position}`, displayName: "TBD", status: "reserved",
+    blurb: "Reserved. Names and domains await Elon approval.",
+    sites: [
+      { role: "index", label: "TBD", domain: "", status: "reserved", publicLink: false },
+      { role: "cert", label: "TBD", domain: "", status: "reserved", publicLink: false },
+    ],
+    certificationHub: certificationHub(`vertical-${position}`),
+  })),
 ]
 
+export function isPublicSite(site: SiteEntry): boolean {
+  return site.status === "live" && site.publicLink && site.domain.length > 0
+}
+
+/** The index can cite the parent and other indexes, never a cert or intake. */
+export function publicSites(vertical: Vertical, from: SiteRole = "parent"): SiteEntry[] {
+  return vertical.sites.filter((site) => isPublicSite(site) && (from !== "index" || site.role === "index"))
+}
+
 export function liveVerticals(): Vertical[] {
-  return VERTICALS.filter((v) => v.status === "live")
+  return VERTICALS.filter((vertical) => publicSites(vertical).length > 0)
+}
+
+export function publicNetworkSites(from: SiteRole = "parent"): SiteEntry[] {
+  return VERTICALS.flatMap((vertical) => publicSites(vertical, from))
 }
 
 export function siteOf(vertical: Vertical, role: SiteRole): SiteEntry | undefined {
-  return vertical.sites.find((s) => s.role === role)
+  return vertical.sites.find((site) => site.role === role)
 }
 
-export function httpsUrl(domain: string): string {
-  return `https://${domain}`
-}
-
-/**
- * Anchor attributes for an outbound link to an OWNED sibling property in the ICS
- * network (the index, a cert program, the tested/journal site). Deliberately
- * `rel="noopener"` and NOT `noopener noreferrer`: these are our own properties,
- * so we want the Referer header to pass through — that is the cross-property
- * referral/authority signal answer engines and analytics read to see that the
- * ICS network drives traffic between its faces. The links stay dofollow (never
- * nofollow) so link equity flows. Third-party outbound links keep the stricter
- * `noopener noreferrer`; this helper is for siblings only.
- */
-export function siblingLinkAttrs(title?: string): {
-  target: "_blank"
-  rel: "noopener"
-  title?: string
-} {
+export function httpsUrl(domain: string): string { return `https://${domain}` }
+export function siblingLinkAttrs(title?: string): { target: "_blank"; rel: "noopener"; title?: string } {
   return { target: "_blank", rel: "noopener", ...(title ? { title } : {}) }
 }
-
-/** The parent's own base URL, used for self-canonical (never cross-domain). */
 export const PARENT_BASE = httpsUrl(PARENT.domain)

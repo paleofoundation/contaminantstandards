@@ -1,3 +1,4 @@
+import { liveVerticals } from "../lib/site-registry";
 import type { MetadataRoute } from "next";
 import { canonical, publications } from "./site-data";
 
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),
+    ...liveVerticals().map((vertical) => ({ url: canonical(`/network/${vertical.key}`), changeFrequency: "monthly" as const, priority: 0.7 })),
     ...publications.map((publication) => ({
       url: canonical(`/articles/${publication.slug}`),
       lastModified: publication.dateModified,
