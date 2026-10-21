@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import { PageHero, SiteFrame, Status } from "../site-chrome";
-import { canonical, publications } from "../site-data";
+import { canonical, publicationReadLabel, publications } from "../site-data";
 
 export const metadata: Metadata = {
-  title: "Institutional Analysis | Institute of Contaminant Standards",
+  title: "Articles | Institute of Contaminant Standards",
   description:
-    "Analysis from ICS on standards governance, evidence separation, versioning, and institutional independence.",
+    "Institutional analysis and evidence reviews from ICS. Evidence reviews report what the literature measured, on each source's own basis, and do not set certification limits.",
   alternates: { canonical: canonical("/articles") },
   openGraph: {
-    title: "Institutional Analysis | Institute of Contaminant Standards",
-    description: "Published ICS analysis on evidence architecture, standards governance, and institutional independence.",
+    title: "Articles | Institute of Contaminant Standards",
+    description: "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
     type: "website",
     url: canonical("/articles"),
     images: [],
   },
   twitter: {
     card: "summary",
-    title: "Institutional Analysis | Institute of Contaminant Standards",
-    description: "Published ICS analysis on evidence architecture, standards governance, and institutional independence.",
+    title: "Articles | Institute of Contaminant Standards",
+    description: "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
     images: [],
   },
 };
@@ -28,14 +28,14 @@ export default function ArticlesPage() {
       <main>
         <PageHero
           index="04 / ARTICLES"
-          eyebrow="Institutional analysis"
+          eyebrow="Publication register"
           title={<>The rules deserve<br /><em>their own record.</em></>}
-          description="Analysis from ICS on how contaminant standards are set, separated from evidence, reviewed, versioned, and enforced. Standards and applications remain authoritative only on each program's own site."
+          description="Institutional analysis on how contaminant standards are set, and evidence reviews of what the literature has measured. An evidence review reports each result on the source's own basis. It does not set a certification limit. Standards and applications remain authoritative only on each program's own site."
           aside={
             <div className="editorial-note">
               <span>EDITORIAL SCOPE</span>
-              <p>Governance, institutional design, standards systems, independence, and enforcement.</p>
-              <small>NO THRESHOLD TABLES · NO BRAND DIRECTORY</small>
+              <p>Governance, institutional design, and evidence reviews of the measured literature.</p>
+              <small>NO CERTIFICATION LIMITS · NO BRAND DIRECTORY</small>
             </div>
           }
         />
@@ -53,7 +53,7 @@ export default function ArticlesPage() {
                   <p className="article-topic">{article.topic}</p>
                   <h2><a href={`/articles/${article.slug}`}>{article.title}</a></h2>
                   <p>{article.description}</p>
-                  <a className="article-open" href={`/articles/${article.slug}`}>{article.identifier} · Read analysis →</a>
+                  <a className="article-open" href={`/articles/${article.slug}`}>{article.identifier} · {publicationReadLabel(article.series)} →</a>
                 </div>
                 <Status tone="live">Published</Status>
               </article>
@@ -64,7 +64,7 @@ export default function ArticlesPage() {
         <section className="publication-boundary">
           <div>
             <p className="section-kicker section-kicker-light">THE PUBLICATION BOUNDARY</p>
-            <h2>Institutional analysis here. Standards on the program site. Literature on the index.</h2>
+            <h2>Evidence reviews and institutional analysis here. Standards on the program site. Literature on the index.</h2>
           </div>
           <div className="publication-destinations">
             <a href="/governance">

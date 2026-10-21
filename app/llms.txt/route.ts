@@ -4,7 +4,7 @@ export function GET() {
   const papers = publications
     .map(
       (paper) =>
-        `- ${paper.title}: ${SITE_ORIGIN}/articles/${paper.slug}`,
+        `- ${paper.identifier}. ${paper.title}: ${SITE_ORIGIN}/articles/${paper.slug}`,
     )
     .join("\n");
 
@@ -35,7 +35,7 @@ ICS is the institutional governance body for independent contaminant evidence in
 ${papers}
 
 ## Publication boundary
-ICS publishes institutional governance and methods analysis. Current certification limits remain authoritative on Heavy Metal Tested & Certified. Literature and occurrence evidence remain authoritative on the Heavy Metal Index.
+ICS publishes institutional governance and methods analysis, and evidence reviews of the measured literature. An evidence review reports source measurements on the source's own basis and does not set a certification limit. Current certification limits remain authoritative on Heavy Metal Tested & Certified. Literature and occurrence evidence remain authoritative on the Heavy Metal Index.
 
 ## Institutional responsibilities maintained here
 - Legal operator and trade-name identity

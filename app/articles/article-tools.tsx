@@ -7,6 +7,8 @@ import {
   KAREN_ID,
   ORGANIZATION_ID,
   SITE_ORIGIN,
+  publicationSeries,
+  type PublicationSeriesId,
 } from "../site-data";
 
 export type PublicationRecord = {
@@ -17,7 +19,13 @@ export type PublicationRecord = {
   datePublished: string;
   dateModified: string;
   readingTime: string;
+  series?: PublicationSeriesId;
+  citations?: string[];
 };
+
+function seriesOf(record: PublicationRecord) {
+  return publicationSeries[record.series ?? "ICS-IA"];
+}
 
 async function requestOrigin() {
   const requestHeaders = await headers();
@@ -68,6 +76,7 @@ export function PublicationJsonLd({
   keywords: string[];
 }) {
   const url = canonical(`/articles/${record.slug}`);
+  const series = seriesOf(record);
 
   return (
     <JsonLd
@@ -83,7 +92,7 @@ export function PublicationJsonLd({
         datePublished: record.datePublished,
         dateModified: record.dateModified,
         inLanguage: "en",
-        articleSection: "Institutional Analysis",
+        articleSection: series.articleSection,
         keywords,
         author: { "@id": KAREN_ID },
         publisher: { "@id": ORGANIZATION_ID },
@@ -91,6 +100,7 @@ export function PublicationJsonLd({
         publishingPrinciples: canonical("/governance/policies"),
         copyrightHolder: { "@id": ORGANIZATION_ID },
         copyrightYear: 2026,
+        ...(record.citations?.length ? { citation: record.citations } : {}),
       }}
     />
   );
@@ -107,14 +117,15 @@ export function PublicationHeader({
     "en-GB",
     { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" },
   );
+  const series = seriesOf(record);
 
   return (
     <header className="publication-header">
       <div className="publication-masthead">
-        <span>ICS INSTITUTIONAL ANALYSIS</span>
-        <span>VOL. 1 · 2026</span>
+        <span>{series.masthead}</span>
+        <span>{series.volumeLabel}</span>
       </div>
-      <p className="publication-class">GOVERNANCE &amp; METHODS</p>
+      <p className="publication-class">{series.classLabel}</p>
       <h1>{record.title}</h1>
       <p className="publication-dek">{dek}</p>
       <div className="publication-byline">
@@ -125,7 +136,7 @@ export function PublicationHeader({
         </div>
         <div><span>PUBLISHED</span><b>{publicationDate}</b></div>
         <div><span>RECORD</span><b>{record.identifier}</b></div>
-        <div><span>FORMAT</span><b>Institutional analysis · {record.readingTime}</b></div>
+        <div><span>FORMAT</span><b>{series.formatPrefix} · {record.readingTime}</b></div>
       </div>
     </header>
   );
@@ -155,12 +166,15 @@ export function PublicationFooter({
   record: PublicationRecord;
   references: { label: string; href: string }[];
 }) {
+  const series = seriesOf(record);
+  const evidenceReview = record.series === "ICS-ER";
+
   return (
     <>
       <section className="paper-references">
         <div>
-          <p className="section-kicker">REFERENCES &amp; INSTITUTIONAL RECORDS</p>
-          <h2>Sources used in this analysis</h2>
+          <p className="section-kicker">{evidenceReview ? "SOURCES REVIEWED" : "REFERENCES & INSTITUTIONAL RECORDS"}</p>
+          <h2>{evidenceReview ? "Sources for this evidence review" : "Sources used in this analysis"}</h2>
         </div>
         <ol>
           {references.map((reference) => (
@@ -176,8 +190,11 @@ export function PublicationFooter({
         <div>
           <span>SUGGESTED CITATION</span>
           <p>
-            Pendergrass, K. (2026). “{record.title}.” <i>ICS Institutional Analysis</i>,
-            Vol. 1. {record.identifier}. Institute of Contaminant Standards.
+            {evidenceReview ? (
+              <>Pendergrass, K. (2026). “{record.title}.” <i>{series.citationJournal}</i>. {record.identifier}. Institute of Contaminant Standards.</>
+            ) : (
+              <>Pendergrass, K. (2026). “{record.title}.” <i>{series.citationJournal}</i>, Vol. 1. {record.identifier}. Institute of Contaminant Standards.</>
+            )}
           </p>
         </div>
         <a href="/articles">Publication register →</a>
