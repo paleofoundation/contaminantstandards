@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { authorityStats } from "../lib/feeds";
 import { SiteFrame } from "./site-chrome";
-import { publications } from "./site-data";
+import { publicationReadLabel, publications } from "./site-data";
 
 const evidence = authorityStats();
 const formatCount = (value: number) => value.toLocaleString("en-US");
@@ -99,7 +99,7 @@ export default function Home() {
                   </p>
                   <h3>{publication.title}</h3>
                   <p>{publication.description}</p>
-                  <b>Read analysis →</b>
+                  <b>{publicationReadLabel(publication.series)} →</b>
                 </a>
               ))}
               <a className="journal-register-link" href="/articles">
@@ -121,7 +121,7 @@ export default function Home() {
                   <time dateTime={publication.datePublished}>
                     {formatPublicationDate(publication.datePublished)}
                   </time>
-                  <b>Read analysis →</b>
+                  <b>{publicationReadLabel(publication.series)} →</b>
                 </div>
               </a>
             ))}

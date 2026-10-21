@@ -8,7 +8,7 @@ The parent owns **institutional / governance** intent ("who certifies contaminan
 
 ## Firewall (enforced by `npm run lint:firewall`, build-blocking)
 
-- **No standards math.** No threshold value, percentile (P97/P45), or clean/dirty designation renders on any parent page — the parent describes that standards exist and links to the program.
+- **No standards math on governance pages.** No percentile (P97/P45), clean/dirty subcategory, `published_limit_*` field, or ICS certification-limit wording renders on a parent page. Literature concentration units (`ppb`, `ppm`, `µg/kg`) are allowed only on `app/articles/**` pages registered as series `ICS-ER`. Those units are source measurements on an evidence review. They are not ICS limits. The parent describes that certification standards exist and links to the program.
 - **Brand registry is Class A, identity-only.** Opt-in brands only (`indexable`), name/site/programs/products-by-identity/mark-status — never a contamination value, COA, or threshold (Part 12, EU database right).
 - **No enumeration.** Search resolves a specific query to at most one brand; there is no browsable directory and no multi-brand list endpoint (plan S7). The runtime no-list guarantee is also asserted by the parent-infra post-deploy crawler.
 - **Self-canonical only.** `metadataBase` pins every canonical to the parent domain; no page ever points `rel=canonical` at another domain.
