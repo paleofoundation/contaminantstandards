@@ -17,6 +17,7 @@ ICS is the institutional governance body for independent contaminant evidence in
 - Evidence stewardship: ${SITE_ORIGIN}/evidence
 - Governance: ${SITE_ORIGIN}/governance
 - Policy register: ${SITE_ORIGIN}/governance/policies
+- Evidence governance notes: ${SITE_ORIGIN}/governance/notes
 - Network: ${SITE_ORIGIN}/network
 - Brand registry: ${SITE_ORIGIN}/registry
 - Contact routes: ${SITE_ORIGIN}/contact

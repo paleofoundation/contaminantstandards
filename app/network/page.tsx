@@ -100,6 +100,7 @@ export default function NetworkPage() {
               <dl>
                 <div><dt>Operational programs</dt><dd>1</dd></div>
                 <div><dt>Programs in development</dt><dd>2</dd></div>
+                <div><dt>Shared evidence systems</dt><dd>1</dd></div>
                 <div><dt>Public faces per contaminant</dt><dd>2</dd></div>
                 <div><dt>Shared governance body</dt><dd>ICS</dd></div>
               </dl>
@@ -171,13 +172,13 @@ export default function NetworkPage() {
               <p>Governance, network structure, leadership, and institutional analysis.</p>
               <a href="https://contaminantstandards.com" target="_blank" rel="noopener">contaminantstandards.com ↗</a>
             </article>
-            <article>
-              <Status>Deferred shared service</Status>
-              <h3>Certificate verification</h3>
+            <article className="service-tec">
+              <Status tone="live">Operational</Status>
+              <h3>TECRID Registry</h3>
               <p>
-                Designed as single-record verification with no public brand directory.
-                It will be surfaced when the shared service is operational.
+                TECRID stands for Test Evidence Credential Record Identifier. Each identifier resolves a versioned laboratory evidence record with visible provenance and structured, machine-readable findings.
               </p>
+              <a href="https://tecrid.com/what-is-a-tecrid" target="_blank" rel="noopener">What is a TECRID? ↗</a>
             </article>
             <article>
               <Status>Program-routed</Status>

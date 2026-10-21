@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { governanceNotes } from "./governance/notes/notes";
 import { canonical, publications } from "./site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/network", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/governance", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/governance/policies", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/governance/notes", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/people/karen-pendergrass", priority: 0.95, changeFrequency: "monthly" as const },
     { path: "/articles", priority: 0.9, changeFrequency: "weekly" as const },
@@ -32,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: publication.dateModified,
       changeFrequency: "yearly" as const,
       priority: 0.85,
+    })),
+    ...governanceNotes.map((note) => ({
+      url: canonical(`/governance/notes/${note.slug}`),
+      lastModified: "2026-09-01",
+      changeFrequency: "yearly" as const,
+      priority: 0.8,
     })),
   ];
 }

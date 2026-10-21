@@ -73,6 +73,17 @@ export default function GovernancePage() {
           <a className="button button-paper" href="/governance/policies">Open policy register <span aria-hidden="true">→</span></a>
         </section>
 
+        <section className="governance-policy-banner">
+          <div>
+            <p className="section-kicker section-kicker-light">EVIDENCE GOVERNANCE NOTES</p>
+            <h2>Every major synthesis now has a public standards disposition.</h2>
+            <p>
+              The register states what each finding changes in scope, testing, surveillance, or claims—and why it cannot silently choose a limit.
+            </p>
+          </div>
+          <a className="button button-paper" href="/governance/notes">Open evidence notes <span aria-hidden="true">→</span></a>
+        </section>
+
         <section className="governance-section powers-section">
           <div className="governance-heading">
             <p>01 / SEPARATION OF POWERS</p>

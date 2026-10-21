@@ -1,12 +1,17 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-const navigation = [
-  { href: "/evidence", label: "Evidence" },
-  { href: "/articles", label: "Publications" },
+const headerNavigation = [
+  { href: "/", label: "Institute" },
   { href: "/network", label: "Network" },
   { href: "/governance", label: "Governance" },
   { href: "/about", label: "About" },
+  { href: "/articles", label: "Publications" },
+];
+
+const footerNavigation = [
+  ...headerNavigation,
+  { href: "/evidence", label: "Evidence" },
   { href: "/registry", label: "Registry" },
 ];
 
@@ -27,7 +32,7 @@ export function SiteHeader() {
       </Link>
 
       <nav className="main-nav" aria-label="Primary navigation">
-        {navigation.map((item) => (
+        {headerNavigation.map((item) => (
           <a href={item.href} key={item.href}>
             {item.label}
           </a>
@@ -36,11 +41,11 @@ export function SiteHeader() {
 
       <a
         className="header-action"
-        href="https://heavymetalcertified.com"
+        href="https://tecrid.com"
         target="_blank"
         rel="noopener"
       >
-        Current program <span aria-hidden="true">↗</span>
+        TECRID <span aria-hidden="true">↗</span>
       </a>
     </header>
   );
@@ -58,7 +63,7 @@ export function SiteFooter() {
       </div>
 
       <div className="footer-links">
-        {navigation.map((item) => (
+        {footerNavigation.map((item) => (
           <a href={item.href} key={item.href}>
             {item.label}
           </a>
@@ -69,8 +74,12 @@ export function SiteFooter() {
         <a href="https://heavymetalcertified.com" target="_blank" rel="noopener">
           HMTc program ↗
         </a>
+        <a href="https://tecrid.com/what-is-a-tecrid" target="_blank" rel="noopener">
+          What is a TECRID? ↗
+        </a>
         <a href="/people/karen-pendergrass">Karen Pendergrass</a>
         <a href="/governance/policies">Policy register</a>
+        <a href="/governance/notes">Evidence governance notes</a>
         <a href="/contact">Contact</a>
         <a href="/licensing">Licensing</a>
         <a href="/privacy">Privacy</a>
@@ -105,7 +114,7 @@ export function PageHero({
   index: string;
   eyebrow: string;
   title: ReactNode;
-  description: string;
+  description: ReactNode;
   aside?: ReactNode;
 }) {
   return (

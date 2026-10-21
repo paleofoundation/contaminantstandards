@@ -18,6 +18,9 @@
 //      pages, or an articles file whose slug is not registered ICS-ER.
 //      P97/P45, clean/dirty subcategory wording, published_limit_*, and
 //      ICS-limit wording stay blocked on ICS-ER pages.
+//      The live sentence "not an occurrence-derived certification ceiling"
+//      is allowed only under app/governance/notes/. Every other
+//      certification-ceiling wording stays blocked, including on those notes.
 //   2. NO BRAND CONTAMINATION FIELDS. lib/brands.ts must not carry a COA,
 //      contamination value, pass-margin, per-analyte result, or threshold field
 //      (Class A is identity-only; Part 12).
@@ -75,13 +78,31 @@ export function isIcsErArticlePath(relPath, slugs) {
   return slugs.some((slug) => norm.startsWith(`app/articles/${slug}/`))
 }
 
-export function derivationFindings(text, { allowLiteratureUnits }) {
+const CEILING_DENIAL = "not an occurrence-derived certification ceiling"
+
+function isCeilingDenial(text, match) {
+  if (match[0].toLowerCase() !== "certification ceiling") return false
+  const from = match.index - (CEILING_DENIAL.length - match[0].length)
+  if (from < 0) return false
+  return text.slice(from, match.index + match[0].length).toLowerCase() === CEILING_DENIAL
+}
+
+export function isGovernanceNotePath(relPath) {
+  const norm = String(relPath).split(path.sep).join("/")
+  return norm === "app/governance/notes" || norm.startsWith("app/governance/notes/")
+}
+
+export function derivationFindings(text, { allowLiteratureUnits, allowCeilingDenial = false }) {
   const findings = []
   const rules = allowLiteratureUnits ? ALWAYS_BLOCKED : [...ALWAYS_BLOCKED, LITERATURE_UNIT_RULE]
   for (const { re, label } of rules) {
     re.lastIndex = 0
-    const match = re.exec(text)
-    if (match) findings.push({ label, match: match[0] })
+    let match
+    while ((match = re.exec(text)) !== null) {
+      if (allowCeilingDenial && isCeilingDenial(text, match)) continue
+      findings.push({ label, match: match[0] })
+      break
+    }
   }
   return findings
 }
@@ -112,7 +133,8 @@ export function runFirewall(root) {
     const text = stripComments(fs.readFileSync(file, "utf8"))
     const rel = path.relative(root, file)
     const allowLiteratureUnits = isIcsErArticlePath(rel, erSlugs)
-    for (const finding of derivationFindings(text, { allowLiteratureUnits })) {
+    const allowCeilingDenial = isGovernanceNotePath(rel)
+    for (const finding of derivationFindings(text, { allowLiteratureUnits, allowCeilingDenial })) {
       errors.push(
         `${finding.label}: ${rel} contains "${finding.match}" — the parent must not render standards math, ICS limits, or literature units outside a registered ICS-ER article.`,
       )
@@ -194,7 +216,7 @@ if (invokedDirectly()) {
     process.exit(1)
   }
   console.log(
-    `firewall-parent-lint: OK (${pageFiles.length} page files scanned; literature units allowed on ${erSlugs.length} registered ICS-ER article path(s); no percentiles, no clean/dirty designations, no ICS-limit wording, no brand contamination fields, no reserved public links).`,
+    `firewall-parent-lint: OK (${pageFiles.length} page files scanned; literature units allowed on ${erSlugs.length} registered ICS-ER article path(s); no percentiles, no clean/dirty designations, no ICS-limit wording beyond the one governance-note denial, no brand contamination fields, no reserved public links).`,
   )
   process.exit(0)
 }
