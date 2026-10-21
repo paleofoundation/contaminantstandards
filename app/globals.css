@@ -1547,6 +1547,25 @@ a:focus-visible {
   letter-spacing: 0.05em;
 }
 
+.service-grid article.service-tec {
+  color: #fff;
+  background: var(--oxide);
+}
+
+.service-grid article.service-tec > p {
+  color: #ffffffb8;
+}
+
+.service-grid article.service-tec .status-live {
+  border-color: var(--oxide-light);
+  color: var(--oxide-light);
+  background: #baf4d21f;
+}
+
+.service-grid article.service-tec a {
+  color: #fff;
+}
+
 .page-closing {
   background: var(--oxide);
 }

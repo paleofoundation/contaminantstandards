@@ -124,6 +124,34 @@ test("brand fields, reserved links, and feed keys stay blocked", () => {
   assert.ok(labels(feedRoot).includes("DATA_FEED_FORBIDDEN_KEY"))
 })
 
+test("only the live governance-note denial of a certification ceiling is allowed, and only on those notes", () => {
+  const denial = "The pathway informs supplier controls and sampling density, not an occurrence-derived certification ceiling."
+  const allowed = withFixture({
+    "app/site-data.ts": SITE_DATA,
+    "app/governance/notes/notes.ts": denial,
+  })
+  assert.deepEqual(labels(allowed), [])
+
+  const otherCeiling = withFixture({
+    "app/site-data.ts": SITE_DATA,
+    "app/governance/notes/page.tsx": "No certification ceiling is stated.",
+  })
+  assert.ok(labels(otherCeiling).includes("ICS_LIMIT_WORDING"))
+
+  const elsewhere = withFixture({
+    "app/site-data.ts": SITE_DATA,
+    "app/network/page.tsx": denial,
+  })
+  assert.ok(labels(elsewhere).includes("ICS_LIMIT_WORDING"))
+
+  const withUnit = withFixture({
+    "app/site-data.ts": SITE_DATA,
+    "app/governance/notes/notes.ts": `${denial} Lead at 5 ppm.`,
+  })
+  assert.ok(labels(withUnit).includes("NUMERIC_THRESHOLD"))
+  assert.equal(labels(withUnit).includes("ICS_LIMIT_WORDING"), false)
+})
+
 test("the workspace registers one ICS-ER article and the firewall accepts it", () => {
   const source = fs.readFileSync(path.join(repoRoot, "app/site-data.ts"), "utf8")
   assert.deepEqual(icsErSlugsFromSiteData(source), ["contaminants-in-baby-wipes"])
