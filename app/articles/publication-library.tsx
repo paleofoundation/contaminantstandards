@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PersonName } from "../person-name";
 import type { Publication } from "../site-data";
 import { publicationReadLabel, publicationSeries } from "../site-data";
 
@@ -78,7 +79,7 @@ export function PublicationLibrary({
             </h3>
             <p>{p.description}</p>
             <div className="library-card-author">
-              <span>Karen Pendergrass</span>
+              <PersonName person="karen" href="/people/karen-pendergrass" />
               <time dateTime={p.datePublished}>
                 {new Date(p.datePublished + "T00:00:00Z").toLocaleDateString(
                   "en-GB",

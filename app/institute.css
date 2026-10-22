@@ -134,7 +134,7 @@ a:focus-visible, summary:focus-visible { outline:3px solid #4d6e99; outline-offs
 .footer-wordmark { display:flex; align-items:center; gap:17px; font:43px Georgia,serif; letter-spacing:-.04em; }
 .footer-wordmark span { font:13px/1.2 Georgia,serif; letter-spacing:0; border-left:1px solid #77889e3e; padding-left:17px; }
 .footer-identity p { color:#b0bccb; font-size:12px; line-height:1.7; margin:25px 0; }
-.footer-identity>a:last-child { font-size:10px; color:#b2c2d6; }
+.footer-identity>.footer-founder { font-size:10px; color:#b2c2d6; }
 .footer-column h2 { font-size:11px; font-weight:600; margin:8px 0 21px; color:#d1dbe8; }
 .footer-column>a { display:block; font-size:11px; color:#b2bdcc; margin-top:14px; line-height:1.4; }
 .footer-column>a:hover { color:#c7d3e3; text-decoration:underline; text-underline-offset:4px; }

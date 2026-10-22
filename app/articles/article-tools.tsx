@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import type { ReactNode } from "react";
+import { PersonName } from "../person-name";
+import { orcidUrl } from "../people-data";
 import { JsonLd } from "../json-ld";
 import {
   canonical,
@@ -48,6 +50,7 @@ export async function publicationMetadata(record: PublicationRecord): Promise<Me
     description: record.description,
     alternates: { canonical: canonical(path) },
     authors: [{ name: "Karen Pendergrass", url: canonical("/people/karen-pendergrass") }],
+    other: { citation_author_orcid: orcidUrl("karen") },
     openGraph: {
       title: record.title,
       description: record.description,
@@ -131,7 +134,7 @@ export function PublicationHeader({
       <div className="publication-byline">
         <div>
           <span>AUTHOR</span>
-          <a href="/people/karen-pendergrass">Karen Pendergrass</a>
+          <PersonName person="karen" href="/people/karen-pendergrass" />
           <small>Standards Architect &amp; Research Lead</small>
         </div>
         <div><span>PUBLISHED</span><b>{publicationDate}</b></div>
@@ -242,9 +245,9 @@ export function PublicationFooter({
           <span>SUGGESTED CITATION</span>
           <p>
             {evidenceReview ? (
-              <>Pendergrass, K. (2026). “{record.title}.” <i>{series.citationJournal}</i>. {record.identifier}. Institute of Contaminant Standards.</>
+              <><PersonName person="karen">Pendergrass, K.</PersonName> (2026). “{record.title}.” <i>{series.citationJournal}</i>. {record.identifier}. Institute of Contaminant Standards.</>
             ) : (
-              <>Pendergrass, K. (2026). “{record.title}.” <i>{series.citationJournal}</i>, Vol. 1. {record.identifier}. Institute of Contaminant Standards.</>
+              <><PersonName person="karen">Pendergrass, K.</PersonName> (2026). “{record.title}.” <i>{series.citationJournal}</i>, Vol. 1. {record.identifier}. Institute of Contaminant Standards.</>
             )}
           </p>
         </div>

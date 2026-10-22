@@ -3191,7 +3191,7 @@ a:focus-visible {
   gap: 6px;
 }
 
-.publication-byline span,
+.publication-byline > div > span:not(.person-name),
 .publication-byline small {
   color: var(--ink-soft);
   font-family: var(--font-geist-mono), monospace;
@@ -3231,7 +3231,7 @@ a:focus-visible {
 
 .paper-abstract > span,
 .paper-section-label,
-.citation-box span {
+.citation-box > div > span {
   font-family: var(--font-geist-mono), monospace;
   font-size: 8px;
   font-weight: 700;

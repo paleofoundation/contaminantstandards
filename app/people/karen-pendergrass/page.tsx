@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PersonName } from "../../person-name";
+import { orcidUrl, researchers } from "../../people-data";
 import { headers } from "next/headers";
 import { JsonLd } from "../../json-ld";
 import {
@@ -37,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     alternates: { canonical: canonical(KAREN_PATH) },
     authors: [{ name: "Karen Pendergrass", url: canonical(KAREN_PATH) }],
+    other: { citation_author_orcid: orcidUrl("karen") },
     openGraph: {
       title,
       description,
@@ -123,7 +126,7 @@ const personJsonLd = {
     description:
       "Standards architect and microbial metallomics researcher with more than fifteen years of certification-framework development.",
     identifier: [
-      { "@type": "PropertyValue", propertyID: "ORCID", value: "0000-0002-2348-7259" },
+      { "@type": "PropertyValue", propertyID: "ORCID", value: researchers.karen.orcid },
       { "@type": "PropertyValue", propertyID: "Google Scholar", value: "xnzAh-wAAAAJ" },
     ],
     worksFor: { "@id": ORGANIZATION_ID },
@@ -195,19 +198,19 @@ export default function KarenPendergrassPage() {
             <span>ICS / NAMED AUTHORITY / KP</span>
           </div>
           <div className="profile-hero-copy">
-            <p className="page-index">PEOPLE / KAREN PENDERGRASS</p>
+            <p className="page-index">PEOPLE / <PersonName person="karen" /></p>
             <p className="eyebrow">Standards architecture · microbial metallomics</p>
-            <h1>Karen<br /><em>Pendergrass</em></h1>
+            <h1><PersonName person="karen">Karen<br /><em>Pendergrass</em></PersonName></h1>
             <p className="profile-lede">
               Founder and Standards Architect of the Institute of Contaminant
-              Standards. Karen leads the research and methodological systems behind
+              Standards. <PersonName person="karen">Karen</PersonName> leads the research and methodological systems behind
               the <a href="https://heavymetalindex.com/" target="_blank" rel="noopener">Heavy Metal Index</a> and
               {" "}<a href="https://heavymetalcertified.com/" target="_blank" rel="noopener">Heavy Metal Tested &amp; Certified</a>.
             </p>
             <div className="profile-credentials" aria-label="Career record">
               <div><strong>15+</strong><span>years in standards architecture</span></div>
               <div><strong>2010</strong><span>Paleo Foundation established</span></div>
-              <div><strong>ORCID</strong><span>0000-0002-2348-7259</span></div>
+              <div><strong>ORCID</strong><span>{researchers.karen.orcid}</span></div>
             </div>
           </div>
         </section>
@@ -217,7 +220,7 @@ export default function KarenPendergrassPage() {
           <h2>Heavy-metal authority built across evidence, biology, and standards.</h2>
           <div>
             <p>
-              Karen’s work joins three disciplines that are often treated separately:
+              <PersonName person="karen">Karen’s</PersonName> work joins three disciplines that are often treated separately:
               contaminant occurrence evidence, the biological behavior of metals in
               microbial systems, and the institutional design of certification standards.
             </p>
@@ -308,7 +311,7 @@ export default function KarenPendergrassPage() {
             <h2>Authority is named. Publication status is not blurred.</h2>
           </div>
           <p>
-            Karen holds executive, research, and standards responsibilities within
+            <PersonName person="karen">Karen</PersonName> holds executive, research, and standards responsibilities within
             ICS and Paleo Certified, Inc. DOI registration supplies a persistent
             research record; it is not presented as peer review. Each work is labeled
             by its actual publication status, and institutional analyses remain

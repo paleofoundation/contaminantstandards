@@ -1,3 +1,5 @@
+import { orcidUrl } from "./people-data";
+
 export const SITE_ORIGIN = "https://contaminantstandards.com";
 export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
@@ -49,7 +51,7 @@ export type Publication = {
 };
 
 export const karenProfiles = {
-  orcid: "https://orcid.org/0000-0002-2348-7259",
+  orcid: orcidUrl("karen"),
   scholar: "https://scholar.google.com/citations?user=xnzAh-wAAAAJ&hl=en",
   personal: "https://karenpendergrass.com/",
   paleoFoundation: "https://paleofoundation.com/about",
