@@ -14,7 +14,7 @@ export function SiteHeader() {
   return <>
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="site-header">
-      <Link className="brand-lockup" href="/" aria-label="Institute of Contaminant Standards home"><Image className="ics-logo" src="/ics-logo.png" width={564} height={110} alt="Institute of Contaminant Standards" priority unoptimized /></Link>
+      <Link className="brand-lockup" href="/" aria-label="Institute of Contaminant Standards home"><span className="brand-mark" aria-hidden="true"><span>I</span><span>C</span><span>S</span></span><span className="brand-name">Institute of<br />Contaminant Standards</span></Link>
       <nav className="main-nav" aria-label="Primary navigation">{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}</nav>
       <Link className="header-action" href="/login">Log in <span aria-hidden="true">↗</span></Link>
       <details className="mobile-navigation"><summary>Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile navigation"><Link href="/">Institute home</Link>{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href="/login">Log in to your portal ↗</Link><a href="https://tecrid.com">TECRID ↗</a><a href="https://vle.exchange">Verified Lot Exchange ↗</a></nav></details>
