@@ -275,6 +275,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible { outline:3px solid #
 .site-header { width:100%; padding-inline:max(40px,calc((100vw - 1440px)/2)); min-height:92px; background:#fff; color:var(--navy); grid-template-columns:minmax(0,1fr) auto auto; }
 .brand-lockup { display:block; width:340px; max-width:100%; min-width:0; }
 .ics-logo { display:block; width:100%; height:auto; object-fit:contain; }
+.site-header .ics-logo { aspect-ratio:564 / 110; object-fit:cover; }
 .main-nav a:hover { color:#875b0b; }
 .site-header .header-action { color:#fff; background:var(--navy); }
 .site-header .header-action:hover { background:#294b6b; }
