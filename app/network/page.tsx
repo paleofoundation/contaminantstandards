@@ -100,7 +100,7 @@ export default function NetworkPage() {
               <dl>
                 <div><dt>Operational programs</dt><dd>1</dd></div>
                 <div><dt>Programs in development</dt><dd>2</dd></div>
-                <div><dt>Shared evidence systems</dt><dd>1</dd></div>
+                <div><dt>Shared infrastructure services</dt><dd>2</dd></div>
                 <div><dt>Public faces per contaminant</dt><dd>2</dd></div>
                 <div><dt>Shared governance body</dt><dd>ICS</dd></div>
               </dl>
@@ -115,7 +115,7 @@ export default function NetworkPage() {
 
         <section className="program-network" aria-label="Contaminant programs">
           {programs.map((program) => (
-            <article className="program-track" key={program.code}>
+            <article className="program-track" id={program.code.includes("MP") ? "microplastics" : program.code.includes("PF") ? "pfas" : "heavy-metals"} key={program.code}>
               <div className="track-intro">
                 <p>{program.code}</p>
                 <Status tone={program.tone}>{program.status}</Status>
@@ -128,9 +128,7 @@ export default function NetworkPage() {
                   <span>LITERATURE INDEX</span>
                   <h3>{program.index.label}</h3>
                   <p>{program.index.note}</p>
-                  <a href={program.index.href} target="_blank" rel="noopener">
-                    {program.index.domain} ↗
-                  </a>
+                  {program.tone === "live" ? <a href={program.index.href} target="_blank" rel="noopener">{program.index.domain} ↗</a> : <span className="domain-not-live">{program.index.domain} · In development</span>}
                 </div>
 
                 <div className="track-arrow" aria-hidden="true">
@@ -142,7 +140,7 @@ export default function NetworkPage() {
                   <span>CERTIFICATION PROGRAM</span>
                   <h3>{program.standard.label}</h3>
                   <p>{program.standard.note}</p>
-                  {program.standard.href ? (
+                  {program.standard.href && program.tone === "live" ? (
                     <a href={program.standard.href} target="_blank" rel="noopener">
                       {program.standard.domain} ↗
                     </a>
@@ -176,9 +174,17 @@ export default function NetworkPage() {
               <Status tone="live">Operational</Status>
               <h3>TECRID Registry</h3>
               <p>
-                TECRID stands for Test Evidence Credential Record Identifier. Each identifier resolves a versioned laboratory evidence record with visible provenance and structured, machine-readable findings.
+                TECRID stands for Test Evidence Credential Record Identifier. Each
+                identifier resolves a versioned laboratory evidence record with visible
+                provenance and structured, machine-readable findings.
               </p>
               <a href="https://tecrid.com/what-is-a-tecrid" target="_blank" rel="noopener">What is a TECRID? ↗</a>
+            </article>
+            <article>
+              <Status>Demo &amp; pilot</Status>
+              <h3>Verified Lot Exchange</h3>
+              <p>Ingredient sourcing connected to lot-level evidence, supplier information, and supporting documentation.</p>
+              <a href="https://vle.exchange">Explore VLE.exchange ↗</a>
             </article>
             <article>
               <Status>Program-routed</Status>

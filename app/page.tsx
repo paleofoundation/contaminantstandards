@@ -1,232 +1,95 @@
-import Image from "next/image";
 import { authorityStats } from "../lib/feeds";
 import { SiteFrame } from "./site-chrome";
-import { publicationReadLabel, publications } from "./site-data";
+import { publications } from "./site-data";
 
-const evidence = authorityStats();
-const formatCount = (value: number) => value.toLocaleString("en-US");
-const leadPublication = publications[0];
-const additionalPublications = publications.slice(1, 2);
-const publicationCards = publications.slice(2);
-const formatPublicationDate = (value: string) =>
-  new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+const fields = [
+  { n: "01", code: "HM", title: "Heavy metals", text: "Trace the evidence. Understand the standard. Find the certification pathway.", index: "Heavy Metal Index", href: "https://heavymetalindex.com", program: "Heavy Metal Certified", programHref: "https://heavymetalcertified.com", status: "Established program", style: "metals" },
+  { n: "02", code: "MP", title: "Microplastics", text: "A dedicated evidence index and a distinct certification program for microplastics.", index: "Microplastics Index", href: "/network#microplastics", program: "Microplastics certification", programHref: "/network#microplastics", status: "In development", style: "plastics" },
+  { n: "03", code: "PF", title: "PFAS", text: "The forever chemicals evidence index and its developing certification pathway.", index: "Forever Chemicals Index", href: "/network#pfas", program: "PFAS certification", programHref: "/network#pfas", status: "In development", style: "pfas" },
+];
+
+function NetworkFigure() {
+  return <div className="network-figure" aria-label="ICS connects independent evidence, certification programs, and shared verification and exchange infrastructure">
+    <div className="figure-caption"><span>THE ICS FRAMEWORK</span><span>01 — 04</span></div>
+    <div className="framework-core"><span className="core-mark" aria-hidden="true">I<span>C</span>S</span><div><b>One institution.</b><span>A connected standard of trust.</span></div></div>
+    <div className="framework-branches">
+      <a href="#indexes"><span className="node-icon" aria-hidden="true">01</span><span><b>Evidence indexes</b><small>Research, in context</small></span><i aria-hidden="true">↗</i></a>
+      <a href="#indexes"><span className="node-icon" aria-hidden="true">02</span><span><b>Certification programs</b><small>Standards, in practice</small></span><i aria-hidden="true">↗</i></a>
+      <a href="https://tecrid.com"><span className="node-icon" aria-hidden="true">03</span><span><b>TECRID</b><small>Evidence, made verifiable</small></span><i aria-hidden="true">↗</i></a>
+      <a href="https://vle.exchange"><span className="node-icon" aria-hidden="true">04</span><span><b>Verified Lot Exchange</b><small>Sourcing, with evidence</small></span><i aria-hidden="true">↗</i></a>
+    </div>
+    <div className="figure-foot"><span className="signal-dot" />Shared governance. Distinct responsibilities.</div>
+  </div>;
+}
 
 export default function Home() {
-  return (
-    <SiteFrame>
-      <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              Independent institutional governance
-              <span>across contaminant programs</span>
-            </p>
-            <h1 id="hero-title">
-              Standards should be <em>traceable.</em>
-            </h1>
-            <p className="hero-dek">
-              The Institute of Contaminant Standards governs how contaminant
-              certification standards are set, kept independent, versioned, and
-              enforced across a growing network of evidence and program sites.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="/network">
-                View the network <span aria-hidden="true">→</span>
-              </a>
-              <a className="button button-quiet" href="/governance">
-                Read the governance rules <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            <p className="founder-credit">
-              <span>Named accountability</span>
-              Founded and led by Karen Pendergrass, Standards Architect.
-              <a href="/people/karen-pendergrass">View research profile →</a>
-            </p>
+  const evidence = authorityStats();
+  const evidenceCounts = [["Peer-reviewed studies", evidence.peer_reviewed], ["Source records", evidence.sources_total], ["Jurisdictions represented", evidence.jurisdictions], ["Sources with a DOI", evidence.dois]] as const;
+  const latestPublications = [...publications].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
+  return <SiteFrame>
+    <main id="top" className="institute-home">
+      <section className="institute-hero" aria-labelledby="hero-title">
+        <div className="hero-grid-lines" aria-hidden="true" />
+        <div className="institute-hero-inner">
+          <div className="institute-hero-copy">
+            <p className="label light"><span className="signal-dot" />INSTITUTE OF CONTAMINANT STANDARDS</p>
+            <h1 id="hero-title">Better evidence.<br />Higher standards.<br /><em>Greater trust.</em></h1>
+            <p className="institute-dek">The institution connecting contaminant research, certification, and verifiable evidence. A shared foundation for more informed decisions.</p>
+            <div className="institute-actions"><a className="ics-button lime" href="#network">Explore the ICS network <span aria-hidden="true">↘</span></a><a className="hero-text-link" href="/governance">Our governance <span aria-hidden="true">→</span></a></div>
           </div>
+          <NetworkFigure />
+        </div>
+        <div className="hero-baseline"><span>RESEARCH → STANDARDS → VERIFICATION</span><a href="/about">Meet the institution behind the network <span aria-hidden="true">↗</span></a></div>
+      </section>
 
-          <aside className="hero-register" aria-label="Institutional scope">
-            <p>Institutional scope</p>
-            <dl>
-              <div><dt>Governance</dt><dd>Common institutional policy</dd></div>
-              <div><dt>Evidence</dt><dd>Independently published indexes</dd></div>
-              <div><dt>Programs</dt><dd>Separate certification authorities</dd></div>
-              <div><dt>Registry</dt><dd>Current-state verification</dd></div>
-            </dl>
-            <a href="/governance">Read the institutional model →</a>
-          </aside>
-        </section>
+      <section className="institute-intro wrap" aria-labelledby="intro-title">
+        <p className="label">OUR PURPOSE</p>
+        <div><h2 id="intro-title">Trust is stronger when<br /><em>you can trace it.</em></h2><p>Contaminant evidence is only useful when its sources, meaning, and limits are clear. ICS brings independent research indexes, certification programs, and shared evidence infrastructure under one institutional framework.</p><a className="text-link" href="/about">About the Institute <span aria-hidden="true">↗</span></a></div>
+        <aside><span className="small-cross" aria-hidden="true">＋</span><p>One institution.<br />Distinct responsibilities.<br />Accountable standards.</p><span className="label">THE PRINCIPLE THAT CONNECTS US</span></aside>
+      </section>
 
-        <section className="journal-home" aria-labelledby="journal-home-title">
-          <header className="journal-home-head">
-            <div>
-              <p className="section-kicker">PUBLICATIONS</p>
-              <h2 id="journal-home-title">Latest from the Institute</h2>
-            </div>
-            <a href="/articles">View all publications →</a>
-          </header>
+      <section className="network-section" id="network" aria-labelledby="network-title">
+        <div className="wrap">
+          <div className="section-topline"><p className="label">01 / THE ICS NETWORK</p><a className="text-link" href="/network">Full network directory <span aria-hidden="true">↗</span></a></div>
+          <div className="section-title-row"><h2 id="network-title">Connected by purpose.<br /><em>Defined by their role.</em></h2><p>Explore the evidence, find a certification program, or follow a laboratory record to its source.</p></div>
+          <div className="directory-subhead" id="indexes"><h3>Contaminant indexes &amp; certification</h3><span>THREE AREAS OF FOCUS</span></div>
+          <div className="contaminant-grid">{fields.map(field => <article className={`contaminant-card ${field.style}`} key={field.code}>
+            <div className="card-top"><span className="label">{field.n} / {field.code}</span><span className={`program-state ${field.n === "01" ? "active" : ""}`}>{field.status}</span></div>
+            <div className={`material-symbol ${field.style}`} aria-hidden="true">{field.style === "metals" ? <><span>82</span><b>Pb</b><small>207.2</small></> : field.style === "plastics" ? <svg viewBox="0 0 120 100"><path d="M14 35 38 17 58 42 40 67 14 55Z M74 10 93 18 86 39 67 31Z M69 59 99 51 111 77 85 91 67 80Z" /></svg> : <svg viewBox="0 0 120 100"><path d="m15 50 23-15 25 15 24-15 22 15 M38 35V16 M38 35 24 15 M63 50v23 M63 50l14 22 M87 35V16 M15 50v22" /><circle cx="15" cy="50" r="5"/><circle cx="38" cy="35" r="5"/><circle cx="63" cy="50" r="5"/><circle cx="87" cy="35" r="5"/><circle cx="109" cy="50" r="5"/></svg>}</div>
+            <h3>{field.title}</h3><p>{field.text}</p><div className="program-links"><a href={field.href}>{field.index}<span aria-hidden="true">{field.href.startsWith("https") ? "↗" : "→"}</span></a><a href={field.programHref}>{field.program}<span aria-hidden="true">{field.programHref.startsWith("https") ? "↗" : "→"}</span></a></div>
+          </article>)}</div>
+          <div className="directory-subhead"><h3>Shared infrastructure</h3><span>CONNECTING EVIDENCE TO ACTION</span></div>
+          <div className="infrastructure-grid">
+            <a className="infrastructure-card tecrid-card" href="https://tecrid.com"><div className="infra-top"><span className="infra-monogram" aria-hidden="true">T<span>↗</span></span><span className="label">EVIDENCE VERIFICATION</span></div><h3>TECRID</h3><p>A persistent identifier for versioned laboratory evidence. Follow the record, its provenance, and its findings.</p><span className="infra-bottom">Explore TECRID <span aria-hidden="true">↗</span></span></a>
+            <a className="infrastructure-card vle-card" href="https://vle.exchange"><div className="infra-top"><span className="infra-monogram vle-monogram" aria-hidden="true">V<span>↗</span></span><span className="label">SOURCING · DEMO &amp; PILOT</span></div><h3>Verified Lot Exchange</h3><p>Connect ingredient sourcing with lot-level evidence. Explore suppliers, products, and supporting documentation.</p><span className="infra-bottom">Explore VLE.exchange <span aria-hidden="true">↗</span></span></a>
+          </div>
+          <p className="network-note">Each index and certification program has its own remit. Programs marked “in development” are not presented as active certification services.</p>
+        </div>
+      </section>
 
-          <div className="journal-home-grid">
-            <a className="journal-lead" href={`/articles/${leadPublication.slug}`}>
-              <p className="journal-meta">
-                <span>{leadPublication.topic}</span>
-                <time dateTime={leadPublication.datePublished}>
-                  {formatPublicationDate(leadPublication.datePublished)}
-                </time>
-              </p>
-              <h3>{leadPublication.title}</h3>
-              <p className="journal-dek">{leadPublication.description}</p>
-              <p className="journal-byline">
-                <span>By Karen Pendergrass</span>
-                <span>{leadPublication.identifier}</span>
-                <span>{leadPublication.readingTime}</span>
-              </p>
-            </a>
+      <section className="stewardship-section wrap" aria-labelledby="stewardship-title">
+        <div className="section-topline"><p className="label">THE PUBLIC EVIDENCE BASE</p><a className="text-link" href="/evidence">Explore the evidence atlas <span aria-hidden="true">↗</span></a></div>
+        <h2 id="stewardship-title">A foundation you can inspect.</h2>
+        <p className="stewardship-description">The Heavy Metal Index literature corpus supports independent research. These stewardship counts describe the evidence base, not certification outcomes.</p>
+        <dl className="stewardship-counts">{evidenceCounts.map(([label, value]) => <div key={label}><dd>{value.toLocaleString("en-US")}</dd><dt>{label}</dt></div>)}</dl>
+        <p className="stewardship-date">Published feed snapshot: <time dateTime={evidence.generated ?? undefined}>{evidence.generated ?? "Date not recorded"}</time>. <a href="https://heavymetalindex.com/sources/">Inspect the source library ↗</a></p>
+      </section>
 
-            <div className="journal-latest">
-              <p className="journal-latest-label">LATEST ANALYSIS</p>
-              {additionalPublications.map((publication) => (
-                <a href={`/articles/${publication.slug}`} key={publication.identifier}>
-                  <p className="journal-meta">
-                    <span>{publication.topic}</span>
-                    <time dateTime={publication.datePublished}>
-                      {formatPublicationDate(publication.datePublished)}
-                    </time>
-                  </p>
-                  <h3>{publication.title}</h3>
-                  <p>{publication.description}</p>
-                  <b>{publicationReadLabel(publication.series)} →</b>
-                </a>
-              ))}
-              <a className="journal-register-link" href="/articles">
-                Publication register, citations, and article records →
-              </a>
-            </div>
-          </div>
+      <section className="principles-section wrap" aria-labelledby="principles-title">
+        <div className="principles-intro"><p className="label">02 / THE GOVERNANCE MODEL</p><h2 id="principles-title">A connected network.<br /><em>Clear boundaries.</em></h2><p>ICS sets the rules for how evidence is used, how standards change, and who is accountable for a certification decision.</p><a className="text-link" href="/governance">Explore our governance <span aria-hidden="true">↗</span></a></div>
+        <div className="principles-list">
+          <article><span>01</span><div><h3>Evidence stays independent.</h3><p>Public indexes describe the literature. A published finding is not a certification decision.</p></div></article>
+          <article><span>02</span><div><h3>Standards stay accountable.</h3><p>Certification programs define requirements, review evidence, and control the use of their marks.</p></div></article>
+          <article><span>03</span><div><h3>Changes stay traceable.</h3><p>Versioned records, visible methods, and governance policies make decisions open to scrutiny.</p></div></article>
+        </div>
+      </section>
 
-          <div className="journal-card-grid" aria-label="More Institute publications">
-            {publicationCards.map((publication) => (
-              <a href={`/articles/${publication.slug}`} key={publication.identifier}>
-                <div className="journal-card-meta">
-                  <span>{publication.topic}</span>
-                  <span>{publication.identifier}</span>
-                </div>
-                <h3>{publication.title}</h3>
-                <p>{publication.description}</p>
-                <div className="journal-card-foot">
-                  <time dateTime={publication.datePublished}>
-                    {formatPublicationDate(publication.datePublished)}
-                  </time>
-                  <b>{publicationReadLabel(publication.series)} →</b>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section className="evidence-home" aria-labelledby="evidence-home-title">
-          <div className="evidence-home-head">
-            <div>
-              <p className="section-kicker">EVIDENCE STEWARDSHIP</p>
-              <h2 id="evidence-home-title">The public record behind the work.</h2>
-            </div>
-            <p>
-              Current corpus totals are regenerated from the Heavy Metal Index.
-              Detailed evidence remains on the independent index; ICS maintains the
-              governance and provenance boundary around it.
-            </p>
-          </div>
-          <div className="evidence-home-stats">
-            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
-              <strong>{formatCount(evidence.peer_reviewed)}</strong>
-              <span>Peer-reviewed studies</span>
-            </a>
-            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
-              <strong>{formatCount(evidence.sources_total)}</strong>
-              <span>Source records</span>
-            </a>
-            <a href="https://heavymetalindex.com/regulations/" target="_blank" rel="noopener">
-              <strong>{formatCount(evidence.jurisdictions)}</strong>
-              <span>Jurisdictions represented</span>
-            </a>
-            <a href="https://heavymetalindex.com/sources/" target="_blank" rel="noopener">
-              <strong>{formatCount(evidence.dois)}</strong>
-              <span>Sources with a DOI</span>
-            </a>
-          </div>
-          <a className="evidence-home-link" href="/evidence">
-            View the coverage atlas and complete stewardship record →
-          </a>
-        </section>
-
-        <section className="institutional-index" aria-labelledby="institutional-index-title">
-          <header className="institutional-index-head">
-            <p className="section-kicker">THE INSTITUTION</p>
-            <h2 id="institutional-index-title">A public record of governance.</h2>
-            <p>
-              The Institute publishes the rules and accountability structure. Evidence,
-              standards, and certification records remain on their designated surfaces.
-            </p>
-          </header>
-          <div className="institutional-index-list">
-            <a href="/governance">
-              <span>01</span><strong>Governance</strong><p>How standards are made, versioned, and enforced.</p><b>View →</b>
-            </a>
-            <a href="/evidence">
-              <span>02</span><strong>Evidence stewardship</strong><p>Corpus provenance, scope, and coverage.</p><b>View →</b>
-            </a>
-            <a href="/network">
-              <span>03</span><strong>Network</strong><p>Independent indexes and separate program authorities.</p><b>View →</b>
-            </a>
-            <a href="/governance/policies">
-              <span>04</span><strong>Policy register</strong><p>Current institutional policies and revision records.</p><b>View →</b>
-            </a>
-          </div>
-        </section>
-
-        <section className="research-leadership" id="people">
-          <div className="research-leadership-portrait">
-            <Image src="/karen-pendergrass.avif" width={1023} height={1537} sizes="(max-width: 880px) 100vw, 34vw" alt="Karen Pendergrass" />
-            <span>FOUNDER · STANDARDS ARCHITECT · RESEARCH LEAD</span>
-          </div>
-          <div className="research-leadership-copy">
-            <p className="section-kicker">RESEARCH &amp; STANDARDS LEADERSHIP</p>
-            <h2>Karen Pendergrass</h2>
-            <p className="research-leadership-dek">
-              More than fifteen years building certification frameworks, now joined
-              to a research program in heavy metals, food metallomics, and microbial
-              metallomics.
-            </p>
-            <p>
-              Karen is the architect of the Heavy Metal Index evidence system and
-              the Heavy Metal Tested &amp; Certified methodology. Her executive,
-              methodological, and research responsibilities are named so the work
-              remains attributable and open to review.
-            </p>
-            <div className="research-leadership-links">
-              <a className="button button-paper" href="/people/karen-pendergrass">Research profile <span aria-hidden="true">→</span></a>
-              <a href="https://orcid.org/0000-0002-2348-7259" target="_blank" rel="noopener">ORCID 0000-0002-2348-7259 ↗</a>
-            </div>
-          </div>
-        </section>
-
-        <section className="closing-section">
-          <div>
-            <p className="section-kicker section-kicker-light">CURRENT PROGRAM</p>
-            <h2>One active standard.<br />A network built to grow.</h2>
-          </div>
-          <div className="closing-actions">
-            <a className="button button-paper" href="https://heavymetalcertified.com" target="_blank" rel="noopener">
-              Heavy Metal Tested &amp; Certified <span aria-hidden="true">↗</span>
-            </a>
-            <a href="/network">View the future network →</a>
-          </div>
-        </section>
-      </main>
-    </SiteFrame>
-  );
+      <section className="publications-section" aria-labelledby="publications-title"><div className="wrap">
+        <div className="section-topline"><p className="label">03 / FROM THE INSTITUTE</p><a className="text-link" href="/articles">All publications <span aria-hidden="true">↗</span></a></div><h2 id="publications-title">The thinking behind<br /><em>the standards.</em></h2>
+        <div className="journal-grid">{latestPublications.map(p => <a className="journal-entry" href={`/articles/${p.slug}`} key={p.identifier}><div className="journal-meta"><span>{p.topic}</span><span>{p.readingTime}</span></div><h3>{p.shortTitle}</h3><p>{p.description}</p><span className="journal-bottom">{p.identifier}<b aria-hidden="true">↗</b></span></a>)}</div>
+        <a className="governance-register" href="/governance/notes"><span><span className="label">THE EVIDENCE GOVERNANCE REGISTER</span><b>From a research finding to a visible governance consequence.</b></span><span aria-hidden="true">↗</span></a>
+      </div></section>
+      <section className="institute-closing wrap"><p className="label">FIND YOUR STARTING POINT</p><h2>Follow the evidence.<br /><em>Find your next step.</em></h2><div className="closing-paths"><a href="#indexes"><span>FOR RESEARCHERS &amp; READERS</span><b>Explore the indexes ↗</b></a><a href="https://heavymetalcertified.com"><span>FOR BRANDS &amp; PRODUCERS</span><b>Find a certification pathway ↗</b></a><a href="https://vle.exchange"><span>FOR BUYERS &amp; SUPPLIERS</span><b>Explore the lot exchange ↗</b></a></div></section>
+    </main>
+  </SiteFrame>;
 }
