@@ -159,12 +159,63 @@ export function ArticleSection({
   );
 }
 
+export type PublicationReference = {
+  label: string;
+  href: string;
+  /** Stable key used by inline citation markers. Optional for pages without inline markers. */
+  id?: string;
+};
+
+/** Anchor id of the nth (1-based) reference entry in PublicationFooter. */
+export function referenceAnchor(n: number) {
+  return `ref-${n}`;
+}
+
+/**
+ * Build an inline citation marker bound to a page's reference list. Markers
+ * render as bracketed numbers that link to the matching entry in the footer,
+ * so numbering always follows the order of the reference list. An unknown
+ * key fails the build rather than rendering a marker that points nowhere.
+ */
+export function createCite(references: PublicationReference[]) {
+  const numbers = new Map<string, number>();
+  references.forEach((reference, index) => {
+    if (!reference.id) return;
+    if (numbers.has(reference.id)) {
+      throw new Error(`Duplicate reference id: ${reference.id}`);
+    }
+    numbers.set(reference.id, index + 1);
+  });
+
+  return function Cite({ ids }: { ids: string[] }) {
+    const resolved = ids.map((id) => {
+      const n = numbers.get(id);
+      if (n === undefined) {
+        throw new Error(`Unknown reference id: ${id}`);
+      }
+      return n;
+    });
+    return (
+      <sup className="cite-marker">
+        [
+        {resolved.map((n, index) => (
+          <span key={n}>
+            {index > 0 ? ", " : null}
+            <a href={`#${referenceAnchor(n)}`} aria-label={`Reference ${n}`}>{n}</a>
+          </span>
+        ))}
+        ]
+      </sup>
+    );
+  };
+}
+
 export function PublicationFooter({
   record,
   references,
 }: {
   record: PublicationRecord;
-  references: { label: string; href: string }[];
+  references: PublicationReference[];
 }) {
   const series = seriesOf(record);
   const evidenceReview = record.series === "ICS-ER";
@@ -177,8 +228,8 @@ export function PublicationFooter({
           <h2>{evidenceReview ? "Sources for this evidence review" : "Sources used in this analysis"}</h2>
         </div>
         <ol>
-          {references.map((reference) => (
-            <li key={reference.href}>
+          {references.map((reference, index) => (
+            <li key={reference.href} id={referenceAnchor(index + 1)}>
               <a href={reference.href} target="_blank" rel="noopener">
                 {reference.label} ↗
               </a>
