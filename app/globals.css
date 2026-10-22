@@ -3232,10 +3232,17 @@ a:focus-visible {
 .paper-abstract > span,
 .paper-section-label,
 .citation-box > div > span {
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+
+.paper-abstract > span,
+.paper-section-label p {
+  font-size: 24px;
+  line-height: 1.25;
 }
 
 .paper-abstract p {
@@ -3256,13 +3263,12 @@ a:focus-visible {
 
 .paper-section-label span {
   color: var(--oxide-dark);
+  font-size: 12px;
 }
 
 .paper-section-label p {
   max-width: 220px;
   margin: 13px 0 0;
-  font-size: 8px;
-  line-height: 1.5;
   text-transform: uppercase;
 }
 
@@ -3319,17 +3325,17 @@ a:focus-visible {
   width: 100%;
   min-width: 760px;
   border-collapse: collapse;
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 11px;
-  line-height: 1.45;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .paper-table caption {
   caption-side: bottom;
   padding: 14px 0 4px;
   color: var(--ink-soft);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
+  font-family: inherit;
+  font-size: 16px;
   line-height: 1.5;
   text-align: left;
 }
@@ -3343,9 +3349,9 @@ a:focus-visible {
 }
 
 .paper-table th {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -3445,6 +3451,62 @@ a:focus-visible {
 .paper-references li:target {
   background: rgba(251, 249, 243, 0.08);
   color: var(--paper-light);
+}
+
+.paper-references--apa {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 36px;
+  background: var(--paper-light);
+  color: var(--ink);
+}
+
+.paper-references--apa ol {
+  list-style: none;
+  padding-left: 0;
+  max-width: 1000px;
+  border-color: var(--line);
+}
+
+.paper-references--apa li {
+  display: grid;
+  grid-template-columns: 3em minmax(0, 1fr);
+  gap: 12px;
+  padding: 20px 0;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink);
+  border-color: var(--line);
+  overflow-wrap: anywhere;
+}
+
+.paper-reference-number {
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-reference-entry {
+  min-width: 0;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.paper-references--apa li:target {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.paper-references--apa a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.paper-references--apa a:hover {
+  color: var(--oxide);
+}
+
+.paper-references--apa + .citation-box {
+  background: var(--paper-deep);
+  color: var(--ink);
 }
 
 .paper-references li {

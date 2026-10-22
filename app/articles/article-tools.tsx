@@ -167,7 +167,40 @@ export type PublicationReference = {
   href: string;
   /** Stable key used by inline citation markers. Optional for pages without inline markers. */
   id?: string;
+  apa?: {
+    authors: string;
+    date: string;
+    title: string;
+    italicTitle: boolean;
+    source?: string;
+    volume?: string;
+    issue?: string;
+    pages?: string;
+    articleNumber?: string;
+    publisher?: string;
+    description?: string;
+  };
 };
+
+function ApaReference({ reference }: { reference: PublicationReference }) {
+  const entry = reference.apa;
+  if (!entry) return <a href={reference.href}>{reference.label}</a>;
+  const author = entry.authors === "Pendergrass, K."
+    ? <PersonName person="karen">{entry.authors}</PersonName>
+    : entry.authors;
+  return (
+    <>
+      {entry.authors ? <>{author}{entry.authors.endsWith(".") ? " " : ". "}({entry.date}). </> : null}
+      {entry.italicTitle ? <i>{entry.title}</i> : entry.title}
+      {entry.description ? (entry.description.startsWith("Master’s thesis")
+        ? <> [{entry.description}]</>
+        : <> ({entry.description})</>) : null}.
+      {entry.source ? <> <i>{entry.source}{entry.volume ? `, ${entry.volume}` : ""}</i>{entry.issue ? `(${entry.issue})` : ""}{entry.pages ? `, ${entry.pages}` : ""}{entry.articleNumber ? `${entry.volume ? "," : "."} Article ${entry.articleNumber}` : ""}{!entry.authors ? ` (${entry.date})` : ""}.</> : null}
+      {entry.publisher ? <> {entry.publisher}.</> : null}{" "}
+      <a href={reference.href} target="_blank" rel="noopener">{reference.href}</a>
+    </>
+  );
+}
 
 /** Anchor id of the nth (1-based) reference entry in PublicationFooter. */
 export function referenceAnchor(n: number) {
@@ -197,7 +230,7 @@ export function createCite(references: PublicationReference[]) {
         throw new Error(`Unknown reference id: ${id}`);
       }
       return n;
-    });
+    }).sort((a, b) => a - b);
     return (
       <sup className="cite-marker">
         [
@@ -216,26 +249,43 @@ export function createCite(references: PublicationReference[]) {
 export function PublicationFooter({
   record,
   references,
+  referenceStyle,
+  referenceOrder,
 }: {
   record: PublicationRecord;
   references: PublicationReference[];
+  referenceStyle?: "apa";
+  referenceOrder?: "citation" | "alphabetical";
 }) {
   const series = seriesOf(record);
   const evidenceReview = record.series === "ICS-ER";
+  const entries = references.map((reference, index) => ({ reference, index }));
+  if (referenceStyle === "apa" && referenceOrder !== "citation") {
+    entries.sort((a, b) => {
+      const key = (reference: PublicationReference) => {
+        const entry = reference.apa;
+        return entry ? `${entry.authors || entry.title} ${entry.date} ${entry.title}` : reference.label;
+      };
+      return key(a.reference).localeCompare(key(b.reference), "en", { sensitivity: "base" });
+    });
+  }
 
   return (
     <>
-      <section className="paper-references">
+      <section className={`paper-references${referenceStyle === "apa" ? " paper-references--apa" : ""}`}>
         <div>
           <p className="section-kicker">{evidenceReview ? "SOURCES REVIEWED" : "REFERENCES & INSTITUTIONAL RECORDS"}</p>
-          <h2>{evidenceReview ? "Sources for this evidence review" : "Sources used in this analysis"}</h2>
+          <h2>{referenceStyle === "apa" ? "References" : evidenceReview ? "Sources for this evidence review" : "Sources used in this analysis"}</h2>
         </div>
         <ol>
-          {references.map((reference, index) => (
+          {entries.map(({ reference, index }) => (
             <li key={reference.href} id={referenceAnchor(index + 1)}>
-              <a href={reference.href} target="_blank" rel="noopener">
+              {referenceStyle === "apa" ? <>
+                <span className="paper-reference-number">[{index + 1}]</span>
+                <div className="paper-reference-entry"><ApaReference reference={reference} /></div>
+              </> : <a href={reference.href} target="_blank" rel="noopener">
                 {reference.label} ↗
-              </a>
+              </a>}
             </li>
           ))}
         </ol>

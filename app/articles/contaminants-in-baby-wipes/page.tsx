@@ -1,3 +1,4 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
@@ -96,60 +97,7 @@ function EvidenceTable({
   );
 }
 
-const references: PublicationReference[] = [
-  { id: "hmiBeyond", label: "Heavy Metal Index. Contaminants in baby wipes beyond the metal panel (2026). Non-metal synthesis ported here. No DOI is registered for that page.", href: "https://heavymetalindex.com/synthesis/contaminants-in-baby-wipes-beyond-metals" },
-  { id: "hmiMetals", label: "Heavy Metal Index. Heavy metals in baby wipes.", href: "https://doi.org/10.83376/hmi.heavy-metals-in-baby-wipes" },
-  { id: "hmiAntimony", label: "Heavy Metal Index. Antimony in baby products. Wipe-relevant antimony only is drawn from this page.", href: "https://doi.org/10.83376/hmi.antimony-in-baby-products" },
-  { id: "celeiro", label: "Celeiro et al. (2015). Fragrance allergens, musks, phthalates, and preservatives in baby wipes. Journal of Chromatography A.", href: "https://doi.org/10.1016/j.chroma.2015.01.049" },
-  { id: "bae", label: "Bae et al. (2018). Safety of commercial wet tissues. Expressed-liquid survey.", href: "https://doi.org/10.13103/JFHS.2018.33.1.83" },
-  { id: "pack", label: "Pack et al. (2021). Preservatives in wet wipes sold for external skin use.", href: "https://doi.org/10.1016/j.scitotenv.2021.146829" },
-  { id: "rocha", label: "Rocha et al. (2020). Parabens in commercial baby wipes from Brazil.", href: "https://doi.org/10.21577/0100-4042.20170494" },
-  { id: "alanazi", label: "Alanazi et al. (2023). Methylisothiazolinone and methylchloroisothiazolinone in leave-on baby wet wipes. Concentration rows held.", href: "https://doi.org/10.3390/molecules28041760" },
-  { id: "cpqs", label: "China Association for Quality Promotion of Consumer Products Safety (2 April 2026). Monitoring report on baby wet wipes sold online.", href: "https://cpqs.org.cn/archives/3229" },
-  { id: "vanneste", label: "Vanneste et al. (2013). Methylisothiazolinone in a mislabeled household wet wipe. Adjacent matrix.", href: "https://doi.org/10.1111/cod.12143" },
-  { id: "euReg", label: "Regulation (EC) No 1223/2009 on cosmetic products. Context only. No current-law verification was performed for this review.", href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32009R1223" },
-  { id: "yu", label: "Yu et al. (2016). Label survey of potential allergens in diaper wipes.", href: "https://doi.org/10.1097/DER.0000000000000177" },
-  { id: "marinho", label: "Marinho et al. (2021). São Paulo label and pH survey of wet wipes.", href: "https://doi.org/10.1016/j.abd.2020.09.011" },
-  { id: "hamann", label: "Hamann (2019). Ingredient-list screen of leave-on products, including baby wipes.", href: "https://doi.org/10.1097/DER.0000000000000438" },
-  { id: "mangir", label: "Mangır and Özkaya (2026). Istanbul label survey, wet-wipe subgroup.", href: "https://doi.org/10.1111/cod.70207" },
-  { id: "newton", label: "Newton et al. (2022). Label survey of feminine hygiene wipes. Adjacent matrix.", href: "https://doi.org/10.1097/jw9.0000000000000060" },
-  { id: "isufi", label: "Isufi et al. (2025). Contact allergens in children, 2010 to 2024. Context, including nickel sulfate prevalence.", href: "https://doi.org/10.1111/cod.14753" },
-  { id: "lai", label: "Lai et al. (2025). Phthalates in disposable diaper inner layers. Adjacent matrix.", href: "https://doi.org/10.3390/toxics13030218" },
-  { id: "park", label: "Park et al. (2019). Phthalates and package-air volatile organic compounds in sanitary pads and diapers. Adjacent matrix.", href: "https://doi.org/10.1016/j.reprotox.2019.01.005" },
-  { id: "cr", label: "Consumer Reports (11 June 2026). Consumer-laboratory report of a PFAS panel in baby wipes. Not peer reviewed. Denominator held.", href: "https://www.consumerreports.org/babies-kids/baby-wipes/pfas-in-baby-wipes-safety-a2172742579/" },
-  { id: "wicks", label: "Wicks et al. (2025). PFAS in reusable feminine hygiene products. Adjacent matrix.", href: "https://doi.org/10.1021/acs.estlett.5c00553" },
-  { id: "zhou", label: "Zhou et al. (2023). PFAS in personal hygiene products. Adjacent matrix.", href: "https://doi.org/10.1021/acs.est.2c08912" },
-  { id: "kwon", label: "Kwon et al. (2022). Microfiber shedding from nonwoven materials, including wipes.", href: "https://doi.org/10.1007/s11356-022-20053-z" },
-  { id: "nacci", label: "Nacci et al. (2025). Fibers and additives in disposable wet wipes.", href: "https://doi.org/10.1016/j.jaap.2025.107200" },
-  { id: "obriain", label: "Ó Briain et al. (2020). Wet wipes as a source of white microplastic fibers.", href: "https://doi.org/10.1016/j.watres.2020.116021" },
-  { id: "wa14", label: "Washington State Department of Ecology. Metals in Children's and Consumer Products and Packaging. Publication 14-04-014 (2014, contact revision 2021).", href: "https://apps.ecology.wa.gov/publications/SummaryPages/1404014.html" },
-  { id: "choi", label: "Choi, Song, and Kim (2016). Heavy metals on the nonwoven in wet wipes, ICP-MS.", href: "https://doi.org/10.12925/jkocs.2016.33.1.195" },
-  { id: "gocer", label: "Göçer (2025). Baby wet wipes, solution, fiber, and packaging. Master's thesis, İstanbul Üniversitesi-Cerrahpaşa. YÖK Tez No 988276.", href: "https://tez.yok.gov.tr" },
-  { id: "qapp1", label: "Washington State Department of Ecology (2012). Quality Assurance Project Plan 12-07-021.", href: "https://apps.ecology.wa.gov/publications/documents/1207021.pdf" },
-  { id: "qapp2", label: "Washington State Department of Ecology (2012). Quality Assurance Project Plan 12-07-022.", href: "https://apps.ecology.wa.gov/publications/documents/1207022.pdf" },
-  { id: "qapp3", label: "Washington State Department of Ecology (2012). Quality Assurance Project Plan 12-07-023.", href: "https://apps.ecology.wa.gov/publications/documents/1207023.pdf" },
-  { id: "qapp4", label: "Washington State Department of Ecology (2012). Quality Assurance Project Plan 12-07-024.", href: "https://apps.ecology.wa.gov/publications/documents/1207024.pdf" },
-  { id: "biver", label: "Biver, Turner, and Filella (2021). Antimony release from polyester textiles into artificial sweat. Adjacent textile matrix.", href: "https://doi.org/10.1016/j.yrtph.2020.104824" },
-  { id: "borca", label: "Borca, Huthwelker, and Filella (2025). Antimony speciation in consumer plastics and synthetic textiles. Adjacent matrix.", href: "https://doi.org/10.1016/j.jes.2024.02.006" },
-  { id: "nyamukamba", label: "Nyamukamba et al. (2023). Selected substances in disposable diapers, South Africa. Adjacent matrix.", href: "https://doi.org/10.3390/ijerph20021023" },
-  { id: "iarc", label: "IARC Monographs Volume 131 (2023). Trivalent and pentavalent antimony.", href: "https://www.ncbi.nlm.nih.gov/books/NBK598316/" },
-  { id: "atsdr", label: "ATSDR (October 2019). Toxicological Profile for Antimony and Compounds.", href: "https://www.atsdr.cdc.gov/toxprofiledocs/" },
-  { id: "healthCanada", label: "Health Canada. Guidance on heavy metal impurities in cosmetics, section 4.", href: "https://www.canada.ca/en/health-canada/services/consumer-product-safety/reports-publications/industry-professionals/guidance-heavy-metal-impurities-cosmetics.html" },
-  { id: "bvl", label: "Federal Office of Consumer Protection and Food Safety (BVL) (2017). Technically avoidable heavy metal contents in cosmetic products.", href: "https://doi.org/10.1007/s00003-016-1044-2" },
-  { id: "rcw", label: "Revised Code of Washington 70A.560.020.", href: "https://app.leg.wa.gov/RCW/default.aspx?cite=70A.560.020" },
-  { id: "cfr", label: "21 CFR 700.13. Mercury in cosmetics.", href: "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-G/part-700/subpart-B/section-700.13" },
-  { id: "korea", label: "Korea cosmetic safety standard, Article 6(2), as reproduced for the metals companion.", href: "https://kcia.or.kr/cid/cs/law.php" },
-  { id: "oekotex", label: "OEKO-TEX STANDARD 100, Annex 4 limit-value document cited by the metals companion. The antimony companion did not examine this annex.", href: "https://www.oeko-tex.com/importedmedia/downloadfiles/OEKO-TEX_STANDARD_100_Limit_Values_and_Individual_Substances_According_to_Appendices_4_5_EN_DE.pdf" },
-  { id: "lavender", label: "Lavender et al. (2012). Newborn skin-hydration randomized trial. Not an absorption study.", href: "https://doi.org/10.1186/1471-2431-12-59" },
-  { id: "carr", label: "Carr et al. (2019). Diaper dermatitis prevalence. Context only.", href: "https://doi.org/10.1111/pde.14047" },
-  { id: "chang", label: "Chang and Nakrani (2014). Six children with allergic contact dermatitis attributed to methylisothiazolinone in wet wipes.", href: "https://doi.org/10.1542/peds.2013-1453" },
-  { id: "admani", label: "Admani, Matiz, and Jacob (2014). Perianal dermatitis attributed to methylisothiazolinone in wet wipes.", href: "https://doi.org/10.1111/pde.12328" },
-  { id: "boyapati", label: "Boyapati et al. (2013). Hand dermatitis attributed to methylisothiazolinone in baby wipes.", href: "https://doi.org/10.1111/ajd.12062" },
-  { id: "cahill", label: "Cahill, Toholka, and Nixon (2014). Methylisothiazolinone in baby wipes, Australian letter.", href: "https://doi.org/10.5694/mja13.10946" },
-  { id: "warshaw", label: "Warshaw et al. (2017). North American Contact Dermatitis Group wet-wipe allergens, 2011 to 2014.", href: "https://doi.org/10.1097/DER.0000000000000248" },
-  { id: "guin", label: "Guin, Kincannon, and Church (2001). Preservative-related hand eczema from baby wipes. Adult series.", href: "https://doi.org/10.1053/ajcd.2001.28052" },
-  { id: "domingos", label: "Domingos-Ancement, Misery, and Deydier (2025). Hexamidine diisethionate case. Adult.", href: "https://doi.org/10.1111/cod.70055" },
-];
+const references: PublicationReference[] = referenceData;
 
 const Cite = createCite(references);
 
@@ -470,7 +418,7 @@ export default function ContaminantsInBabyWipesReview() {
           </ArticleSection>
         </article>
 
-        <PublicationFooter record={article} references={references} />
+        <PublicationFooter record={article} references={references} referenceStyle="apa" referenceOrder="citation" />
       </main>
     </SiteFrame>
   );

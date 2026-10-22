@@ -1,0 +1,724 @@
+[
+  {
+    "id": "hmiBeyond",
+    "label": "Pendergrass, K. (2026b). Contaminants in baby wipes beyond the metal panel. Heavy Metal Index",
+    "href": "https://heavymetalindex.com/synthesis/contaminants-in-baby-wipes-beyond-metals",
+    "apa": {
+      "authors": "Pendergrass, K.",
+      "date": "2026b",
+      "title": "Contaminants in baby wipes beyond the metal panel",
+      "italicTitle": true,
+      "source": "Heavy Metal Index"
+    }
+  },
+  {
+    "id": "celeiro",
+    "label": "Celeiro, M., Lamas, J. P., Garcia-Jares, C., & Llompart, M. (2015). Pressurized liquid extraction-gas chromatography-mass spectrometry analysis of fragrance allergens, musks, phthalates and preservatives in baby wipes. Journal of Chromatography A",
+    "href": "https://doi.org/10.1016/j.chroma.2015.01.049",
+    "apa": {
+      "authors": "Celeiro, M., Lamas, J. P., Garcia-Jares, C., & Llompart, M.",
+      "date": "2015",
+      "title": "Pressurized liquid extraction-gas chromatography-mass spectrometry analysis of fragrance allergens, musks, phthalates and preservatives in baby wipes",
+      "source": "Journal of Chromatography A",
+      "italicTitle": false,
+      "volume": "1384",
+      "pages": "9–21"
+    }
+  },
+  {
+    "id": "cr",
+    "label": "D’Argenio Waller, J. (2026, June 11). These baby wipes have no detected PFAS, our tests show. Consumer Reports",
+    "href": "https://www.consumerreports.org/babies-kids/baby-wipes/pfas-in-baby-wipes-safety-a2172742579/",
+    "apa": {
+      "authors": "D’Argenio Waller, J.",
+      "date": "2026, June 11",
+      "title": "These baby wipes have no detected PFAS, our tests show",
+      "italicTitle": true,
+      "source": "Consumer Reports"
+    }
+  },
+  {
+    "id": "wa14",
+    "label": "Stone, A. (2014). Metals in children’s and consumer products and packaging. Washington State Department of Ecology",
+    "href": "https://apps.ecology.wa.gov/publications/SummaryPages/1404014.html",
+    "apa": {
+      "authors": "Stone, A.",
+      "date": "2014",
+      "title": "Metals in children’s and consumer products and packaging",
+      "italicTitle": true,
+      "description": "Publication No. 14-04-014; revised June 2021",
+      "publisher": "Washington State Department of Ecology"
+    }
+  },
+  {
+    "id": "choi",
+    "label": "Choi, S.-M., Song, J.-K., & Kim, S.-J. (2016). Determination of heavy metals on the non-woven in wet wipes using ICP-MS. Journal of Oil & Applied Science",
+    "href": "https://doi.org/10.12925/jkocs.2016.33.1.195",
+    "apa": {
+      "authors": "Choi, S.-M., Song, J.-K., & Kim, S.-J.",
+      "date": "2016",
+      "title": "Determination of heavy metals on the non-woven in wet wipes using ICP-MS",
+      "source": "Journal of Oil & Applied Science",
+      "italicTitle": false,
+      "volume": "33",
+      "issue": "1",
+      "pages": "195–203"
+    }
+  },
+  {
+    "id": "cpqs",
+    "label": "China Association for Quality Promotion of Consumer Products Safety. (2026, April 2). 网售婴幼儿湿巾产品质量监测结果分析报告 [Analysis report on quality monitoring results for baby wet wipes sold online]. ",
+    "href": "https://cpqs.org.cn/archives/3229",
+    "apa": {
+      "authors": "China Association for Quality Promotion of Consumer Products Safety",
+      "date": "2026, April 2",
+      "title": "网售婴幼儿湿巾产品质量监测结果分析报告 [Analysis report on quality monitoring results for baby wet wipes sold online]",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "gocer",
+    "label": "Göçer, İ. A. (2025). Evaluation of the liquid, fiber and packaging content of baby wet wipes for heavy metal contamination. YÖK National Thesis Center",
+    "href": "https://tez.yok.gov.tr/UlusalTezMerkezi/",
+    "apa": {
+      "authors": "Göçer, İ. A.",
+      "date": "2025",
+      "title": "Evaluation of the liquid, fiber and packaging content of baby wet wipes for heavy metal contamination",
+      "italicTitle": true,
+      "description": "Master’s thesis, İstanbul Üniversitesi-Cerrahpaşa",
+      "source": "YÖK National Thesis Center"
+    }
+  },
+  {
+    "id": "bae",
+    "label": "Bae, H.-J., Jung, H.-R., Lee, S.-H., Lee, S.-B., Song, S.-H., Hong, M.-Y., Kim, B.-H., Park, G.-H., & Yoon, M.-H. (2018). A study on the safety of commercial wet tissues. Journal of Food Hygiene and Safety",
+    "href": "https://doi.org/10.13103/JFHS.2018.33.1.83",
+    "apa": {
+      "authors": "Bae, H.-J., Jung, H.-R., Lee, S.-H., Lee, S.-B., Song, S.-H., Hong, M.-Y., Kim, B.-H., Park, G.-H., & Yoon, M.-H.",
+      "date": "2018",
+      "title": "A study on the safety of commercial wet tissues",
+      "source": "Journal of Food Hygiene and Safety",
+      "italicTitle": false,
+      "volume": "33",
+      "issue": "1",
+      "pages": "83–88"
+    }
+  },
+  {
+    "id": "pack",
+    "label": "Pack, E. C., Lee, H. G., Jang, D. Y., Sin, H. S., Kim, T. Y., Kim, H. S., Lim, K. M., & Choi, D. W. (2021). Probabilistic risk assessment of preservatives in dishwashing detergents and wet wipes for Korean consumers. Science of The Total Environment",
+    "href": "https://doi.org/10.1016/j.scitotenv.2021.146829",
+    "apa": {
+      "authors": "Pack, E. C., Lee, H. G., Jang, D. Y., Sin, H. S., Kim, T. Y., Kim, H. S., Lim, K. M., & Choi, D. W.",
+      "date": "2021",
+      "title": "Probabilistic risk assessment of preservatives in dishwashing detergents and wet wipes for Korean consumers",
+      "source": "Science of The Total Environment",
+      "italicTitle": false,
+      "volume": "782",
+      "articleNumber": "146829"
+    }
+  },
+  {
+    "id": "rocha",
+    "label": "Rocha, B. A., Bocato, M. Z., Latorraca, E. F., Ximenez, J. P. B., & Barbosa, F., Jr. (2020). A survey of parabens in commercial baby wipes from Brazil and estimation of daily exposure. Química Nova",
+    "href": "https://doi.org/10.21577/0100-4042.20170494",
+    "apa": {
+      "authors": "Rocha, B. A., Bocato, M. Z., Latorraca, E. F., Ximenez, J. P. B., & Barbosa, F., Jr.",
+      "date": "2020",
+      "title": "A survey of parabens in commercial baby wipes from Brazil and estimation of daily exposure",
+      "source": "Química Nova",
+      "italicTitle": false,
+      "volume": "43",
+      "issue": "4",
+      "pages": "442–446"
+    }
+  },
+  {
+    "id": "alanazi",
+    "label": "Alanazi, S., Tabassum, H., Abudawood, M., Alrashoudi, R., Alrashed, M., Alsheikh, Y. A., Alkaff, S., Alghamdi, M., & Alenzi, N. (2023). Quantification of methylisothiazolinone and methylchloroisothiazolinone preservatives by high-performance liquid chromatography. Molecules",
+    "href": "https://doi.org/10.3390/molecules28041760",
+    "apa": {
+      "authors": "Alanazi, S., Tabassum, H., Abudawood, M., Alrashoudi, R., Alrashed, M., Alsheikh, Y. A., Alkaff, S., Alghamdi, M., & Alenzi, N.",
+      "date": "2023",
+      "title": "Quantification of methylisothiazolinone and methylchloroisothiazolinone preservatives by high-performance liquid chromatography",
+      "source": "Molecules",
+      "italicTitle": false,
+      "volume": "28",
+      "issue": "4",
+      "articleNumber": "1760"
+    }
+  },
+  {
+    "id": "vanneste",
+    "label": "Vanneste, L., Persson, L., Zimerson, E., Bruze, M., Luyckx, R., & Goossens, A. (2013). Allergic contact dermatitis caused by methylisothiazolinone from different sources, including ‘mislabelled’ household wet wipes. Contact Dermatitis",
+    "href": "https://doi.org/10.1111/cod.12143",
+    "apa": {
+      "authors": "Vanneste, L., Persson, L., Zimerson, E., Bruze, M., Luyckx, R., & Goossens, A.",
+      "date": "2013",
+      "title": "Allergic contact dermatitis caused by methylisothiazolinone from different sources, including ‘mislabelled’ household wet wipes",
+      "source": "Contact Dermatitis",
+      "italicTitle": false,
+      "volume": "69",
+      "issue": "5",
+      "pages": "311–312"
+    }
+  },
+  {
+    "id": "euReg",
+    "label": "(2009). Regulation (EC) No 1223/2009 of the European Parliament and of the Council of 30 November 2009 on cosmetic products. Official Journal of the European Union",
+    "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32009R1223",
+    "apa": {
+      "authors": "",
+      "date": "2009",
+      "title": "Regulation (EC) No 1223/2009 of the European Parliament and of the Council of 30 November 2009 on cosmetic products",
+      "source": "Official Journal of the European Union",
+      "volume": "L 342",
+      "pages": "59–209",
+      "italicTitle": false
+    }
+  },
+  {
+    "id": "yu",
+    "label": "Yu, J., Treat, J., Chaney, K., & Brod, B. (2016). Potential allergens in disposable diaper wipes, topical diaper preparations, and disposable diapers: Under-recognized etiology of pediatric perineal dermatitis. Dermatitis",
+    "href": "https://doi.org/10.1097/DER.0000000000000177",
+    "apa": {
+      "authors": "Yu, J., Treat, J., Chaney, K., & Brod, B.",
+      "date": "2016",
+      "title": "Potential allergens in disposable diaper wipes, topical diaper preparations, and disposable diapers: Under-recognized etiology of pediatric perineal dermatitis",
+      "source": "Dermatitis",
+      "italicTitle": false,
+      "volume": "27",
+      "issue": "3",
+      "pages": "110–118"
+    }
+  },
+  {
+    "id": "marinho",
+    "label": "Lazzarini, R., de Figueiredo Silva Hafner, M., Proença, C. C., Lemes, L. R., Rodrigues, A. C., & Sobral, D. V. (2021). Analysis of the components and ph of a sample of wet wipers used for the hygiene of newborns and infants. Anais Brasileiros de Dermatologia",
+    "href": "https://doi.org/10.1016/j.abd.2020.09.011",
+    "apa": {
+      "authors": "Lazzarini, R., de Figueiredo Silva Hafner, M., Proença, C. C., Lemes, L. R., Rodrigues, A. C., & Sobral, D. V.",
+      "date": "2021",
+      "title": "Analysis of the components and ph of a sample of wet wipers used for the hygiene of newborns and infants",
+      "source": "Anais Brasileiros de Dermatologia",
+      "italicTitle": false,
+      "volume": "96",
+      "issue": "6",
+      "pages": "774–776"
+    }
+  },
+  {
+    "id": "hamann",
+    "label": "Hamann, C. R., Sahni, S., & Zug, K. A. (2019). Methylisothiazolinone: Still on leave-on products, but no longer on baby wipes. Dermatitis",
+    "href": "https://doi.org/10.1097/DER.0000000000000438",
+    "apa": {
+      "authors": "Hamann, C. R., Sahni, S., & Zug, K. A.",
+      "date": "2019",
+      "title": "Methylisothiazolinone: Still on leave-on products, but no longer on baby wipes",
+      "source": "Dermatitis",
+      "italicTitle": false,
+      "volume": "30",
+      "issue": "2",
+      "pages": "173–174"
+    }
+  },
+  {
+    "id": "mangir",
+    "label": "Mangır, Ö., & Özkaya, E. (2026). Fragrance and preservative contact allergens in cosmetic and household cleaning products in Turkey: Variation by target population, product type and manufacturing origin. Contact Dermatitis",
+    "href": "https://doi.org/10.1111/cod.70207",
+    "apa": {
+      "authors": "Mangır, Ö., & Özkaya, E.",
+      "date": "2026",
+      "title": "Fragrance and preservative contact allergens in cosmetic and household cleaning products in Turkey: Variation by target population, product type and manufacturing origin",
+      "source": "Contact Dermatitis",
+      "italicTitle": false,
+      "volume": "95",
+      "issue": "4",
+      "pages": "396–404"
+    }
+  },
+  {
+    "id": "lai",
+    "label": "Lai, X., Zhu, J., Liu, Y., Ma, S., Lin, M., Hu, Y., Liang, J., Song, Y., Li, W., & Zhao, T. (2025). Infants’ dermal exposure to phthalates from disposable baby diapers and its association with DNA oxidative damage. Toxics",
+    "href": "https://doi.org/10.3390/toxics13030218",
+    "apa": {
+      "authors": "Lai, X., Zhu, J., Liu, Y., Ma, S., Lin, M., Hu, Y., Liang, J., Song, Y., Li, W., & Zhao, T.",
+      "date": "2025",
+      "title": "Infants’ dermal exposure to phthalates from disposable baby diapers and its association with DNA oxidative damage",
+      "source": "Toxics",
+      "italicTitle": false,
+      "volume": "13",
+      "issue": "3",
+      "articleNumber": "218"
+    }
+  },
+  {
+    "id": "park",
+    "label": "Park, C. J., Barakat, R., Ulanov, A., Li, Z., Lin, P.-C., Chiu, K., Zhou, S., Perez, P., Lee, J., Flaws, J., & Ko, C. J. (2019). Sanitary pads and diapers contain higher phthalate contents than those in common commercial plastic products. Reproductive Toxicology",
+    "href": "https://doi.org/10.1016/j.reprotox.2019.01.005",
+    "apa": {
+      "authors": "Park, C. J., Barakat, R., Ulanov, A., Li, Z., Lin, P.-C., Chiu, K., Zhou, S., Perez, P., Lee, J., Flaws, J., & Ko, C. J.",
+      "date": "2019",
+      "title": "Sanitary pads and diapers contain higher phthalate contents than those in common commercial plastic products",
+      "source": "Reproductive Toxicology",
+      "italicTitle": false,
+      "volume": "84",
+      "pages": "114–121"
+    }
+  },
+  {
+    "id": "wicks",
+    "label": "Wicks, A., Brady, S., Whitehead, H. D., Hedman, T., Zachritz, A., Venier, M., & Peaslee, G. F. (2025). Per- and polyfluoroalkyl substances in reusable feminine hygiene products. Environmental Science & Technology Letters",
+    "href": "https://doi.org/10.1021/acs.estlett.5c00553",
+    "apa": {
+      "authors": "Wicks, A., Brady, S., Whitehead, H. D., Hedman, T., Zachritz, A., Venier, M., & Peaslee, G. F.",
+      "date": "2025",
+      "title": "Per- and polyfluoroalkyl substances in reusable feminine hygiene products",
+      "source": "Environmental Science & Technology Letters",
+      "italicTitle": false,
+      "volume": "12",
+      "issue": "8",
+      "pages": "924–929"
+    }
+  },
+  {
+    "id": "zhou",
+    "label": "Zhou, Y., Lin, X., Xing, Y., Zhang, X., Lee, H. K., & Huang, Z. (2023). Per- and polyfluoroalkyl substances in personal hygiene products: The implications for human exposure and emission to the environment. Environmental Science & Technology",
+    "href": "https://doi.org/10.1021/acs.est.2c08912",
+    "apa": {
+      "authors": "Zhou, Y., Lin, X., Xing, Y., Zhang, X., Lee, H. K., & Huang, Z.",
+      "date": "2023",
+      "title": "Per- and polyfluoroalkyl substances in personal hygiene products: The implications for human exposure and emission to the environment",
+      "source": "Environmental Science & Technology",
+      "italicTitle": false,
+      "volume": "57",
+      "issue": "23",
+      "pages": "8484–8495"
+    }
+  },
+  {
+    "id": "kwon",
+    "label": "Kwon, S., Zambrano, M. C., Venditti, R. A., Frazier, R., Zambrano, F., Gonzalez, R. W., & Pawlak, J. J. (2022). Microfiber shedding from nonwoven materials including wipes and meltblown nonwovens in air and water environments. Environmental Science and Pollution Research",
+    "href": "https://doi.org/10.1007/s11356-022-20053-z",
+    "apa": {
+      "authors": "Kwon, S., Zambrano, M. C., Venditti, R. A., Frazier, R., Zambrano, F., Gonzalez, R. W., & Pawlak, J. J.",
+      "date": "2022",
+      "title": "Microfiber shedding from nonwoven materials including wipes and meltblown nonwovens in air and water environments",
+      "source": "Environmental Science and Pollution Research",
+      "italicTitle": false,
+      "volume": "29",
+      "issue": "40",
+      "pages": "60584–60599"
+    }
+  },
+  {
+    "id": "nacci",
+    "label": "Nacci, T., De Falco, F., Thompson, R. C., Vitale, F., Degano, I., & Modugno, F. (2025). Disposable wet-wipes as potential source of pollution: Multi-analytical investigation of the composition of fibres and additives. Journal of Analytical and Applied Pyrolysis",
+    "href": "https://doi.org/10.1016/j.jaap.2025.107200",
+    "apa": {
+      "authors": "Nacci, T., De Falco, F., Thompson, R. C., Vitale, F., Degano, I., & Modugno, F.",
+      "date": "2025",
+      "title": "Disposable wet-wipes as potential source of pollution: Multi-analytical investigation of the composition of fibres and additives",
+      "source": "Journal of Analytical and Applied Pyrolysis",
+      "italicTitle": false,
+      "volume": "191",
+      "articleNumber": "107200"
+    }
+  },
+  {
+    "id": "obriain",
+    "label": "Ó Briain, O., Marques Mendes, A. R., McCarron, S., Healy, M. G., & Morrison, L. (2020). The role of wet wipes and sanitary towels as a source of white microplastic fibres in the marine environment. Water Research",
+    "href": "https://doi.org/10.1016/j.watres.2020.116021",
+    "apa": {
+      "authors": "Ó Briain, O., Marques Mendes, A. R., McCarron, S., Healy, M. G., & Morrison, L.",
+      "date": "2020",
+      "title": "The role of wet wipes and sanitary towels as a source of white microplastic fibres in the marine environment",
+      "source": "Water Research",
+      "italicTitle": false,
+      "volume": "182",
+      "articleNumber": "116021"
+    }
+  },
+  {
+    "id": "qapp1",
+    "label": "Stone, A. (2012b). Quality assurance project plan: Parabens and metals in children’s cosmetic and personal care products. Washington State Department of Ecology",
+    "href": "https://apps.ecology.wa.gov/publications/documents/1207021.pdf",
+    "apa": {
+      "authors": "Stone, A.",
+      "date": "2012b",
+      "title": "Quality assurance project plan: Parabens and metals in children’s cosmetic and personal care products",
+      "italicTitle": true,
+      "description": "Publication No. 12-07-021",
+      "publisher": "Washington State Department of Ecology"
+    }
+  },
+  {
+    "id": "qapp2",
+    "label": "Stone, A. (2012d). Quality assurance project plan: Phthalates and metals in packaging from consumer and children’s products. Washington State Department of Ecology",
+    "href": "https://apps.ecology.wa.gov/publications/documents/1207022.pdf",
+    "apa": {
+      "authors": "Stone, A.",
+      "date": "2012d",
+      "title": "Quality assurance project plan: Phthalates and metals in packaging from consumer and children’s products",
+      "italicTitle": true,
+      "description": "Publication No. 12-07-022",
+      "publisher": "Washington State Department of Ecology"
+    }
+  },
+  {
+    "id": "qapp3",
+    "label": "Stone, A. (2012c). Quality assurance project plan: Phthalates and metals in children’s products. Washington State Department of Ecology",
+    "href": "https://apps.ecology.wa.gov/publications/documents/1207023.pdf",
+    "apa": {
+      "authors": "Stone, A.",
+      "date": "2012c",
+      "title": "Quality assurance project plan: Phthalates and metals in children’s products",
+      "italicTitle": true,
+      "description": "Publication No. 12-07-023",
+      "publisher": "Washington State Department of Ecology"
+    }
+  },
+  {
+    "id": "qapp4",
+    "label": "Stone, A. (2012a). Quality assurance project plan: Formaldehyde, volatile organic compounds and metals in children’s products. Washington State Department of Ecology",
+    "href": "https://apps.ecology.wa.gov/publications/documents/1207024.pdf",
+    "apa": {
+      "authors": "Stone, A.",
+      "date": "2012a",
+      "title": "Quality assurance project plan: Formaldehyde, volatile organic compounds and metals in children’s products",
+      "italicTitle": true,
+      "description": "Publication No. 12-07-024",
+      "publisher": "Washington State Department of Ecology"
+    }
+  },
+  {
+    "id": "hmiMetals",
+    "label": "Pendergrass, K. (2026c). Heavy metals in baby wipes. Heavy Metal Index",
+    "href": "https://doi.org/10.83376/hmi.heavy-metals-in-baby-wipes",
+    "apa": {
+      "authors": "Pendergrass, K.",
+      "date": "2026c",
+      "title": "Heavy metals in baby wipes",
+      "italicTitle": true,
+      "source": "Heavy Metal Index"
+    }
+  },
+  {
+    "id": "nyamukamba",
+    "label": "Nyamukamba, P., Mququ, Z., Nkosi, S., & Isaacs, S. (2023). Determination of selected harmful substances in baby diapers available on the South African market. International Journal of Environmental Research and Public Health",
+    "href": "https://doi.org/10.3390/ijerph20021023",
+    "apa": {
+      "authors": "Nyamukamba, P., Mququ, Z., Nkosi, S., & Isaacs, S.",
+      "date": "2023",
+      "title": "Determination of selected harmful substances in baby diapers available on the South African market",
+      "source": "International Journal of Environmental Research and Public Health",
+      "italicTitle": false,
+      "volume": "20",
+      "issue": "2",
+      "articleNumber": "1023"
+    }
+  },
+  {
+    "id": "biver",
+    "label": "Biver, M., Turner, A., & Filella, M. (2021). Antimony release from polyester textiles by artificial sweat solutions: A call for a standardized procedure. Regulatory Toxicology and Pharmacology",
+    "href": "https://doi.org/10.1016/j.yrtph.2020.104824",
+    "apa": {
+      "authors": "Biver, M., Turner, A., & Filella, M.",
+      "date": "2021",
+      "title": "Antimony release from polyester textiles by artificial sweat solutions: A call for a standardized procedure",
+      "source": "Regulatory Toxicology and Pharmacology",
+      "italicTitle": false,
+      "volume": "119",
+      "articleNumber": "104824"
+    }
+  },
+  {
+    "id": "borca",
+    "label": "Borca, C. N., Huthwelker, T., & Filella, M. (2025). A step towards understanding plastic complexity: Antimony speciation in consumer plastics and synthetic textiles revealed by XAS. Journal of Environmental Sciences",
+    "href": "https://doi.org/10.1016/j.jes.2024.02.006",
+    "apa": {
+      "authors": "Borca, C. N., Huthwelker, T., & Filella, M.",
+      "date": "2025",
+      "title": "A step towards understanding plastic complexity: Antimony speciation in consumer plastics and synthetic textiles revealed by XAS",
+      "source": "Journal of Environmental Sciences",
+      "italicTitle": false,
+      "volume": "153",
+      "pages": "109–117"
+    }
+  },
+  {
+    "id": "iarc",
+    "label": "International Agency for Research on Cancer. (2023). Cobalt, antimony compounds, and weapons-grade tungsten alloy. ",
+    "href": "https://www.ncbi.nlm.nih.gov/books/NBK598316/",
+    "apa": {
+      "authors": "International Agency for Research on Cancer",
+      "date": "2023",
+      "title": "Cobalt, antimony compounds, and weapons-grade tungsten alloy",
+      "italicTitle": true,
+      "description": "IARC Monographs on the Identification of Carcinogenic Hazards to Humans, Vol. 131"
+    }
+  },
+  {
+    "id": "atsdr",
+    "label": "Agency for Toxic Substances and Disease Registry. (2019, October). Toxicological profile for antimony and compounds. U.S. Department of Health and Human Services",
+    "href": "https://www.atsdr.cdc.gov/toxprofiles/tp23.pdf",
+    "apa": {
+      "authors": "Agency for Toxic Substances and Disease Registry",
+      "date": "2019, October",
+      "title": "Toxicological profile for antimony and compounds",
+      "italicTitle": true,
+      "publisher": "U.S. Department of Health and Human Services"
+    }
+  },
+  {
+    "id": "hmiAntimony",
+    "label": "Pendergrass, K. (2026a). Antimony in baby products. Heavy Metal Index",
+    "href": "https://doi.org/10.83376/hmi.antimony-in-baby-products",
+    "apa": {
+      "authors": "Pendergrass, K.",
+      "date": "2026a",
+      "title": "Antimony in baby products",
+      "italicTitle": true,
+      "source": "Heavy Metal Index"
+    }
+  },
+  {
+    "id": "korea",
+    "label": "Ministry of Food and Drug Safety. (n.d.). Cosmetic safety standard (Article 6(2)). ",
+    "href": "https://kcia.or.kr/cid/cs/law.php",
+    "apa": {
+      "authors": "Ministry of Food and Drug Safety",
+      "date": "n.d.",
+      "title": "Cosmetic safety standard (Article 6(2))",
+      "italicTitle": true,
+      "description": "As reproduced by the Korean Cosmetic Industry Association"
+    }
+  },
+  {
+    "id": "healthCanada",
+    "label": "Health Canada. (2012, July 20). Guidance on heavy metal impurities in cosmetics. ",
+    "href": "https://www.canada.ca/en/health-canada/services/consumer-product-safety/reports-publications/industry-professionals/guidance-heavy-metal-impurities-cosmetics.html",
+    "apa": {
+      "authors": "Health Canada",
+      "date": "2012, July 20",
+      "title": "Guidance on heavy metal impurities in cosmetics",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "bvl",
+    "label": "Bund, B. (2017). Technically avoidable heavy metal contents in cosmetic products. Journal of Consumer Protection and Food Safety",
+    "href": "https://doi.org/10.1007/s00003-016-1044-2",
+    "apa": {
+      "authors": "Bund, B.",
+      "date": "2017",
+      "title": "Technically avoidable heavy metal contents in cosmetic products",
+      "source": "Journal of Consumer Protection and Food Safety",
+      "italicTitle": false,
+      "volume": "12",
+      "issue": "1",
+      "pages": "51–53"
+    }
+  },
+  {
+    "id": "rcw",
+    "label": "(n.d.). Prohibition on the manufacture, sale, or distribution of certain products. Revised Code of Washington § 70A.560.020",
+    "href": "https://app.leg.wa.gov/RCW/default.aspx?cite=70A.560.020",
+    "apa": {
+      "authors": "",
+      "date": "n.d.",
+      "title": "Prohibition on the manufacture, sale, or distribution of certain products",
+      "source": "Revised Code of Washington § 70A.560.020",
+      "italicTitle": false
+    }
+  },
+  {
+    "id": "cfr",
+    "label": "(n.d.). Use of mercury compounds in cosmetics including use as skinbleaching agents in cosmetic preparations also regarded as drugs. 21 C.F.R. § 700.13",
+    "href": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-G/part-700/subpart-B/section-700.13",
+    "apa": {
+      "authors": "",
+      "date": "n.d.",
+      "title": "Use of mercury compounds in cosmetics including use as skinbleaching agents in cosmetic preparations also regarded as drugs",
+      "source": "21 C.F.R. § 700.13",
+      "italicTitle": false
+    }
+  },
+  {
+    "id": "oekotex",
+    "label": "OEKO-TEX. (2025). OEKO-TEX STANDARD 100: Limit values and individual substances according to appendices 4 & 5. ",
+    "href": "https://www.oeko-tex.com/importedmedia/downloadfiles/OEKO-TEX_STANDARD_100_Limit_Values_and_Individual_Substances_According_to_Appendices_4_5_EN_DE.pdf",
+    "apa": {
+      "authors": "OEKO-TEX",
+      "date": "2025",
+      "title": "OEKO-TEX STANDARD 100: Limit values and individual substances according to appendices 4 & 5",
+      "italicTitle": true,
+      "description": "Edition 02.2025"
+    }
+  },
+  {
+    "id": "chang",
+    "label": "Chang, M. W., & Nakrani, R. (2014). Six children with allergic contact dermatitis to methylisothiazolinone in wet wipes (baby wipes). Pediatrics",
+    "href": "https://doi.org/10.1542/peds.2013-1453",
+    "apa": {
+      "authors": "Chang, M. W., & Nakrani, R.",
+      "date": "2014",
+      "title": "Six children with allergic contact dermatitis to methylisothiazolinone in wet wipes (baby wipes)",
+      "source": "Pediatrics",
+      "italicTitle": false,
+      "volume": "133",
+      "issue": "2",
+      "pages": "e434–e438"
+    }
+  },
+  {
+    "id": "admani",
+    "label": "Admani, S., Matiz, C., & Jacob, S. E. (2014). Methylisothiazolinone: A case of perianal dermatitis caused by wet wipes and review of an emerging pediatric allergen. Pediatric Dermatology",
+    "href": "https://doi.org/10.1111/pde.12328",
+    "apa": {
+      "authors": "Admani, S., Matiz, C., & Jacob, S. E.",
+      "date": "2014",
+      "title": "Methylisothiazolinone: A case of perianal dermatitis caused by wet wipes and review of an emerging pediatric allergen",
+      "source": "Pediatric Dermatology",
+      "italicTitle": false,
+      "volume": "31",
+      "issue": "3",
+      "pages": "350–352"
+    }
+  },
+  {
+    "id": "boyapati",
+    "label": "Boyapati, A., Tam, M., Tate, B., Lee, A., Palmer, A., & Nixon, R. (2013). Allergic contact dermatitis to methylisothiazolinone: Exposure from baby wipes causing hand dermatitis. Australasian Journal of Dermatology",
+    "href": "https://doi.org/10.1111/ajd.12062",
+    "apa": {
+      "authors": "Boyapati, A., Tam, M., Tate, B., Lee, A., Palmer, A., & Nixon, R.",
+      "date": "2013",
+      "title": "Allergic contact dermatitis to methylisothiazolinone: Exposure from baby wipes causing hand dermatitis",
+      "source": "Australasian Journal of Dermatology",
+      "italicTitle": false,
+      "volume": "54",
+      "issue": "4",
+      "pages": "264–267"
+    }
+  },
+  {
+    "id": "cahill",
+    "label": "Cahill, J. L., Toholka, R. W., & Nixon, R. L. (2014). Methylisothiazolinone in baby wipes: A rising star among causes of contact dermatitis. Medical Journal of Australia",
+    "href": "https://doi.org/10.5694/mja13.10946",
+    "apa": {
+      "authors": "Cahill, J. L., Toholka, R. W., & Nixon, R. L.",
+      "date": "2014",
+      "title": "Methylisothiazolinone in baby wipes: A rising star among causes of contact dermatitis",
+      "source": "Medical Journal of Australia",
+      "italicTitle": false,
+      "volume": "200",
+      "issue": "4",
+      "pages": "208"
+    }
+  },
+  {
+    "id": "warshaw",
+    "label": "Warshaw, E. M., Aschenbeck, K. A., Zug, K. A., Belsito, D. V., Zirwas, M. J., Fowler, J. F., Taylor, J. S., Sasseville, D., Fransway, A. F., DeLeo, V. A., Marks, J. G., Pratt, M. D., Maibach, H. I., Mathias, C. T., & DeKoven, J. G. (2017). Wet wipe allergens: Retrospective analysis from the North American contact dermatitis group 2011–2014. Dermatitis",
+    "href": "https://doi.org/10.1097/DER.0000000000000248",
+    "apa": {
+      "authors": "Warshaw, E. M., Aschenbeck, K. A., Zug, K. A., Belsito, D. V., Zirwas, M. J., Fowler, J. F., Taylor, J. S., Sasseville, D., Fransway, A. F., DeLeo, V. A., Marks, J. G., Pratt, M. D., Maibach, H. I., Mathias, C. T., & DeKoven, J. G.",
+      "date": "2017",
+      "title": "Wet wipe allergens: Retrospective analysis from the North American contact dermatitis group 2011–2014",
+      "source": "Dermatitis",
+      "italicTitle": false,
+      "volume": "28",
+      "issue": "1",
+      "pages": "64–69"
+    }
+  },
+  {
+    "id": "guin",
+    "label": "Guin, J. D., Kincannon, J., & Church, F. L. (2001). Baby-wipe dermatitis: Preservative-induced hand eczema in parents and persons using moist towelettes. American Journal of Contact Dermatitis",
+    "href": "https://doi.org/10.1053/ajcd.2001.28052",
+    "apa": {
+      "authors": "Guin, J. D., Kincannon, J., & Church, F. L.",
+      "date": "2001",
+      "title": "Baby-wipe dermatitis: Preservative-induced hand eczema in parents and persons using moist towelettes",
+      "source": "American Journal of Contact Dermatitis",
+      "italicTitle": false,
+      "volume": "12",
+      "issue": "4",
+      "pages": "189–192"
+    }
+  },
+  {
+    "id": "domingos",
+    "label": "Domingos‐Ancement, E. E., Misery, L., & Deydier, N. (2026). Axillary contact dermatitis in an adult caused by hexamidine diisethionate from baby wipes labelled “pure water”. Contact Dermatitis",
+    "href": "https://doi.org/10.1111/cod.70055",
+    "apa": {
+      "authors": "Domingos‐Ancement, E. E., Misery, L., & Deydier, N.",
+      "date": "2026",
+      "title": "Axillary contact dermatitis in an adult caused by hexamidine diisethionate from baby wipes labelled “pure water”",
+      "source": "Contact Dermatitis",
+      "italicTitle": false,
+      "volume": "94",
+      "issue": "2",
+      "pages": "190–191"
+    }
+  },
+  {
+    "id": "lavender",
+    "label": "Lavender, T., Furber, C., Campbell, M., Victor, S., Roberts, I., Bedwell, C., & Cork, M. J. (2012). Effect on skin hydration of using baby wipes to clean the napkin area of newborn babies: Assessor-blinded randomised controlled equivalence trial. BMC Pediatrics",
+    "href": "https://doi.org/10.1186/1471-2431-12-59",
+    "apa": {
+      "authors": "Lavender, T., Furber, C., Campbell, M., Victor, S., Roberts, I., Bedwell, C., & Cork, M. J.",
+      "date": "2012",
+      "title": "Effect on skin hydration of using baby wipes to clean the napkin area of newborn babies: Assessor-blinded randomised controlled equivalence trial",
+      "source": "BMC Pediatrics",
+      "italicTitle": false,
+      "volume": "12",
+      "issue": "1",
+      "articleNumber": "59"
+    }
+  },
+  {
+    "id": "carr",
+    "label": "Carr, A. N., DeWitt, T., Cork, M. J., Eichenfield, L. F., Fölster‐Holst, R., Hohl, D., Lane, A. T., Paller, A., Pickering, L., Taieb, A., Cui, T. Y., Xu, Z. G., Wang, X., Brink, S., Niu, Y., Ogle, J., Odio, M., & Gibb, R. D. (2020). Diaper dermatitis prevalence and severity: Global perspective on the impact of caregiver behavior. Pediatric Dermatology",
+    "href": "https://doi.org/10.1111/pde.14047",
+    "apa": {
+      "authors": "Carr, A. N., DeWitt, T., Cork, M. J., Eichenfield, L. F., Fölster‐Holst, R., Hohl, D., Lane, A. T., Paller, A., Pickering, L., Taieb, A., Cui, T. Y., Xu, Z. G., Wang, X., Brink, S., Niu, Y., Ogle, J., Odio, M., & Gibb, R. D.",
+      "date": "2020",
+      "title": "Diaper dermatitis prevalence and severity: Global perspective on the impact of caregiver behavior",
+      "source": "Pediatric Dermatology",
+      "italicTitle": false,
+      "volume": "37",
+      "issue": "1",
+      "pages": "130–136"
+    }
+  },
+  {
+    "id": "isufi",
+    "label": "Isufi, D., Jensen, M. B., Kursawe Larsen, C., Alinaghi, F., Schwensen, J. F. B., & Johansen, J. D. (2025). Allergens responsible for contact allergy in children from 2010 to 2024: A systematic review and meta‐analysis. Contact Dermatitis",
+    "href": "https://doi.org/10.1111/cod.14753",
+    "apa": {
+      "authors": "Isufi, D., Jensen, M. B., Kursawe Larsen, C., Alinaghi, F., Schwensen, J. F. B., & Johansen, J. D.",
+      "date": "2025",
+      "title": "Allergens responsible for contact allergy in children from 2010 to 2024: A systematic review and meta‐analysis",
+      "source": "Contact Dermatitis",
+      "italicTitle": false,
+      "volume": "92",
+      "issue": "5",
+      "pages": "327–343"
+    }
+  },
+  {
+    "id": "newton",
+    "label": "Newton, J., Richardson, S., van Oosbre, A. M., Yu, J., & Silence, C. (2022). A cross-sectional study of contact allergens in feminine hygiene wipes: A possible cause of vulvar contact dermatitis. International Journal of Women’s Dermatology",
+    "href": "https://doi.org/10.1097/jw9.0000000000000060",
+    "apa": {
+      "authors": "Newton, J., Richardson, S., van Oosbre, A. M., Yu, J., & Silence, C.",
+      "date": "2022",
+      "title": "A cross-sectional study of contact allergens in feminine hygiene wipes: A possible cause of vulvar contact dermatitis",
+      "source": "International Journal of Women’s Dermatology",
+      "italicTitle": false,
+      "volume": "8",
+      "issue": "4",
+      "articleNumber": "e060"
+    }
+  }
+]
