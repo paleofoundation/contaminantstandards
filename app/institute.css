@@ -270,3 +270,30 @@ a:focus-visible,summary:focus-visible,button:focus-visible { outline:3px solid #
 @media(max-width:950px) and (min-width:801px) { .main-nav a:last-child { display:none; } }
 @media(max-width:800px) { .site-header { min-height:88px; grid-template-columns:1fr auto auto; gap:17px; }.header-action { padding:12px 15px; font-size:11px; }.institute-hero-inner { grid-template-columns:1fr; width:100%; }.institute-hero-copy { padding:52px 24px; }.institute-hero h1 { font-size:clamp(54px,8vw,75px); }.hero-botanical { min-height:440px; }.hero-botanical img { object-position:50% 43%; }.hero-baseline { width:100%; padding-inline:24px; }.certification-entry-inner { grid-template-columns:1fr; gap:25px; }.institute-home .certification-entry h2 { font-size:41px; }.certification-entry { padding-block:40px; }.application-hub .contaminant-card { display:flex; }.application-hub .contaminant-card h3 { margin-top:15px; } }
 @media(max-width:520px) { .site-header { min-height:82px; gap:12px; }.brand-name { font-size:11px; }.brand-mark { width:36px;height:40px; }.header-action { font-size:10px; padding:12px; gap:10px; }.mobile-navigation summary { padding-left:0; gap:6px; font-size:11px; }.institute-hero-copy { padding:42px 20px; }.institute-hero h1 { font-size:clamp(43px,11.2vw,58px); }.hero-botanical { min-height:390px; }.hero-baseline { padding-inline:20px; }.botanical-seal { width:78px;height:78px;top:22px;right:22px; }.botanical-caption { bottom:25px;left:20px;right:20px; }.botanical-caption>span:last-child { font-size:17px; }.institute-home .certification-entry h2 { font-size:38px; }.portal-entry-actions { align-items:start; flex-direction:column; gap:18px; }.application-hub { padding-block:42px; } }
+
+/* Supplied ICS lockup: preserve its proportions and blend its navy canvas. */
+.site-header { width:100%; padding-inline:max(40px,calc((100vw - 1440px)/2)); min-height:104px; background:var(--navy-deep); color:#eef2f7; grid-template-columns:minmax(0,1fr) auto auto; }
+.brand-lockup { display:block; width:340px; max-width:100%; min-width:0; }
+.ics-logo { display:block; width:100%; height:auto; object-fit:contain; }
+.main-nav a:hover { color:var(--gold); }
+.site-header .header-action { color:var(--navy-deep); background:var(--gold); }
+.site-header .header-action:hover { background:#f1b950; }
+.footer-wordmark { display:block; width:330px; max-width:100%; }
+@media(max-width:1150px) {
+ .site-header { padding-inline:24px; gap:22px; }
+ .brand-lockup { width:300px; }
+}
+@media(max-width:800px) {
+ .site-header { min-height:88px; gap:17px; }
+ .brand-lockup { width:320px; }
+ .mobile-navigation[open] summary { color:var(--gold); }
+ .mobile-navigation nav { top:88px; left:0; right:0; background:var(--navy-deep); border-color:#9eacbe40; }
+ .mobile-navigation nav a { border-color:#9eacbe40; }
+ .mobile-navigation nav a:hover { color:var(--gold); }
+}
+@media(max-width:520px) {
+ .site-header { padding-inline:14px; min-height:82px; gap:10px; }
+ .brand-lockup { width:220px; }
+ .site-header .header-action { padding:12px 10px; gap:7px; }
+ .mobile-navigation nav { top:82px; }
+}

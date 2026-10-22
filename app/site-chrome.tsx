@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
   { href: "/network", label: "Our network" },
@@ -12,20 +14,20 @@ export function SiteHeader() {
   return <>
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="site-header">
-      <a className="brand-lockup" href="/" aria-label="Institute of Contaminant Standards home"><span className="brand-mark" aria-hidden="true"><span>I</span><span>C</span><span>S</span></span><span className="brand-name">Institute of<br />Contaminant Standards</span></a>
-      <nav className="main-nav" aria-label="Primary navigation">{navigation.map(item => <a href={item.href} key={item.href}>{item.label}</a>)}</nav>
-      <a className="header-action" href="/login">Log in <span aria-hidden="true">↗</span></a>
-      <details className="mobile-navigation"><summary>Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile navigation"><a href="/">Institute home</a>{navigation.map(item => <a href={item.href} key={item.href}>{item.label}</a>)}<a href="/login">Log in to your portal ↗</a><a href="https://tecrid.com">TECRID ↗</a><a href="https://vle.exchange">Verified Lot Exchange ↗</a></nav></details>
+      <Link className="brand-lockup" href="/" aria-label="Institute of Contaminant Standards home"><Image className="ics-logo" src="/ics-logo.png" width={564} height={110} alt="Institute of Contaminant Standards" priority unoptimized /></Link>
+      <nav className="main-nav" aria-label="Primary navigation">{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}</nav>
+      <Link className="header-action" href="/login">Log in <span aria-hidden="true">↗</span></Link>
+      <details className="mobile-navigation"><summary>Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile navigation"><Link href="/">Institute home</Link>{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href="/login">Log in to your portal ↗</Link><a href="https://tecrid.com">TECRID ↗</a><a href="https://vle.exchange">Verified Lot Exchange ↗</a></nav></details>
     </header>
   </>;
 }
 
 export function SiteFooter() {
   return <footer className="institution-footer"><div className="wrap">
-    <div className="footer-upper"><div className="footer-identity"><a href="/" className="footer-wordmark">ICS<span>Institute of<br />Contaminant Standards</span></a><p>Better evidence. Higher standards.<br />Greater trust.</p><a href="/people/karen-pendergrass">Founded by Karen Pendergrass <span aria-hidden="true">↗</span></a></div>
-      <div className="footer-column"><h2>The Institute</h2>{navigation.map(item => <a href={item.href} key={item.href}>{item.label}</a>)}<a href="/login">Certification portal</a><a href="/people/karen-pendergrass">Leadership &amp; research</a><a href="/evidence">Evidence stewardship</a><a href="/registry">Brand registry</a><a href="/contact">Contact</a></div>
-      <div className="footer-column"><h2>Our network</h2><a href="https://heavymetalindex.com">Heavy Metal Index ↗</a><a href="https://heavymetalcertified.com">Heavy Metal Certified ↗</a><a href="/network#microplastics">Microplastics programs</a><a href="/network#pfas">PFAS programs</a><a href="https://tecrid.com">TECRID ↗</a><a href="https://vle.exchange">Verified Lot Exchange ↗</a></div>
-      <div className="footer-column"><h2>Accountability</h2><a href="/governance/policies">Policy register</a><a href="/governance/notes">Evidence governance notes</a><a href="https://tecrid.com/what-is-a-tecrid">What is a TECRID? ↗</a><a href="/licensing">Licensing</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+    <div className="footer-upper"><div className="footer-identity"><Link href="/" className="footer-wordmark" aria-label="Institute of Contaminant Standards home"><Image className="ics-logo" src="/ics-logo.png" width={564} height={110} alt="Institute of Contaminant Standards" unoptimized /></Link><p>Better evidence. Higher standards.<br />Greater trust.</p><Link href="/people/karen-pendergrass">Founded by Karen Pendergrass <span aria-hidden="true">↗</span></Link></div>
+      <div className="footer-column"><h2>The Institute</h2>{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href="/login">Certification portal</Link><Link href="/people/karen-pendergrass">Leadership &amp; research</Link><Link href="/evidence">Evidence stewardship</Link><Link href="/registry">Brand registry</Link><Link href="/contact">Contact</Link></div>
+      <div className="footer-column"><h2>Our network</h2><a href="https://heavymetalindex.com">Heavy Metal Index ↗</a><a href="https://heavymetalcertified.com">Heavy Metal Certified ↗</a><Link href="/network#microplastics">Microplastics programs</Link><Link href="/network#pfas">PFAS programs</Link><a href="https://tecrid.com">TECRID ↗</a><a href="https://vle.exchange">Verified Lot Exchange ↗</a></div>
+      <div className="footer-column"><h2>Accountability</h2><Link href="/governance/policies">Policy register</Link><Link href="/governance/notes">Evidence governance notes</Link><a href="https://tecrid.com/what-is-a-tecrid">What is a TECRID? ↗</a><Link href="/licensing">Licensing</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
     </div><div className="footer-lower"><span>© 2026 Paleo Certified, Inc. <span className="footer-entity">A trade name of Paleo Certified, Inc.</span></span><span>Research. Standards. Accountability.</span></div>
   </div></footer>;
 }
