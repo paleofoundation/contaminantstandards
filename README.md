@@ -44,9 +44,9 @@ HMI_REPO=/path/to/heavymetalindex FEED_DATE=YYYY-MM-DD npm run feeds
 Commit the regenerated `public/data/*.json` files with the corresponding site
 change. The source-level firewall remains build-blocking.
 
-## Backend (Step 6, not yet wired)
+## Certification portal and public projection
 
-The registry and verify pages read scaffold literals today. In production they read a **physically separate published-projection datastore** (allow-by-projection, fail-closed — not a filtered read of the CRM DB), and the application/portal lives on `apply.contaminantstandards.com` against ICS-owned Supabase. See the CRM schema migrations under `db/` and `docs/architecture/application-crm-spec.md` in the index repo.
+The registry and verify pages read scaffold literals today. In production they read a **physically separate published-projection datastore** (allow-by-projection, fail-closed — not a filtered read of the CRM DB), and the application/portal lives on `apply.contaminantstandards.com`, reusing the existing `heavymetalcertified-app` deployment and Supabase account store. The public site routes `/login` and `/portal` to that separate authenticated app; `/apply` presents the program chooser. Heavy Metal Tested & Certified is available; PFAS and microplastics remain in development. See the CRM schema migrations under `db/` and `docs/architecture/application-crm-spec.md` in the index repo.
 
 ## Develop
 
