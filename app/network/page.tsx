@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { PageHero, SiteFrame, Status } from "../site-chrome";
+import {
+  InteriorHero,
+  PageNav,
+  SectionIntro,
+  InteriorClosing,
+  MaterialMark,
+} from "../interior";
+import { SiteFrame, Status } from "../site-chrome";
 import { canonical } from "../site-data";
 
 export const metadata: Metadata = {
@@ -9,7 +16,8 @@ export const metadata: Metadata = {
   alternates: { canonical: canonical("/network") },
   openGraph: {
     title: "Contaminant Network | Institute of Contaminant Standards",
-    description: "The evidence-index and certification-program network governed by ICS.",
+    description:
+      "The evidence-index and certification-program network governed by ICS.",
     type: "website",
     url: canonical("/network"),
     images: [],
@@ -17,7 +25,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Contaminant Network | Institute of Contaminant Standards",
-    description: "The evidence-index and certification-program network governed by ICS.",
+    description:
+      "The evidence-index and certification-program network governed by ICS.",
     images: [],
   },
 };
@@ -88,121 +97,247 @@ const programs = [
 export default function NetworkPage() {
   return (
     <SiteFrame>
-      <main>
-        <PageHero
-          index="01 / NETWORK"
-          eyebrow="The contaminant portfolio"
-          title={<>One institution.<br /><em>Separate public faces.</em></>}
-          description="Every contaminant receives its own literature index and its own certification program. ICS governs the shared architecture while the evidence, thresholds, and operating records remain in the data class where they belong."
-          aside={
-            <div className="page-register">
-              <span>NETWORK REGISTER</span>
-              <dl>
-                <div><dt>Operational programs</dt><dd>1</dd></div>
-                <div><dt>Programs in development</dt><dd>2</dd></div>
-                <div><dt>Shared infrastructure services</dt><dd>2</dd></div>
-                <div><dt>Public faces per contaminant</dt><dd>2</dd></div>
-                <div><dt>Shared governance body</dt><dd>ICS</dd></div>
-              </dl>
-            </div>
+      <main className="interior network-interior">
+        <InteriorHero
+          label="OUR NETWORK"
+          title={
+            <>
+              Connected by purpose.
+              <br />
+              <em>Clear by design.</em>
+            </>
           }
-        />
-
-        <section className="network-rule">
-          <span>THE REPEATABLE MODEL</span>
-          <div><b>Independent index</b><i aria-hidden="true">＋</i><b>Certification program</b><i aria-hidden="true">＋</i><b>ICS governance</b></div>
-        </section>
-
-        <section className="program-network" aria-label="Contaminant programs">
-          {programs.map((program) => (
-            <article className="program-track" id={program.code.includes("MP") ? "microplastics" : program.code.includes("PF") ? "pfas" : "heavy-metals"} key={program.code}>
-              <div className="track-intro">
-                <p>{program.code}</p>
-                <Status tone={program.tone}>{program.status}</Status>
-                <h2>{program.title}</h2>
-                <p>{program.description}</p>
-              </div>
-
-              <div className="track-faces">
-                <div className="track-face index-face">
-                  <span>LITERATURE INDEX</span>
-                  <h3>{program.index.label}</h3>
-                  <p>{program.index.note}</p>
-                  {program.tone === "live" ? <a href={program.index.href} target="_blank" rel="noopener">{program.index.domain} ↗</a> : <span className="domain-not-live">{program.index.domain} · In development</span>}
-                </div>
-
-                <div className="track-arrow" aria-hidden="true">
-                  <span>ONE-WAY<br />CITATION</span>
-                  <b>←</b>
-                </div>
-
-                <div className="track-face standard-face">
-                  <span>CERTIFICATION PROGRAM</span>
-                  <h3>{program.standard.label}</h3>
-                  <p>{program.standard.note}</p>
-                  {program.standard.href && program.tone === "live" ? (
-                    <a href={program.standard.href} target="_blank" rel="noopener">
-                      {program.standard.domain} ↗
-                    </a>
-                  ) : (
-                    <span className="domain-not-live">{program.standard.domain}</span>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
-
-        <section className="shared-services-section">
-          <div className="shared-services-intro">
-            <p className="section-kicker section-kicker-light">SHARED INSTITUTION</p>
-            <h2>Central authority without a central data pool.</h2>
-            <p>
-              ICS supplies common governance and, as the network grows, common
-              verification infrastructure. Applications remain with the active
-              program while there is only one operational certification pathway.
+          description="Find the research, the certification program, or the evidence behind a laboratory record. Every part of the ICS network has a distinct job."
+        >
+          <div className="network-map">
+            <p className="inside-label">
+              ONE INSTITUTION · DISTINCT RESPONSIBILITIES
             </p>
+            <div className="network-map-core">
+              <span>ICS</span>
+              <p>
+                Shared governance.
+                <br />
+                Accountable standards.
+              </p>
+            </div>
+            <div className="network-map-branches">
+              <a href="#programs">
+                <small>01 / RESEARCH</small>
+                <b>Evidence indexes</b>
+                <span>Explore the literature ↘</span>
+              </a>
+              <a href="/apply">
+                <small>02 / CERTIFICATION</small>
+                <b>Certification programs</b>
+                <span>Find your pathway ↗</span>
+              </a>
+            </div>
+            <a className="network-map-foot" href="#infrastructure">
+              Verified evidence &amp; connected sourcing{" "}
+              <span aria-hidden="true">↓</span>
+            </a>
           </div>
-          <div className="service-grid">
-            <article>
-              <Status tone="live">Available</Status>
-              <h3>Institutional authority</h3>
-              <p>Governance, network structure, leadership, and institutional analysis.</p>
-              <a href="https://contaminantstandards.com" target="_blank" rel="noopener">contaminantstandards.com ↗</a>
-            </article>
-            <article className="service-tec">
-              <Status tone="live">Operational</Status>
-              <h3>TECRID Registry</h3>
-              <p>
-                TECRID stands for Test Evidence Credential Record Identifier. Each
-                identifier resolves a versioned laboratory evidence record with visible
-                provenance and structured, machine-readable findings.
-              </p>
-              <a href="https://tecrid.com/what-is-a-tecrid" target="_blank" rel="noopener">What is a TECRID? ↗</a>
-            </article>
-            <article>
-              <Status>Demo &amp; pilot</Status>
-              <h3>Verified Lot Exchange</h3>
-              <p>Ingredient sourcing connected to lot-level evidence, supplier information, and supporting documentation.</p>
-              <a href="https://vle.exchange">Explore VLE.exchange ↗</a>
-            </article>
-            <article>
-              <Status>Program-routed</Status>
-              <h3>Applications</h3>
-              <p>
-                With one active program, applications belong on the Heavy Metal
-                Tested &amp; Certified site rather than behind a redundant ICS portal.
-              </p>
-              <a href="https://heavymetalcertified.com" target="_blank" rel="noopener">Go to the active program ↗</a>
-            </article>
+        </InteriorHero>
+        <PageNav
+          items={[
+            { href: "#programs", label: "Contaminant programs" },
+            { href: "#infrastructure", label: "Shared infrastructure" },
+            { href: "#roles", label: "How it fits together" },
+          ]}
+        />
+        <section className="inside-section inside-container" id="programs">
+          <SectionIntro
+            label="01 / CONTAMINANT PROGRAMS"
+            title={
+              <>
+                Explore by <em>contaminant.</em>
+              </>
+            }
+          >
+            <p>
+              Each field pairs a public evidence index with a separate
+              certification program. Availability is shown at the program level.
+            </p>
+          </SectionIntro>
+          <div className="network-programs">
+            {programs.map((p, i) => (
+              <article
+                className={`network-program ${i === 0 ? "is-live" : ""}`}
+                id={
+                  i === 0 ? "heavy-metals" : i === 1 ? "microplastics" : "pfas"
+                }
+                key={p.code}
+              >
+                <div className="network-program-top">
+                  <span className="inside-label">{p.code}</span>
+                  <Status tone={p.tone}>
+                    {i === 0 ? "Established program" : p.status}
+                  </Status>
+                </div>
+                <MaterialMark
+                  kind={i === 0 ? "metals" : i === 1 ? "plastics" : "pfas"}
+                />
+                <h3>{i === 2 ? "PFAS" : p.title}</h3>
+                <p>
+                  {i === 0
+                    ? "A public research index and an active certification pathway for heavy metals in products."
+                    : i === 1
+                      ? "A dedicated evidence index and certification pathway for microplastics are in development."
+                      : "Evidence and certification pathways for forever chemicals are in development."}
+                </p>
+                <div className="network-destinations">
+                  <div>
+                    <span className="inside-label">EXPLORE THE EVIDENCE</span>
+                    {p.tone === "live" ? (
+                      <a href={p.index.href}>
+                        {p.index.label}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <b>{p.index.label}</b>
+                    )}
+                    <small>
+                      {p.index.domain}
+                      {p.tone !== "live" ? " · In development" : ""}
+                    </small>
+                  </div>
+                  <div>
+                    <span className="inside-label">FIND THE PROGRAM</span>
+                    {p.tone === "live" ? (
+                      <a href={p.standard.href!}>
+                        {p.standard.label}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <b>{p.standard.label}</b>
+                    )}
+                    <small>
+                      {p.standard.domain}
+                      {p.tone !== "live" ? " · Applications not open" : ""}
+                    </small>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
-
-        <section className="page-closing">
-          <p>THE INSTITUTIONAL RULE</p>
-          <h2>The network can grow.<br />The firewall does not move.</h2>
-          <a className="button button-paper" href="/governance">Read governance <span aria-hidden="true">→</span></a>
+        <section className="inside-band" id="infrastructure">
+          <div className="inside-container inside-section">
+            <SectionIntro
+              label="02 / SHARED INFRASTRUCTURE"
+              title={
+                <>
+                  Follow the record.
+                  <br />
+                  <em>Connect the next step.</em>
+                </>
+              }
+            >
+              <p>
+                Two shared services help evidence travel with a laboratory
+                record or an ingredient lot.
+              </p>
+            </SectionIntro>
+            <div className="service-pair">
+              <article>
+                <div className="service-heading">
+                  <span className="service-letter">T↗</span>
+                  <Status tone="live">Operational</Status>
+                </div>
+                <h3>TECRID</h3>
+                <p>
+                  A Test Evidence Credential Record Identifier gives a versioned
+                  laboratory evidence record a persistent address, with visible
+                  provenance and machine-readable findings.
+                </p>
+                <a className="inside-row-link" href="https://tecrid.com">
+                  Explore TECRID <span aria-hidden="true">↗</span>
+                </a>
+                <a
+                  className="inside-sub-link"
+                  href="https://tecrid.com/what-is-a-tecrid"
+                >
+                  What is a TECRID? ↗
+                </a>
+              </article>
+              <article>
+                <div className="service-heading">
+                  <span className="service-letter">V↗</span>
+                  <Status>Demo &amp; pilot</Status>
+                </div>
+                <h3>Verified Lot Exchange</h3>
+                <p>
+                  Ingredient sourcing connected to lot-level evidence. Explore
+                  suppliers, products, and the documentation that supports each
+                  lot.
+                </p>
+                <a className="inside-row-link" href="https://vle.exchange">
+                  Explore VLE.exchange <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+            </div>
+          </div>
         </section>
+        <section className="inside-container inside-section" id="roles">
+          <SectionIntro
+            label="03 / HOW IT FITS TOGETHER"
+            title={
+              <>
+                One framework.
+                <br />
+                <em>Distinct responsibilities.</em>
+              </>
+            }
+          >
+            <p>
+              ICS governs the relationships between these services. Public
+              research, certification decisions, and private application records
+              keep their own boundaries.
+            </p>
+          </SectionIntro>
+          <div className="role-trio">
+            <article>
+              <span className="inside-label">RESEARCH</span>
+              <h3>The index informs.</h3>
+              <p>
+                Literature and regulatory evidence remain traceable to their
+                sources. The index does not make certification decisions.
+              </p>
+            </article>
+            <article>
+              <span className="inside-label">CERTIFICATION</span>
+              <h3>The program decides.</h3>
+              <p>
+                Each program publishes its standards, methods, evidence
+                requirements, and certification pathway.
+              </p>
+            </article>
+            <article>
+              <span className="inside-label">GOVERNANCE</span>
+              <h3>The Institute governs.</h3>
+              <p>
+                ICS sets the rules for independence, verification, changes to
+                standards, and mark enforcement.
+              </p>
+            </article>
+          </div>
+          <a className="inside-sub-link" href="/apply">
+            For brands: start or continue in the ICS certification portal ↗
+          </a>
+        </section>
+        <InteriorClosing
+          label="THE PRINCIPLE THAT CONNECTS US"
+          title={
+            <>
+              A connected network.
+              <br />
+              <em>Accountable at every step.</em>
+            </>
+          }
+          href="/governance"
+          link="Explore our governance"
+        />
       </main>
     </SiteFrame>
   );
