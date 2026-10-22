@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
+import {
+  InteriorHero,
+  PageNav,
+  SectionIntro,
+  InteriorClosing,
+} from "../interior";
 import Image from "next/image";
-import { PageHero, SiteFrame, Status } from "../site-chrome";
+import { SiteFrame, Status } from "../site-chrome";
 import { canonical } from "../site-data";
 
 export const metadata: Metadata = {
@@ -10,7 +16,8 @@ export const metadata: Metadata = {
   alternates: { canonical: canonical("/about") },
   openGraph: {
     title: "About & People | Institute of Contaminant Standards",
-    description: "Named authority, operating responsibilities, and oversight boundaries at ICS.",
+    description:
+      "Named authority, operating responsibilities, and oversight boundaries at ICS.",
     type: "website",
     url: canonical("/about"),
     images: [],
@@ -18,7 +25,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "About & People | Institute of Contaminant Standards",
-    description: "Named authority, operating responsibilities, and oversight boundaries at ICS.",
+    description:
+      "Named authority, operating responsibilities, and oversight boundaries at ICS.",
     images: [],
   },
 };
@@ -28,35 +36,40 @@ const authorityMap = [
     number: "01",
     function: "Executive leadership",
     people: "Karen Pendergrass · Kimberly Eyer",
-    authority: "Institutional direction, organizational accountability, and program continuity.",
+    authority:
+      "Institutional direction, organizational accountability, and program continuity.",
     status: "Named",
   },
   {
     number: "02",
     function: "Standards & research",
     people: "Karen Pendergrass",
-    authority: "Standards architecture, methodology development, evidence systems, and research direction.",
+    authority:
+      "Standards architecture, methodology development, evidence systems, and research direction.",
     status: "Named",
   },
   {
     number: "03",
     function: "Certification operations",
     people: "Jonathan D. Pendergrass · Jennifer Eyer",
-    authority: "Licensing, mark administration, compliance auditing, and operating records.",
+    authority:
+      "Licensing, mark administration, compliance auditing, and operating records.",
     status: "Named",
   },
   {
     number: "04",
     function: "Independent oversight",
     people: "Standards & impartiality committee",
-    authority: "Independent review and override authority, subject to conflict and recusal controls.",
+    authority:
+      "Independent review and override authority, subject to conflict and recusal controls.",
     status: "Being constituted",
   },
   {
     number: "05",
     function: "External contributors & advisers",
     people: "Engagement-based public register",
-    authority: "Scope-specific technical contribution without implied institutional decision authority.",
+    authority:
+      "Scope-specific technical contribution without implied institutional decision authority.",
     status: "Published when active",
   },
 ];
@@ -71,10 +84,16 @@ const people = [
       "Karen holds the Institute’s executive, standards, and research responsibilities. Across more than fifteen years of standards architecture, she developed certification frameworks and now leads ICS work in heavy metals, food metallomics, and microbial metallomics. She is the architect of the Heavy Metal Index evidence system and Heavy Metal Tested & Certified methodology.",
     image: "/karen-pendergrass.avif",
     links: [
-      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=xnzAh-wAAAAJ&hl=en" },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=xnzAh-wAAAAJ&hl=en",
+      },
       { label: "Heavy Metal Index", href: "https://heavymetalindex.com/" },
       { label: "HMTc methodology", href: "https://heavymetalcertified.com/" },
-      { label: "ORCID 0000-0002-2348-7259", href: "https://orcid.org/0000-0002-2348-7259" },
+      {
+        label: "ORCID 0000-0002-2348-7259",
+        href: "https://orcid.org/0000-0002-2348-7259",
+      },
       { label: "Full research profile", href: "/people/karen-pendergrass" },
     ],
   },
@@ -86,7 +105,10 @@ const people = [
     description:
       "Kimberly is a co-founder of the organization and serves in executive leadership. She is a named co-author on the organization’s published certification standards, providing a public scholarly record alongside her institutional role.",
     links: [
-      { label: "ORCID 0000-0001-6194-6148", href: "https://orcid.org/0000-0001-6194-6148" },
+      {
+        label: "ORCID 0000-0001-6194-6148",
+        href: "https://orcid.org/0000-0001-6194-6148",
+      },
     ],
   },
   {
@@ -97,7 +119,10 @@ const people = [
     description:
       "Jonathan leads licensing operations, including trademark licensing, certification compliance administration, and infringement enforcement. His function is operational: maintaining the agreements and controls through which certification marks remain governed in use.",
     links: [
-      { label: "ORCID 0009-0003-5199-0737", href: "https://orcid.org/0009-0003-5199-0737" },
+      {
+        label: "ORCID 0009-0003-5199-0737",
+        href: "https://orcid.org/0009-0003-5199-0737",
+      },
     ],
   },
   {
@@ -114,149 +139,218 @@ const people = [
 export default function AboutPage() {
   return (
     <SiteFrame>
-      <main>
-        <PageHero
-          index="03 / ABOUT"
-          eyebrow="Named authority, explicit boundaries"
-          title={<>An institution is<br /><em>who can decide what.</em></>}
-          description="ICS publishes its people by authority rather than prestige. The record shows who holds executive, methodological, licensing, and auditing responsibility, and distinguishes those operating roles from independent oversight."
-          aside={
-            <div className="page-register">
-              <span>ORGANIZATION REGISTER</span>
-              <dl>
-                <div><dt>Legal entity</dt><dd>Paleo Certified, Inc.</dd></div>
-                <div><dt>Institutional trade name</dt><dd>ICS</dd></div>
-                <div><dt>Named operating leaders</dt><dd>4</dd></div>
-                <div><dt>Active certification programs</dt><dd>1</dd></div>
-              </dl>
-            </div>
+      <main className="interior about-interior">
+        <InteriorHero
+          label="ABOUT THE INSTITUTE"
+          title={
+            <>
+              Better evidence.
+              <br />
+              <em>Greater trust.</em>
+            </>
           }
+          description="The Institute of Contaminant Standards connects independent research, certification programs, and evidence infrastructure through one accountable institutional framework."
+        >
+          <div className="about-hero-record">
+            <span className="about-ics">ICS</span>
+            <p>
+              Research.
+              <br />
+              Standards.
+              <br />
+              Accountability.
+            </p>
+            <div>
+              <span>LEGAL OPERATOR</span>
+              <b>Paleo Certified, Inc.</b>
+              <small>Institute of Contaminant Standards is a trade name.</small>
+            </div>
+          </div>
+        </InteriorHero>
+        <PageNav
+          items={[
+            { href: "#purpose", label: "Our purpose" },
+            { href: "#people", label: "Our people" },
+            { href: "#authority", label: "Responsibilities" },
+            { href: "#independent-oversight", label: "Independent oversight" },
+          ]}
         />
-
-        <section className="about-mandate">
+        <section
+          className="inside-container inside-section about-purpose"
+          id="purpose"
+        >
           <div>
-            <p className="section-kicker section-kicker-light">THE INSTITUTION</p>
-            <h2>ICS governs the system around a standard.</h2>
+            <p className="inside-label">01 / OUR PURPOSE</p>
+            <h2>
+              Trust is stronger
+              <br />
+              <em>when you can trace it.</em>
+            </h2>
           </div>
           <div>
-            <p>
-              The Institute of Contaminant Standards is a trade name of Paleo
-              Certified, Inc. It governs the architecture shared by contaminant
-              evidence indexes and certification programs: separation of data,
-              standards-method rules, mark governance, verification, and enforcement.
+            <p className="inside-lead">
+              ICS governs the system around a contaminant standard.
             </p>
             <p>
-              Current thresholds, effective dates, and applications remain on each
-              certification program’s own site. Literature findings remain on each
-              independent index. ICS names who holds authority across those boundaries.
+              We set the shared rules for data separation, standards methods,
+              mark governance, verification, and enforcement. Our network gives
+              research, certification, and laboratory records distinct roles
+              within that framework.
             </p>
+            <p>
+              Current standards, effective dates, and applications belong to
+              each certification program. Literature findings remain on the
+              independent index. ICS makes the responsibilities across those
+              boundaries visible.
+            </p>
+            <a className="inside-sub-link" href="/network">
+              Meet the ICS network ↗
+            </a>
           </div>
         </section>
-
-        <section className="about-authority" id="authority">
-          <div className="about-heading">
-            <p className="section-kicker">01 / AUTHORITY MAP</p>
-            <h2>Responsibility is organized by function.</h2>
-            <p>
-              A person may hold more than one disclosed responsibility. The map makes
-              that concentration visible and identifies where review or operational
-              separation must enter.
-            </p>
-          </div>
-
-          <div className="authority-map">
-            {authorityMap.map((row) => (
-              <article key={row.number}>
-                <span className="authority-number">{row.number}</span>
-                <h3>{row.function}</h3>
-                <p className="authority-people">{row.people}</p>
-                <p className="authority-scope">{row.authority}</p>
-                <Status tone={row.status === "Named" ? "live" : "quiet"}>{row.status}</Status>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="people-section" id="people">
-          <div className="people-heading">
-            <p className="section-kicker section-kicker-light">02 / NAMED PEOPLE</p>
-            <h2>Operating authority has a public record.</h2>
-            <p>
-              Profiles state current institutional responsibility. External identifiers
-              are linked where they exist; the absence of an identifier is not replaced
-              with a decorative credential.
-            </p>
-          </div>
-
-          <div className="people-grid">
-            {people.map((person) => (
-              <article className="person-card" key={person.name}>
-                <div className="person-identity">
-                  {person.image ? (
-                    <Image src={person.image} width={1023} height={1537} sizes="88px" alt={person.name} />
-                  ) : (
-                    <span className="person-monogram" aria-hidden="true">{person.initials}</span>
-                  )}
-                  <span className="person-index">ICS / {person.initials}</span>
-                </div>
-                <div className="person-copy">
-                  <p className="person-function">{person.functions}</p>
-                  <h3>{person.name}</h3>
-                  <p className="person-title">{person.title}</p>
-                  <p className="person-description">{person.description}</p>
-                  {person.links.length > 0 ? (
-                    <div className="person-links">
-                      {person.links.map((link) => (
-                        <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined} key={link.href}>
-                          {link.label} ↗
+        <section className="inside-band" id="people">
+          <div className="inside-container inside-section">
+            <SectionIntro
+              label="02 / OUR PEOPLE"
+              title={
+                <>
+                  Named people.
+                  <br />
+                  <em>Visible responsibility.</em>
+                </>
+              }
+            >
+              <p>
+                These profiles describe operating leadership and current
+                responsibilities. Independent oversight is disclosed separately
+                below.
+              </p>
+            </SectionIntro>
+            <div className="leadership-grid">
+              {people.map((p, i) => (
+                <article
+                  key={p.name}
+                  className={`leadership-person ${i === 0 ? "founder-person" : ""}`}
+                >
+                  <div className="leadership-identity">
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        width={1023}
+                        height={1537}
+                        sizes="(max-width: 700px) 100vw, 35vw"
+                        alt={p.name}
+                      />
+                    ) : (
+                      <span className="leadership-initials" aria-hidden="true">
+                        {p.initials}
+                      </span>
+                    )}
+                    <span className="inside-label">ICS / {p.initials}</span>
+                  </div>
+                  <div className="leadership-copy">
+                    <p className="inside-label">{p.functions}</p>
+                    <h3>{p.name}</h3>
+                    <p className="leadership-title">{p.title}</p>
+                    <p>{p.description}</p>
+                    <div className="leadership-links">
+                      {p.links.map((l) => (
+                        <a key={l.href} href={l.href}>
+                          {l.label} <span aria-hidden="true">↗</span>
                         </a>
                       ))}
                     </div>
-                  ) : (
-                    <p className="person-record-note">Institutional role record</p>
-                  )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="inside-container inside-section" id="authority">
+          <SectionIntro
+            label="03 / RESPONSIBILITIES"
+            title={
+              <>
+                Know who
+                <br />
+                <em>can decide what.</em>
+              </>
+            }
+          >
+            <p>
+              A person may hold more than one disclosed responsibility. This map
+              makes that concentration visible and identifies where operational
+              separation or review enters.
+            </p>
+          </SectionIntro>
+          <div className="responsibility-list">
+            {authorityMap.map((r) => (
+              <article key={r.number}>
+                <span className="inside-label">{r.number}</span>
+                <div>
+                  <h3>{r.function}</h3>
+                  <p className="responsibility-names">{r.people}</p>
                 </div>
+                <p>{r.authority}</p>
+                <Status tone={r.status === "Named" ? "live" : "quiet"}>
+                  {r.status}
+                </Status>
               </article>
             ))}
           </div>
         </section>
-
-        <section className="oversight-boundary">
-          <div>
-            <p className="section-kicker section-kicker-light">03 / OVERSIGHT BOUNDARY</p>
-            <h2>Operating leadership is not presented as independent oversight.</h2>
-          </div>
-          <div className="oversight-boundary-grid">
-            <article>
-              <Status>Being constituted</Status>
-              <h3>Independent oversight</h3>
+        <section className="inside-dark" id="independent-oversight">
+          <div className="inside-container inside-section">
+            <SectionIntro
+              label="04 / INDEPENDENT OVERSIGHT"
+              title={
+                <>
+                  Operating leadership.
+                  <br />
+                  <em>Independent review.</em>
+                </>
+              }
+            >
               <p>
-                Committee members will be named after formal appointment, conflict
-                review, and acceptance of documented review and override authority.
-                Until then, the function is shown without implying that a committee is seated.
+                Operating roles and independent oversight have different
+                responsibilities. Their status is stated explicitly.
               </p>
-            </article>
-            <article>
-              <Status>Engagement-based</Status>
-              <h3>External contributors & advisers</h3>
-              <p>
-                Contributors and advisers are identified with the specific work or
-                scope they support. ICS does not maintain an honorary masthead that
-                implies decision authority where none exists.
-              </p>
-            </article>
+            </SectionIntro>
+            <div className="oversight-pair">
+              <article>
+                <Status>Being constituted</Status>
+                <h3>Standards &amp; impartiality committee</h3>
+                <p>
+                  Committee members will be named after formal appointment,
+                  conflict review, and acceptance of documented review and
+                  override authority. The committee is not presented as seated
+                  before that process is complete.
+                </p>
+              </article>
+              <article>
+                <Status>Engagement-based</Status>
+                <h3>External contributors &amp; advisers</h3>
+                <p>
+                  Contributors are identified with the specific work or scope
+                  they support. An advisory contribution does not imply
+                  institutional decision authority.
+                </p>
+              </article>
+            </div>
           </div>
         </section>
-
-        <section className="page-closing about-closing">
-          <div>
-            <p className="section-kicker section-kicker-light">THE ACCOUNTABILITY RULE</p>
-            <h2>Name the role.<br />State the boundary.</h2>
-          </div>
-          <a className="button button-paper" href="/governance">
-            Read governance <span aria-hidden="true">→</span>
-          </a>
-        </section>
+        <InteriorClosing
+          label="OUR COMMITMENT TO ACCOUNTABILITY"
+          title={
+            <>
+              Name the role.
+              <br />
+              <em>Make the rules visible.</em>
+            </>
+          }
+          href="/governance"
+          link="Read our governance model"
+        />
       </main>
     </SiteFrame>
   );

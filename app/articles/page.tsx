@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { PageHero, SiteFrame, Status } from "../site-chrome";
-import { canonical, publicationReadLabel, publications } from "../site-data";
+import { InteriorHero, PageNav, SectionIntro } from "../interior";
+import { SiteFrame } from "../site-chrome";
+import { PublicationLibrary } from "./publication-library";
+import {
+  canonical,
+  publicationReadLabel,
+  publicationSeries,
+  publications,
+} from "../site-data";
 
 export const metadata: Metadata = {
   title: "Articles | Institute of Contaminant Standards",
@@ -9,7 +16,8 @@ export const metadata: Metadata = {
   alternates: { canonical: canonical("/articles") },
   openGraph: {
     title: "Articles | Institute of Contaminant Standards",
-    description: "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
+    description:
+      "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
     type: "website",
     url: canonical("/articles"),
     images: [],
@@ -17,84 +25,165 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Articles | Institute of Contaminant Standards",
-    description: "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
+    description:
+      "Published ICS institutional analysis and evidence reviews. Evidence reviews do not set certification limits.",
     images: [],
   },
 };
 
 export default function ArticlesPage() {
+  const latest = [...publications].sort((a, b) =>
+    b.datePublished.localeCompare(a.datePublished),
+  )[0];
   return (
     <SiteFrame>
-      <main>
-        <PageHero
-          index="04 / ARTICLES"
-          eyebrow="Publication register"
-          title={<>The rules deserve<br /><em>their own record.</em></>}
-          description="Institutional analysis on how contaminant standards are set, and evidence reviews of what the literature has measured. An evidence review reports each result on the source's own basis. It does not set a certification limit. Standards and applications remain authoritative only on each program's own site."
-          aside={
-            <div className="editorial-note">
-              <span>EDITORIAL SCOPE</span>
-              <p>Governance, institutional design, and evidence reviews of the measured literature.</p>
-              <small>NO CERTIFICATION LIMITS · NO BRAND DIRECTORY</small>
-            </div>
+      <main className="interior publications-interior">
+        <InteriorHero
+          label="PUBLICATIONS FROM ICS"
+          title={
+            <>
+              The thinking behind
+              <br />
+              <em>the standards.</em>
+            </>
           }
+          description="Evidence reviews and institutional analysis. Explore what the literature has measured, how standards are governed, and why the distinction matters."
+        >
+          <div className="publications-hero-detail">
+            <span>{String(publications.length).padStart(2, "0")}</span>
+            <div>
+              <b>Published records</b>
+              <p>
+                Two series. Named authors.
+                <br />
+                Persistent identifiers.
+              </p>
+            </div>
+          </div>
+        </InteriorHero>
+        <PageNav
+          items={[
+            { href: "#latest", label: "Latest publication" },
+            { href: "#library", label: "Browse the library" },
+            { href: "#further-reading", label: "Further reading" },
+          ]}
         />
-
-        <section className="article-register">
-          <div className="article-register-head">
-            <p>PUBLICATION REGISTER</p>
-            <span>Publication status, author, record identifier, and stable route are stated for every item.</span>
-          </div>
-          <div className="article-list">
-            {publications.map((article) => (
-              <article key={article.number}>
-                <span className="article-number">{article.number}</span>
-                <div>
-                  <p className="article-topic">{article.topic}</p>
-                  <h2><a href={`/articles/${article.slug}`}>{article.title}</a></h2>
-                  <p>{article.description}</p>
-                  <a className="article-open" href={`/articles/${article.slug}`}>{article.identifier} · {publicationReadLabel(article.series)} →</a>
-                </div>
-                <Status tone="live">Published</Status>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="publication-boundary">
-          <div>
-            <p className="section-kicker section-kicker-light">THE PUBLICATION BOUNDARY</p>
-            <h2>Evidence reviews and institutional analysis here. Standards on the program site. Literature on the index.</h2>
-          </div>
-          <div className="publication-destinations">
-            <a href="/governance">
-              <span>ICS</span>
-              <b>Institutional governance →</b>
-            </a>
-            <a href="https://heavymetalcertified.com" target="_blank" rel="noopener">
-              <span>HMTc</span>
-              <b>Current standard &amp; certification ↗</b>
-            </a>
-            <a href="https://heavymetalindex.com" target="_blank" rel="noopener">
-              <span>HMI</span>
-              <b>Literature evidence ↗</b>
-            </a>
-          </div>
-        </section>
-
-        <section className="journal-callout">
-          <div>
-            <p className="section-kicker">SCHOLARLY SYNTHESIS</p>
-            <h2>Research papers remain distinct from institutional analysis.</h2>
-            <p>
-              The ICS register publishes governance and methods analysis. Formal research
-              and synthesis work remains on the scholarly publication surface, with its
-              own identifiers and publication-status record.
-            </p>
-          </div>
-          <a className="button button-primary" href="https://heavymetalcertified.com/journal-of-food-metallomics" target="_blank" rel="noopener">
-            Visit the journal <span aria-hidden="true">↗</span>
+        <section className="inside-container inside-section" id="latest">
+          <p className="inside-label">
+            LATEST / {publicationSeries[latest.series].name}
+          </p>
+          <a className="publication-feature" href={`/articles/${latest.slug}`}>
+            <div className="publication-feature-art">
+              <span className="inside-label">
+                {publicationSeries[latest.series].masthead}
+              </span>
+              <div className="review-orbits" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <b>
+                  Look
+                  <br />
+                  <em>closer.</em>
+                </b>
+              </div>
+              <span className="inside-label">{latest.identifier}</span>
+            </div>
+            <div className="publication-feature-copy">
+              <div className="publication-meta">
+                <span>
+                  {new Date(
+                    latest.datePublished + "T00:00:00Z",
+                  ).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                    timeZone: "UTC",
+                  })}
+                </span>
+                <span>{latest.readingTime}</span>
+              </div>
+              <h2>{latest.title}</h2>
+              <p>{latest.description}</p>
+              <div className="publication-author">
+                Karen Pendergrass{" "}
+                <span>Standards Architect &amp; Research Lead</span>
+              </div>
+              <span className="inside-row-link">
+                {publicationReadLabel(latest.series)}
+                <b aria-hidden="true">↗</b>
+              </span>
+            </div>
           </a>
+        </section>
+        <section className="inside-band" id="library">
+          <div className="inside-container inside-section">
+            <SectionIntro
+              label="THE PUBLICATION LIBRARY"
+              title={
+                <>
+                  Explore the <em>record.</em>
+                </>
+              }
+            >
+              <p>
+                Evidence reviews report source measurements on their original
+                basis. Institutional analysis examines governance and methods.
+                Neither series sets a certification limit.
+              </p>
+            </SectionIntro>
+            <PublicationLibrary publications={publications} />
+          </div>
+        </section>
+        <section
+          className="inside-container inside-section"
+          id="further-reading"
+        >
+          <SectionIntro
+            label="FURTHER READING"
+            title={
+              <>
+                Find the right
+                <br />
+                <em>source for your question.</em>
+              </>
+            }
+          />
+          <div className="reading-destinations">
+            <a href="/governance/notes">
+              <span className="inside-label">RESEARCH INTO GOVERNANCE</span>
+              <h3>Evidence governance notes</h3>
+              <p>
+                Follow the implications of a finding for scope, testing,
+                surveillance, and claims.
+              </p>
+              <span className="inside-row-link">
+                Explore the register <b aria-hidden="true">↗</b>
+              </span>
+            </a>
+            <a href="https://heavymetalcertified.com/journal-of-food-metallomics">
+              <span className="inside-label">SCHOLARLY SYNTHESIS</span>
+              <h3>Journal of Food Metallomics</h3>
+              <p>
+                Formal research and synthesis, with its own identifiers and
+                publication-status record.
+              </p>
+              <span className="inside-row-link">
+                Visit the journal <b aria-hidden="true">↗</b>
+              </span>
+            </a>
+            <a href="https://heavymetalindex.com">
+              <span className="inside-label">SOURCE LITERATURE</span>
+              <h3>Heavy Metal Index</h3>
+              <p>
+                The independent literature index. Current standards and
+                certification requirements live on the program site.
+              </p>
+              <span className="inside-row-link">
+                Explore the index <b aria-hidden="true">↗</b>
+              </span>
+            </a>
+          </div>
         </section>
       </main>
     </SiteFrame>
