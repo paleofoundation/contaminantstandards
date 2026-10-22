@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./institute.css";
 import { JsonLd } from "./json-ld";
 import {
   KAREN_ID,
@@ -10,33 +9,12 @@ import {
   WEBSITE_ID,
 } from "./site-data";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "institute-contaminant-standards.kmfp.chatgpt.site";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.startsWith("localhost") ? "http" : "https");
-  const baseUrl = new URL(protocol + "://" + host);
-  const socialImage = new URL("/og-authority.png", baseUrl).toString();
-
-  return {
-    metadataBase: baseUrl,
+// Public institutional metadata is stable: do not force every route to render per request.
+export const metadata: Metadata = {
+    metadataBase: new URL(SITE_ORIGIN),
     title: "Institute of Contaminant Standards",
     description:
-      "Institutional governance for independent evidence indexes and contaminant certification programs.",
+      "The parent institution connecting contaminant evidence indexes, certification programs, TECRID, and Verified Lot Exchange.",
     alternates: {
       canonical: `${SITE_ORIGIN}/`,
       types: {
@@ -61,13 +39,13 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Institute of Contaminant Standards",
       description:
-        "One institution. Separate public faces. Traceable contaminant standards.",
+        "Better evidence. Higher standards. Greater trust. Explore the ICS network.",
       type: "website",
       url: `${SITE_ORIGIN}/`,
       siteName: "Institute of Contaminant Standards",
       images: [
         {
-          url: socialImage,
+          url: `${SITE_ORIGIN}/og-authority.png`,
           width: 1200,
           height: 630,
           alt: "Institute of Contaminant Standards — Standards should be traceable.",
@@ -78,11 +56,10 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Institute of Contaminant Standards",
       description:
-        "One institution. Separate public faces. Traceable contaminant standards.",
-      images: [socialImage],
+        "Better evidence. Higher standards. Greater trust. Explore the ICS network.",
+      images: [`${SITE_ORIGIN}/og-authority.png`],
     },
-  };
-}
+};
 
 export default function RootLayout({
   children,
@@ -145,7 +122,7 @@ export default function RootLayout({
           ]}
         />
       </head>
-      <body className={geistSans.variable + " " + geistMono.variable}>
+      <body>
         {children}
       </body>
     </html>
