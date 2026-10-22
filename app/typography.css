@@ -1,0 +1,44 @@
+/* One headline system, shared by the homepage and every interior route. */
+:root {
+  --font-heading: Arial, Helvetica, sans-serif;
+  --font-accent: Georgia, "Times New Roman", serif;
+  --title-size: clamp(54px, 5.3vw, 84px);
+}
+
+/* The content scope takes precedence over older page-specific typography. */
+#main-content h1 {
+  font: 650 var(--title-size)/1.04 var(--font-heading);
+  letter-spacing: -.06em;
+  overflow-wrap: break-word;
+}
+
+#main-content h2,
+#main-content h3,
+#main-content h4 {
+  font-family: var(--font-heading);
+  font-weight: 650;
+}
+
+#main-content :is(h1, h2, h3, h4) em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+#main-content h1 em {
+  font-size: 1.08em;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+}
+
+@media (max-width: 1150px) {
+  :root { --title-size: clamp(47px, 5.5vw, 64px); }
+}
+
+@media (max-width: 800px) {
+  :root { --title-size: clamp(54px, 8vw, 75px); }
+}
+
+@media (max-width: 520px) {
+  :root { --title-size: clamp(43px, 11.2vw, 58px); }
+}

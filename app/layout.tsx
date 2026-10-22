@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./institute.css";
+import "./typography.css";
 import { JsonLd } from "./json-ld";
 import {
   KAREN_ID,
