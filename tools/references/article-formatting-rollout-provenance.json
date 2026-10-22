@@ -1,0 +1,198 @@
+{
+  "checked": "2026-10-22",
+  "articles": [
+    "why-heavy-metal-evidence-requires-an-independent-public-index",
+    "from-evidence-to-threshold",
+    "standards-as-living-records",
+    "a-number-without-a-basis-is-not-a-comparable-result",
+    "analyte-identity-is-not-a-footnote"
+  ],
+  "sources": [
+    {
+      "id": "hmi",
+      "label": "Heavy Metal Index. (n.d.). Heavy Metal Index.",
+      "href": "https://heavymetalindex.com/",
+      "apa": {
+        "authors": "Heavy Metal Index",
+        "date": "n.d.",
+        "title": "Heavy Metal Index",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "structure",
+      "label": "Heavy Metal Tested & Certified. (n.d.). Program structure.",
+      "href": "https://heavymetalcertified.com/program/structure",
+      "apa": {
+        "authors": "Heavy Metal Tested & Certified",
+        "date": "n.d.",
+        "title": "Program structure",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "standards",
+      "label": "Heavy Metal Tested & Certified. (n.d.). HMTc standards.",
+      "href": "https://heavymetalcertified.com/standards",
+      "apa": {
+        "authors": "Heavy Metal Tested & Certified",
+        "date": "n.d.",
+        "title": "HMTc standards",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "governance",
+      "label": "Institute of Contaminant Standards. (n.d.). Governance.",
+      "href": "https://contaminantstandards.com/governance",
+      "apa": {
+        "authors": "Institute of Contaminant Standards",
+        "date": "n.d.",
+        "title": "Governance",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "policies",
+      "label": "Institute of Contaminant Standards. (2026, August 17). Governance policies.",
+      "href": "https://contaminantstandards.com/governance/policies",
+      "apa": {
+        "authors": "Institute of Contaminant Standards",
+        "date": "2026, August 17",
+        "title": "Governance policies",
+        "italicTitle": true,
+        "description": "Register edition 1.0"
+      }
+    },
+    {
+      "id": "directives",
+      "label": "International Organization for Standardization & International Electrotechnical Commission. (2026). ISO/IEC directives, Part 1: Procedures for the technical work.",
+      "href": "https://www.iso.org/sites/directives/current/consolidated/index.html",
+      "apa": {
+        "authors": "International Organization for Standardization & International Electrotechnical Commission",
+        "date": "2026",
+        "title": "ISO/IEC directives, Part 1: Procedures for the technical work",
+        "italicTitle": true,
+        "description": "21st ed."
+      }
+    },
+    {
+      "id": "archive",
+      "label": "U.S. Food and Drug Administration. (n.d.). Elemental analysis manual (EAM): History and access to archived material.",
+      "href": "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-history-and-access-archived-material",
+      "apa": {
+        "authors": "U.S. Food and Drug Administration",
+        "date": "n.d.",
+        "title": "Elemental analysis manual (EAM): History and access to archived material",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "vim",
+      "label": "Joint Committee for Guides in Metrology. (2012). International vocabulary of metrology—Basic and general concepts and associated terms (VIM).",
+      "href": "https://doi.org/10.59161/JCGM200-2012",
+      "apa": {
+        "authors": "Joint Committee for Guides in Metrology",
+        "date": "2012",
+        "title": "International vocabulary of metrology—Basic and general concepts and associated terms (VIM)",
+        "italicTitle": true,
+        "description": "3rd ed., 2008 version with minor corrections; JCGM 200:2012",
+        "publisher": "Bureau International des Poids et Mesures"
+      }
+    },
+    {
+      "id": "edible",
+      "label": "U.S. Food and Drug Administration. (2021a, September). Food edible portion.",
+      "href": "https://www.fda.gov/media/89326/download",
+      "apa": {
+        "authors": "U.S. Food and Drug Administration",
+        "date": "2021a, September",
+        "title": "Food edible portion",
+        "italicTitle": true,
+        "description": "Elemental Analysis Manual, Section 2.1, Version 3.0"
+      }
+    },
+    {
+      "id": "homogenization",
+      "label": "U.S. Food and Drug Administration. (2021b, September). Food homogenization.",
+      "href": "https://www.fda.gov/media/89329/download",
+      "apa": {
+        "authors": "U.S. Food and Drug Administration",
+        "date": "2021b, September",
+        "title": "Food homogenization",
+        "italicTitle": true,
+        "description": "Elemental Analysis Manual, Section 2.2, Version 3.0"
+      }
+    },
+    {
+      "id": "eu",
+      "label": ". (2023). Commission Regulation (EU) 2023/915 of 25 April 2023 on maximum levels for certain contaminants in food and repealing Regulation (EC) No 1881/2006.",
+      "href": "https://eur-lex.europa.eu/eli/reg/2023/915/oj/eng",
+      "apa": {
+        "authors": "",
+        "date": "2023",
+        "title": "Commission Regulation (EU) 2023/915 of 25 April 2023 on maximum levels for certain contaminants in food and repealing Regulation (EC) No 1881/2006",
+        "italicTitle": false,
+        "source": "Official Journal of the European Union",
+        "volume": "L 119",
+        "pages": "103–157"
+      }
+    },
+    {
+      "id": "codex",
+      "label": "Codex Alimentarius Commission. (2025). General standard for contaminants and toxins in food and feed.",
+      "href": "https://www.fao.org/fao-who-codexalimentarius/sh-proxy/en/?lnk=1&url=https%3A%2F%2Fworkspace.fao.org%2Fsites%2Fcodex%2Fstandards%2FCXS+193-1995%2FCXS_193e.pdf",
+      "apa": {
+        "authors": "Codex Alimentarius Commission",
+        "date": "2025",
+        "title": "General standard for contaminants and toxins in food and feed",
+        "italicTitle": true,
+        "description": "CXS 193-1995, amended 2025",
+        "publisher": "Food and Agriculture Organization of the United Nations & World Health Organization"
+      }
+    },
+    {
+      "id": "arsenic",
+      "label": "U.S. Food and Drug Administration. (n.d.-a). Arsenic in food.",
+      "href": "https://www.fda.gov/food/environmental-contaminants-food/arsenic-food",
+      "apa": {
+        "authors": "U.S. Food and Drug Administration",
+        "date": "n.d.-a",
+        "title": "Arsenic in food",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "eam",
+      "label": "U.S. Food and Drug Administration. (n.d.-b). Elemental analysis manual (EAM) for food and related products.",
+      "href": "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-food-and-related-products",
+      "apa": {
+        "authors": "U.S. Food and Drug Administration",
+        "date": "n.d.-b",
+        "title": "Elemental analysis manual (EAM) for food and related products",
+        "italicTitle": true
+      }
+    },
+    {
+      "id": "speciation",
+      "label": "Kubachka, K. M., Shockey, N. V., Hanley, T. A., Conklin, S. D., & Heitkemper, D. T.. (2012, November). Arsenic speciation in rice and rice products using high performance liquid chromatography–inductively coupled plasma–mass spectrometric determination.",
+      "href": "https://www.fda.gov/media/95197/download",
+      "apa": {
+        "authors": "Kubachka, K. M., Shockey, N. V., Hanley, T. A., Conklin, S. D., & Heitkemper, D. T.",
+        "date": "2012, November",
+        "title": "Arsenic speciation in rice and rice products using high performance liquid chromatography–inductively coupled plasma–mass spectrometric determination",
+        "italicTitle": true,
+        "description": "Elemental Analysis Manual, Section 4.11, Draft Version 1.1",
+        "publisher": "U.S. Food and Drug Administration"
+      }
+    }
+  ],
+  "notes": [
+    "Existing article bibliography scopes retained. Citations attached to corresponding source-specific passages; short source examples clarify formerly unanchored references.",
+    "Shared approved typography was already applied globally. Each remaining article opts in to the same light APA reference renderer and citation ordering.",
+    "FDA section 4.11 URL resolves to Draft Version 1.1, November 2012; its actual authors and edition are retained, not substituted with a newer edition.",
+    "Undated web resources use n.d.; ISO/IEC directives edition, FDA method edition dates, JCGM edition and Codex amendment dates checked against official sources.",
+    "Codex legacy Romanian double-encoded proxy redirected to the homepage; replaced with the official English PDF link surfaced by the FAO standards listing.",
+    "Institutional and program pages are citations to their stated architecture, not independent validation of institutional conclusions."
+  ]
+}

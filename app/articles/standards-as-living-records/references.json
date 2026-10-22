@@ -1,0 +1,48 @@
+[
+  {
+    "id": "policies",
+    "label": "Institute of Contaminant Standards. (2026, August 17). Governance policies.",
+    "href": "https://contaminantstandards.com/governance/policies",
+    "apa": {
+      "authors": "Institute of Contaminant Standards",
+      "date": "2026, August 17",
+      "title": "Governance policies",
+      "italicTitle": true,
+      "description": "Register edition 1.0"
+    }
+  },
+  {
+    "id": "directives",
+    "label": "International Organization for Standardization & International Electrotechnical Commission. (2026). ISO/IEC directives, Part 1: Procedures for the technical work.",
+    "href": "https://www.iso.org/sites/directives/current/consolidated/index.html",
+    "apa": {
+      "authors": "International Organization for Standardization & International Electrotechnical Commission",
+      "date": "2026",
+      "title": "ISO/IEC directives, Part 1: Procedures for the technical work",
+      "italicTitle": true,
+      "description": "21st ed."
+    }
+  },
+  {
+    "id": "archive",
+    "label": "U.S. Food and Drug Administration. (n.d.). Elemental analysis manual (EAM): History and access to archived material.",
+    "href": "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-history-and-access-archived-material",
+    "apa": {
+      "authors": "U.S. Food and Drug Administration",
+      "date": "n.d.",
+      "title": "Elemental analysis manual (EAM): History and access to archived material",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "standards",
+    "label": "Heavy Metal Tested & Certified. (n.d.). HMTc standards.",
+    "href": "https://heavymetalcertified.com/standards",
+    "apa": {
+      "authors": "Heavy Metal Tested & Certified",
+      "date": "n.d.",
+      "title": "HMTc standards",
+      "italicTitle": true
+    }
+  }
+]

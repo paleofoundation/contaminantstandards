@@ -1,8 +1,11 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
 import {
   ArticleSection,
+  createCite,
+  type PublicationReference,
   PublicationFooter,
   PublicationHeader,
   PublicationJsonLd,
@@ -10,6 +13,9 @@ import {
 } from "../article-tools";
 
 const article = publications[4];
+
+const references: PublicationReference[] = referenceData;
+const Cite = createCite(references);
 
 export async function generateMetadata(): Promise<Metadata> {
   return publicationMetadata(article);
@@ -60,7 +66,7 @@ export default function AnalyteIdentityArticle() {
               differ among chemical forms. An elemental total can be a valuable
               screening measure, but it may not identify the portion that a health-
               based interpretation or legal limit addresses. Conversely, a
-              species-specific method may not describe the total elemental burden.
+              species-specific method may not describe the total elemental burden.<Cite ids={["arsenic"]} />
             </p>
             <p>
               The same discipline applies beyond arsenic. Total mercury and
@@ -77,7 +83,7 @@ export default function AnalyteIdentityArticle() {
               chemical forms during digestion and measures the element after that
               preparation. The result answers how much of the element was recovered
               under the method. It does not reconstruct how that element was
-              distributed among chemical species in the intact sample.
+              distributed among chemical species in the intact sample.<Cite ids={["eam"]} />
             </p>
             <p>
               Speciation requires separation and identification that preserve or
@@ -85,7 +91,7 @@ export default function AnalyteIdentityArticle() {
               rice-containing foods uses chromatographic separation coupled to
               ICP-MS and defines inorganic arsenic as the sum of arsenite and
               arsenate, while also determining selected methylated species. That
-              analyte definition is much more specific than “arsenic.”
+              analyte definition is much more specific than “arsenic.”<Cite ids={["speciation"]} />
             </p>
             <blockquote>
               A total result is not an inferior species result. It is a different
@@ -100,7 +106,7 @@ export default function AnalyteIdentityArticle() {
               calculation rules. Recovery can vary by species and matrix. Species may
               interconvert during preparation. Chromatographic interferences may be
               matrix-specific. The method therefore does more than produce a number;
-              it helps define the quantity to which the number refers.
+              it helps define the quantity to which the number refers.<Cite ids={["vim"]} />
             </p>
             <div className="paper-principles">
               <div><b>Elemental scope</b><p>State whether the result is total, dissolved, extractable, or otherwise fraction-defined.</p></div>
@@ -145,7 +151,7 @@ export default function AnalyteIdentityArticle() {
               discipline while remaining separate systems. The evidence index stores
               what each source measured. The program states what each requirement
               regulates. A comparison is permitted only when the identities align or
-              a published read-across rule applies.
+              a published read-across rule applies. Codex’s general contaminant standard likewise identifies the contaminant and commodity covered by a requirement.<Cite ids={["codex"]} />
             </p>
             <ol className="paper-sequence">
               <li><span>1</span><div><b>Name</b><p>Assign an unambiguous analyte identifier, not only a display label.</p></div></li>
@@ -173,13 +179,9 @@ export default function AnalyteIdentityArticle() {
 
         <PublicationFooter
           record={article}
-          references={[
-            { label: "FDA Elemental Analysis Manual §4.11 — arsenic speciation in rice and rice products", href: "https://www.fda.gov/media/95197/download" },
-            { label: "FDA Elemental Analysis Manual — methods, terminology, and measurement uncertainty", href: "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-food-and-related-products" },
-            { label: "FDA — arsenic in food, sampling data, and speciation resources", href: "https://www.fda.gov/food/environmental-contaminants-food/arsenic-food" },
-            { label: "BIPM/JCGM 200:2012 — International Vocabulary of Metrology", href: "https://www.bipm.org/en/doi/10.59161/jcgm200-2012" },
-            { label: "Codex CXS 193-1995 — contaminants and toxins in food and feed", href: "https://www.fao.org/fao-who-codexalimentarius/sh-proxy/ro/?lnk=1&url=https%253A%252F%252Fworkspace.fao.org%252Fsites%252Fcodex%252FStandards%252FCXS%2B193-1995%252FCXS_193e.pdf" },
-          ]}
+          references={references}
+          referenceStyle="apa"
+          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

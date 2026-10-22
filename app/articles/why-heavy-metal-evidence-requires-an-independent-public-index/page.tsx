@@ -1,8 +1,11 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
 import {
   ArticleSection,
+  createCite,
+  type PublicationReference,
   PublicationFooter,
   PublicationHeader,
   PublicationJsonLd,
@@ -10,6 +13,9 @@ import {
 } from "../article-tools";
 
 const article = publications[0];
+
+const references: PublicationReference[] = referenceData;
+const Cite = createCite(references);
 
 export async function generateMetadata(): Promise<Metadata> {
   return publicationMetadata(article);
@@ -90,11 +96,11 @@ export default function IndependentIndexArticle() {
               <div><b>Non-endorsement</b><p>The index describes evidence without selecting a certification outcome.</p></div>
             </div>
             <p>
-              The Heavy Metal Index implements this role as a source-led corpus. Its
+              The <a href="https://heavymetalindex.com/">Heavy Metal Index</a> implements this role as a source-led corpus. Its
               public function is to make occurrence, toxicology, methods, and
               regulatory material inspectable. Its scale is useful, but scale alone
               is not the authority signal. Authority comes from the path between a
-              public statement and the record that supports it.
+              public statement and the record that supports it.<Cite ids={["hmi"]} />
             </p>
           </ArticleSection>
 
@@ -115,14 +121,14 @@ export default function IndependentIndexArticle() {
               literature surface as support for the certification. It also protects
               the evidence index from brand-level operating records, failed
               applications, licensed-mark data, and certified-lot results that belong
-              to a different data class.
+              to a different data class.<Cite ids={["structure"]} />
             </p>
             <p>
               The Institute occupies a third position. It governs permissions,
               conflicts, versioning, review, mark use, and enforcement. It does not
               duplicate the program’s threshold tables or the index’s literature
               database. Institutional authority is exercised by maintaining the
-              boundary and publishing the rules by which it can be audited.
+              boundary and publishing the rules by which it can be audited.<Cite ids={["governance"]} />
             </p>
           </ArticleSection>
 
@@ -131,7 +137,7 @@ export default function IndependentIndexArticle() {
               A defensible evidence statement should be reconstructable through a
               chain: source discovery, source record, extraction, normalization,
               interpretation, publication, and correction. Each transition needs a
-              named method and a stable identifier.
+              named method and a stable identifier.<Cite ids={["policies"]} />
             </p>
             <ol className="paper-sequence">
               <li><span>1</span><div><b>Discover</b><p>Record the search route and the source considered, including exclusions that affect scope.</p></div></li>
@@ -185,12 +191,9 @@ export default function IndependentIndexArticle() {
 
         <PublicationFooter
           record={article}
-          references={[
-            { label: "Heavy Metal Index — public evidence system", href: "https://heavymetalindex.com/" },
-            { label: "Heavy Metal Tested & Certified — program structure", href: "https://heavymetalcertified.com/program/structure" },
-            { label: "ICS governance register", href: "https://contaminantstandards.com/governance" },
-            { label: "ICS governance policies", href: "https://contaminantstandards.com/governance/policies" },
-          ]}
+          references={references}
+          referenceStyle="apa"
+          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

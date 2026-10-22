@@ -1,0 +1,47 @@
+[
+  {
+    "id": "hmi",
+    "label": "Heavy Metal Index. (n.d.). Heavy Metal Index.",
+    "href": "https://heavymetalindex.com/",
+    "apa": {
+      "authors": "Heavy Metal Index",
+      "date": "n.d.",
+      "title": "Heavy Metal Index",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "structure",
+    "label": "Heavy Metal Tested & Certified. (n.d.). Program structure.",
+    "href": "https://heavymetalcertified.com/program/structure",
+    "apa": {
+      "authors": "Heavy Metal Tested & Certified",
+      "date": "n.d.",
+      "title": "Program structure",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "governance",
+    "label": "Institute of Contaminant Standards. (n.d.). Governance.",
+    "href": "https://contaminantstandards.com/governance",
+    "apa": {
+      "authors": "Institute of Contaminant Standards",
+      "date": "n.d.",
+      "title": "Governance",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "policies",
+    "label": "Institute of Contaminant Standards. (2026, August 17). Governance policies.",
+    "href": "https://contaminantstandards.com/governance/policies",
+    "apa": {
+      "authors": "Institute of Contaminant Standards",
+      "date": "2026, August 17",
+      "title": "Governance policies",
+      "italicTitle": true,
+      "description": "Register edition 1.0"
+    }
+  }
+]

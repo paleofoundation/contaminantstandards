@@ -1,8 +1,11 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
 import {
   ArticleSection,
+  createCite,
+  type PublicationReference,
   PublicationFooter,
   PublicationHeader,
   PublicationJsonLd,
@@ -10,6 +13,9 @@ import {
 } from "../article-tools";
 
 const article = publications[3];
+
+const references: PublicationReference[] = referenceData;
+const Cite = createCite(references);
 
 export async function generateMetadata(): Promise<Metadata> {
   return publicationMetadata(article);
@@ -65,7 +71,7 @@ export default function ReportingBasisArticle() {
               Metrology starts with the measurand—the quantity intended to be
               measured. For food contaminants, the measurand cannot be adequately
               specified by naming an element and a unit. Product matrix, state,
-              portion, and analytical definition are part of the quantity.
+              portion, and analytical definition are part of the quantity.<Cite ids={["vim"]} />
             </p>
           </ArticleSection>
 
@@ -84,7 +90,7 @@ export default function ReportingBasisArticle() {
               market from products ready to use after reconstitution and require
               processing, dilution, or concentration factors to be justified when a
               specific limit is absent for a processed form. The basis is part of the
-              rule, not an after-the-fact conversion preference.
+              rule, not an after-the-fact conversion preference.<Cite ids={["eu"]} />
             </p>
             <blockquote>
               A conversion can aid interpretation. It cannot silently replace the
@@ -102,11 +108,11 @@ export default function ReportingBasisArticle() {
             </p>
             <p>
               FDA’s Elemental Analysis Manual gives product-specific edible-portion
-              instructions and separate procedures for homogenization. The emphasis
+              instructions and separate procedures for homogenization.<Cite ids={["edible"]} /> The emphasis
               is consequential: a representative analytical portion can be obtained
               only after the analytical sample is made sufficiently homogeneous for
               the portion size used. Otherwise, instrument precision may conceal
-              sample-level non-representativeness.
+              sample-level non-representativeness.<Cite ids={["homogenization"]} />
             </p>
             <div className="paper-principles">
               <div><b>Identity</b><p>Name the exact food, formulation class, and physical form represented.</p></div>
@@ -144,7 +150,7 @@ export default function ReportingBasisArticle() {
               can align the units. Before aggregation, the record should resolve at
               least the analyte, matrix, product form, edible portion, preparation
               state, reporting basis, sampling unit, analytical portion, method, and
-              treatment of non-detects.
+              treatment of non-detects. Codex’s general contaminant standard likewise specifies the commodity and portion to which a maximum level applies.<Cite ids={["codex"]} />
             </p>
             <p>
               A standard needs the same discipline. The conformity cell must state
@@ -172,13 +178,9 @@ export default function ReportingBasisArticle() {
 
         <PublicationFooter
           record={article}
-          references={[
-            { label: "BIPM/JCGM 200:2012 — International Vocabulary of Metrology", href: "https://www.bipm.org/en/doi/10.59161/jcgm200-2012" },
-            { label: "FDA Elemental Analysis Manual §2.1 — Food Edible Portion", href: "https://www.fda.gov/media/89326/download" },
-            { label: "FDA Elemental Analysis Manual §2.2 — Food Homogenization", href: "https://www.fda.gov/media/89329/download" },
-            { label: "Commission Regulation (EU) 2023/915 — contaminants in food", href: "https://eur-lex.europa.eu/eli/reg/2023/915/oj/eng" },
-            { label: "Codex CXS 193-1995 — contaminants and toxins in food and feed", href: "https://www.fao.org/fao-who-codexalimentarius/sh-proxy/ro/?lnk=1&url=https%253A%252F%252Fworkspace.fao.org%252Fsites%252Fcodex%252FStandards%252FCXS%2B193-1995%252FCXS_193e.pdf" },
-          ]}
+          references={references}
+          referenceStyle="apa"
+          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

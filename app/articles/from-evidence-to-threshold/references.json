@@ -1,0 +1,46 @@
+[
+  {
+    "id": "hmi",
+    "label": "Heavy Metal Index. (n.d.). Heavy Metal Index.",
+    "href": "https://heavymetalindex.com/",
+    "apa": {
+      "authors": "Heavy Metal Index",
+      "date": "n.d.",
+      "title": "Heavy Metal Index",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "structure",
+    "label": "Heavy Metal Tested & Certified. (n.d.). Program structure.",
+    "href": "https://heavymetalcertified.com/program/structure",
+    "apa": {
+      "authors": "Heavy Metal Tested & Certified",
+      "date": "n.d.-b",
+      "title": "Program structure",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "standards",
+    "label": "Heavy Metal Tested & Certified. (n.d.). HMTc standards.",
+    "href": "https://heavymetalcertified.com/standards",
+    "apa": {
+      "authors": "Heavy Metal Tested & Certified",
+      "date": "n.d.-a",
+      "title": "HMTc standards",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "governance",
+    "label": "Institute of Contaminant Standards. (n.d.). Governance.",
+    "href": "https://contaminantstandards.com/governance",
+    "apa": {
+      "authors": "Institute of Contaminant Standards",
+      "date": "n.d.",
+      "title": "Governance",
+      "italicTitle": true
+    }
+  }
+]

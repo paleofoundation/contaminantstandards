@@ -1,0 +1,63 @@
+[
+  {
+    "id": "arsenic",
+    "label": "U.S. Food and Drug Administration. (n.d.-a). Arsenic in food.",
+    "href": "https://www.fda.gov/food/environmental-contaminants-food/arsenic-food",
+    "apa": {
+      "authors": "U.S. Food and Drug Administration",
+      "date": "n.d.-a",
+      "title": "Arsenic in food",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "eam",
+    "label": "U.S. Food and Drug Administration. (n.d.-b). Elemental analysis manual (EAM) for food and related products.",
+    "href": "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-food-and-related-products",
+    "apa": {
+      "authors": "U.S. Food and Drug Administration",
+      "date": "n.d.-b",
+      "title": "Elemental analysis manual (EAM) for food and related products",
+      "italicTitle": true
+    }
+  },
+  {
+    "id": "speciation",
+    "label": "Kubachka, K. M., Shockey, N. V., Hanley, T. A., Conklin, S. D., & Heitkemper, D. T.. (2012, November). Arsenic speciation in rice and rice products using high performance liquid chromatography–inductively coupled plasma–mass spectrometric determination.",
+    "href": "https://www.fda.gov/media/95197/download",
+    "apa": {
+      "authors": "Kubachka, K. M., Shockey, N. V., Hanley, T. A., Conklin, S. D., & Heitkemper, D. T.",
+      "date": "2012, November",
+      "title": "Arsenic speciation in rice and rice products using high performance liquid chromatography–inductively coupled plasma–mass spectrometric determination",
+      "italicTitle": true,
+      "description": "Elemental Analysis Manual, Section 4.11, Draft Version 1.1",
+      "publisher": "U.S. Food and Drug Administration"
+    }
+  },
+  {
+    "id": "vim",
+    "label": "Joint Committee for Guides in Metrology. (2012). International vocabulary of metrology—Basic and general concepts and associated terms (VIM).",
+    "href": "https://doi.org/10.59161/JCGM200-2012",
+    "apa": {
+      "authors": "Joint Committee for Guides in Metrology",
+      "date": "2012",
+      "title": "International vocabulary of metrology—Basic and general concepts and associated terms (VIM)",
+      "italicTitle": true,
+      "description": "3rd ed., 2008 version with minor corrections; JCGM 200:2012",
+      "publisher": "Bureau International des Poids et Mesures"
+    }
+  },
+  {
+    "id": "codex",
+    "label": "Codex Alimentarius Commission. (2025). General standard for contaminants and toxins in food and feed.",
+    "href": "https://www.fao.org/fao-who-codexalimentarius/sh-proxy/en/?lnk=1&url=https%3A%2F%2Fworkspace.fao.org%2Fsites%2Fcodex%2Fstandards%2FCXS+193-1995%2FCXS_193e.pdf",
+    "apa": {
+      "authors": "Codex Alimentarius Commission",
+      "date": "2025",
+      "title": "General standard for contaminants and toxins in food and feed",
+      "italicTitle": true,
+      "description": "CXS 193-1995, amended 2025",
+      "publisher": "Food and Agriculture Organization of the United Nations & World Health Organization"
+    }
+  }
+]

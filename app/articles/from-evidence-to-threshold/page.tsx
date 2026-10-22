@@ -1,8 +1,11 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
 import {
   ArticleSection,
+  createCite,
+  type PublicationReference,
   PublicationFooter,
   PublicationHeader,
   PublicationJsonLd,
@@ -10,6 +13,9 @@ import {
 } from "../article-tools";
 
 const article = publications[1];
+
+const references: PublicationReference[] = referenceData;
+const Cite = createCite(references);
 
 export async function generateMetadata(): Promise<Metadata> {
   return publicationMetadata(article);
@@ -43,7 +49,7 @@ export default function EvidenceThresholdArticle() {
               occurrence evidence from the normative role of a certification limit.
               It explains why public occurrence distributions should not select an
               initial certification threshold, presents the government-anchored model
-              used by Heavy Metal Tested &amp; Certified, and describes a separate
+              used by <a href="https://heavymetalcertified.com/program/structure">Heavy Metal Tested &amp; Certified</a>, and describes a separate
               post-publication ratchet based on eligible certified-lot performance.
             </p>
           </aside>
@@ -60,7 +66,7 @@ export default function EvidenceThresholdArticle() {
               or gaps in surveillance. Its distributions depend on which products
               were sampled, when and where they were collected, how non-detects were
               treated, which analyte species were measured, and whether the reported
-              basis matches the product as sold or consumed.
+              basis matches the product as sold or consumed.<Cite ids={["hmi"]} />
             </p>
             <p>
               A certification limit is a rule of conformity. It determines whether a
@@ -68,7 +74,7 @@ export default function EvidenceThresholdArticle() {
               published requirement. That rule has legal, commercial, and governance
               consequences. It therefore needs an authority basis that remains valid
               even when the available occurrence literature is sparse, biased, or
-              rapidly changing.
+              rapidly changing.<Cite ids={["structure"]} />
             </p>
           </ArticleSection>
 
@@ -104,7 +110,7 @@ export default function EvidenceThresholdArticle() {
               credible government maximum for the exact product-and-analyte cell. The
               purpose of that rule is not to assume that every government value is
               optimal. It is to make the initial authority source public, external,
-              and reproducible.
+              and reproducible.<Cite ids={["standards"]} />
             </p>
             <ol className="paper-sequence">
               <li><span>1</span><div><b>Define the exact cell</b><p>Fix product matrix, form, intended consumer, analyte species, unit, and native reporting basis.</p></div></li>
@@ -116,7 +122,7 @@ export default function EvidenceThresholdArticle() {
               A reader can challenge any step: whether the rule is credible, whether
               it applies to the matrix, whether the basis is comparable, or whether a
               stricter instrument was missed. The challenge is possible because the
-              method does not hide the authority source inside a proprietary score.
+              method does not hide the authority source inside a proprietary score.<Cite ids={["governance"]} />
             </p>
           </ArticleSection>
 
@@ -212,12 +218,9 @@ export default function EvidenceThresholdArticle() {
 
         <PublicationFooter
           record={article}
-          references={[
-            { label: "Heavy Metal Index — occurrence and regulatory evidence", href: "https://heavymetalindex.com/" },
-            { label: "Heavy Metal Tested & Certified — published standards", href: "https://heavymetalcertified.com/standards" },
-            { label: "Heavy Metal Tested & Certified — program structure", href: "https://heavymetalcertified.com/program/structure" },
-            { label: "ICS — how initial standards are set", href: "https://contaminantstandards.com/governance" },
-          ]}
+          references={references}
+          referenceStyle="apa"
+          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

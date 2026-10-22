@@ -1,8 +1,11 @@
+import referenceData from "./references.json";
 import type { Metadata } from "next";
 import { SiteFrame } from "../../site-chrome";
 import { publications } from "../../site-data";
 import {
   ArticleSection,
+  createCite,
+  type PublicationReference,
   PublicationFooter,
   PublicationHeader,
   PublicationJsonLd,
@@ -10,6 +13,9 @@ import {
 } from "../article-tools";
 
 const article = publications[2];
+
+const references: PublicationReference[] = referenceData;
+const Cite = createCite(references);
 
 export async function generateMetadata(): Promise<Metadata> {
   return publicationMetadata(article);
@@ -66,7 +72,7 @@ export default function StandardsAsLivingRecordsArticle() {
               The question is not merely what the standard says today. It is what the
               standard said on the date a defined product was assessed, which edition
               the applicant accepted, which transition rule applied, and whether a
-              later correction changed meaning or only repaired presentation.
+              later correction changed meaning or only repaired presentation.<Cite ids={["policies"]} />
             </p>
           </ArticleSection>
 
@@ -89,7 +95,7 @@ export default function StandardsAsLivingRecordsArticle() {
               amendment, and withdrawal as explicit outcomes and preserve reference
               copies of withdrawn editions. The relevant lesson is architectural:
               revision produces a new governed record; it does not make the earlier
-              record unknowable.
+              record unknowable.<Cite ids={["directives"]} /> FDA’s Elemental Analysis Manual also provides a public method history and access to archived material.<Cite ids={["archive"]} />
             </p>
           </ArticleSection>
 
@@ -121,7 +127,7 @@ export default function StandardsAsLivingRecordsArticle() {
               active now. A certificate record must answer an additional historical
               question: under which standard edition was this determination made?
               The link between the certificate and the governing edition should be
-              direct, not inferred from a filename or the year printed on a badge.
+              direct, not inferred from a filename or the year printed on a badge. The program’s published standards register provides an entry point to its requirements.<Cite ids={["standards"]} />
             </p>
             <ol className="paper-sequence">
               <li><span>1</span><div><b>Name the edition</b><p>The certificate record states the stable standard identifier.</p></div></li>
@@ -171,12 +177,9 @@ export default function StandardsAsLivingRecordsArticle() {
 
         <PublicationFooter
           record={article}
-          references={[
-            { label: "ISO/IEC Directives — procedures for revision, amendment, and withdrawal", href: "https://www.iso.org/sites/directives/current/consolidated/index.html" },
-            { label: "FDA Elemental Analysis Manual — versioned methods and revision history", href: "https://www.fda.gov/food/laboratory-methods-food/elemental-analysis-manual-eam-history-and-access-archived-material" },
-            { label: "ICS governance policies — corrections, retractions, and versioning", href: "https://contaminantstandards.com/governance/policies" },
-            { label: "Heavy Metal Tested & Certified — published standards", href: "https://heavymetalcertified.com/standards" },
-          ]}
+          references={references}
+          referenceStyle="apa"
+          referenceOrder="citation"
         />
       </main>
     </SiteFrame>
