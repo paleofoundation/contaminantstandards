@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PersonName } from "../../../person-name";
+import { orcidUrl } from "../../../people-data";
 import { JsonLd } from "../../../json-ld";
 import { SiteFrame } from "../../../site-chrome";
 import { canonical, KAREN_ID, ORGANIZATION_ID } from "../../../site-data";
@@ -29,6 +31,7 @@ export async function generateMetadata({
     description: note.disposition,
     alternates: { canonical: url },
     authors: [{ name: "Karen Pendergrass", url: canonical("/people/karen-pendergrass") }],
+    other: { citation_author_orcid: orcidUrl("karen") },
     openGraph: {
       title: note.title,
       description: note.disposition,
@@ -98,7 +101,7 @@ export default async function EvidenceGovernanceNotePage({
           <div className="publication-byline">
             <div>
               <span>AUTHOR</span>
-              <a href="/people/karen-pendergrass">Karen Pendergrass</a>
+              <PersonName person="karen" href="/people/karen-pendergrass" />
               <small>Standards Architect &amp; Research Lead</small>
             </div>
             <div>
@@ -191,7 +194,7 @@ export default async function EvidenceGovernanceNotePage({
           <div>
             <span>SUGGESTED CITATION</span>
             <p>
-              Pendergrass, K. (2026). “{note.title}.” <i>ICS Evidence Governance Notes</i>. {note.identifier}. Institute of Contaminant Standards.
+              <PersonName person="karen">Pendergrass, K.</PersonName> (2026). “{note.title}.” <i>ICS Evidence Governance Notes</i>. {note.identifier}. Institute of Contaminant Standards.
             </p>
           </div>
           <a href="/governance/notes">Evidence governance register →</a>

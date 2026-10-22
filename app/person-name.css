@@ -1,0 +1,45 @@
+/* Researcher names always carry a linked ORCID iD, slightly above the baseline. */
+.person-name {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.person-orcid {
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  vertical-align: baseline;
+  font-size: inherit;
+  line-height: 0;
+  white-space: nowrap;
+}
+
+.person-orcid > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(13px, 0.8em, 24px);
+  height: clamp(13px, 0.8em, 24px);
+  vertical-align: middle;
+  border: 0;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.person-orcid svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.person-orcid > a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.person-orcid > a:hover {
+  box-shadow: 0 0 0 3px #a6ce3933;
+}

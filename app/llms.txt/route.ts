@@ -1,3 +1,4 @@
+import { orcidUrl } from "../people-data";
 import { publications, SITE_ORIGIN } from "../site-data";
 
 export function GET() {
@@ -24,9 +25,10 @@ ICS is the institutional governance body for independent contaminant evidence in
 - Licensing and reuse: ${SITE_ORIGIN}/licensing
 
 ## Named research and standards authority
-- Karen Pendergrass: ${SITE_ORIGIN}/people/karen-pendergrass
+- Karen Pendergrass (ORCID: ${orcidUrl("karen")}): ${SITE_ORIGIN}/people/karen-pendergrass
 - Role: Founder, Chief Executive Officer, Standards Architect, and Research Lead
-- ORCID: https://orcid.org/0000-0002-2348-7259
+- Kimberly Eyer (ORCID: ${orcidUrl("kimberly")})
+- Jonathan D. Pendergrass (ORCID: ${orcidUrl("jonathan")})
 
 ## Operational network
 - Heavy Metal Index (public literature and regulatory evidence): https://heavymetalindex.com/

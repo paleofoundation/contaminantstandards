@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InteriorHero, PageNav, SectionIntro } from "../interior";
 import { SiteFrame } from "../site-chrome";
+import { PersonName } from "../person-name";
 import { PublicationLibrary } from "./publication-library";
 import {
   canonical,
@@ -72,7 +73,7 @@ export default function ArticlesPage() {
           <p className="inside-label">
             LATEST / {publicationSeries[latest.series].name}
           </p>
-          <a className="publication-feature" href={`/articles/${latest.slug}`}>
+          <article className="publication-feature">
             <div className="publication-feature-art">
               <span className="inside-label">
                 {publicationSeries[latest.series].masthead}
@@ -103,18 +104,18 @@ export default function ArticlesPage() {
                 </span>
                 <span>{latest.readingTime}</span>
               </div>
-              <h2>{latest.title}</h2>
+              <h2><a href={`/articles/${latest.slug}`}>{latest.title}</a></h2>
               <p>{latest.description}</p>
               <div className="publication-author">
-                Karen Pendergrass{" "}
-                <span>Standards Architect &amp; Research Lead</span>
+                <PersonName person="karen" href="/people/karen-pendergrass" />
+                <span className="publication-author-role">Standards Architect &amp; Research Lead</span>
               </div>
-              <span className="inside-row-link">
+              <a className="inside-row-link" href={`/articles/${latest.slug}`}>
                 {publicationReadLabel(latest.series)}
                 <b aria-hidden="true">↗</b>
-              </span>
+              </a>
             </div>
-          </a>
+          </article>
         </section>
         <section className="inside-band" id="library">
           <div className="inside-container inside-section">

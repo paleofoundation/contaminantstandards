@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./institute.css";
 import "./typography.css";
+import "./person-name.css";
 import { JsonLd } from "./json-ld";
+import { orcidUrl, researchers, type Researcher } from "./people-data";
 import {
   KAREN_ID,
   ORGANIZATION_ID,
@@ -72,6 +74,19 @@ export default function RootLayout({
       <head>
         <JsonLd
           data={[
+            ...Object.entries(researchers).map(([key, person]) => ({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": key === "karen" ? KAREN_ID : orcidUrl(key as Researcher),
+              name: person.name,
+              sameAs: [orcidUrl(key as Researcher)],
+              identifier: {
+                "@type": "PropertyValue",
+                propertyID: "ORCID",
+                value: person.orcid,
+              },
+              worksFor: { "@id": ORGANIZATION_ID },
+            })),
             {
               "@context": "https://schema.org",
               "@type": "Organization",

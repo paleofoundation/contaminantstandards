@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PersonName } from "../person-name";
+import { orcidUrl, researchers } from "../people-data";
 import {
   InteriorHero,
   PageNav,
@@ -35,7 +37,7 @@ const authorityMap = [
   {
     number: "01",
     function: "Executive leadership",
-    people: "Karen Pendergrass · Kimberly Eyer",
+    people: <><PersonName person="karen" /> · <PersonName person="kimberly" /></>,
     authority:
       "Institutional direction, organizational accountability, and program continuity.",
     status: "Named",
@@ -43,7 +45,7 @@ const authorityMap = [
   {
     number: "02",
     function: "Standards & research",
-    people: "Karen Pendergrass",
+    people: <PersonName person="karen" />,
     authority:
       "Standards architecture, methodology development, evidence systems, and research direction.",
     status: "Named",
@@ -51,7 +53,7 @@ const authorityMap = [
   {
     number: "03",
     function: "Certification operations",
-    people: "Jonathan D. Pendergrass · Jennifer Eyer",
+    people: <><PersonName person="jonathan" /> · Jennifer Eyer</>,
     authority:
       "Licensing, mark administration, compliance auditing, and operating records.",
     status: "Named",
@@ -77,11 +79,12 @@ const authorityMap = [
 const people = [
   {
     initials: "KP",
-    name: "Karen Pendergrass",
+    name: researchers.karen.name,
+    researcher: "karen" as const,
     title: "Founder & Chief Executive Officer",
     functions: "Executive leadership · Standards Architect · Research lead",
     description:
-      "Karen holds the Institute’s executive, standards, and research responsibilities. Across more than fifteen years of standards architecture, she developed certification frameworks and now leads ICS work in heavy metals, food metallomics, and microbial metallomics. She is the architect of the Heavy Metal Index evidence system and Heavy Metal Tested & Certified methodology.",
+      <><PersonName person="karen">Karen</PersonName> holds the Institute’s executive, standards, and research responsibilities. Across more than fifteen years of standards architecture, she developed certification frameworks and now leads ICS work in heavy metals, food metallomics, and microbial metallomics. She is the architect of the Heavy Metal Index evidence system and Heavy Metal Tested & Certified methodology.</>,
     image: "/karen-pendergrass.avif",
     links: [
       {
@@ -91,37 +94,39 @@ const people = [
       { label: "Heavy Metal Index", href: "https://heavymetalindex.com/" },
       { label: "HMTc methodology", href: "https://heavymetalcertified.com/" },
       {
-        label: "ORCID 0000-0002-2348-7259",
-        href: "https://orcid.org/0000-0002-2348-7259",
+        label: `ORCID ${researchers.karen.orcid}`,
+        href: orcidUrl("karen"),
       },
       { label: "Full research profile", href: "/people/karen-pendergrass" },
     ],
   },
   {
     initials: "KE",
-    name: "Kimberly Eyer",
+    name: researchers.kimberly.name,
+    researcher: "kimberly" as const,
     title: "Co-Founder · Executive Leadership",
     functions: "Executive leadership · Published standards co-author",
     description:
-      "Kimberly is a co-founder of the organization and serves in executive leadership. She is a named co-author on the organization’s published certification standards, providing a public scholarly record alongside her institutional role.",
+      <><PersonName person="kimberly">Kimberly</PersonName> is a co-founder of the organization and serves in executive leadership. She is a named co-author on the organization’s published certification standards, providing a public scholarly record alongside her institutional role.</>,
     links: [
       {
-        label: "ORCID 0000-0001-6194-6148",
-        href: "https://orcid.org/0000-0001-6194-6148",
+        label: `ORCID ${researchers.kimberly.orcid}`,
+        href: orcidUrl("kimberly"),
       },
     ],
   },
   {
     initials: "JP",
-    name: "Jonathan D. Pendergrass",
+    name: researchers.jonathan.name,
+    researcher: "jonathan" as const,
     title: "Chief Licensing Operator",
     functions: "Licensing · Mark administration · Enforcement operations",
     description:
-      "Jonathan leads licensing operations, including trademark licensing, certification compliance administration, and infringement enforcement. His function is operational: maintaining the agreements and controls through which certification marks remain governed in use.",
+      <><PersonName person="jonathan">Jonathan</PersonName> leads licensing operations, including trademark licensing, certification compliance administration, and infringement enforcement. His function is operational: maintaining the agreements and controls through which certification marks remain governed in use.</>,
     links: [
       {
-        label: "ORCID 0009-0003-5199-0737",
-        href: "https://orcid.org/0009-0003-5199-0737",
+        label: `ORCID ${researchers.jonathan.orcid}`,
+        href: orcidUrl("jonathan"),
       },
     ],
   },
@@ -250,7 +255,7 @@ export default function AboutPage() {
                   </div>
                   <div className="leadership-copy">
                     <p className="inside-label">{p.functions}</p>
-                    <h3>{p.name}</h3>
+                    <h3>{p.researcher ? <PersonName person={p.researcher} /> : p.name}</h3>
                     <p className="leadership-title">{p.title}</p>
                     <p>{p.description}</p>
                     <div className="leadership-links">
