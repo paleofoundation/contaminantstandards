@@ -50,6 +50,11 @@ The registry and verify pages read scaffold literals today. In production they r
 
 ## Develop
 
+New articles follow the [article authoring contract](docs/article-authoring.md).
+Shared typography, light APA reference entries, and sequential numeric citations
+are the defaults. `npm run lint:article-citations` checks every article and runs
+automatically before production builds.
+
 ```bash
 npm install
 npm run dev            # local dev

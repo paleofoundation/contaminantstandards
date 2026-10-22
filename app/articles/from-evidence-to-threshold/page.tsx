@@ -219,8 +219,6 @@ export default function EvidenceThresholdArticle() {
         <PublicationFooter
           record={article}
           references={references}
-          referenceStyle="apa"
-          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

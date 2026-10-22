@@ -47,7 +47,7 @@ test('new citations are numbered consecutively in article reading order', () => 
 
 test('APA entries and visible reference labels follow citation order', () => {
   const record = publications.find(p => p.identifier === 'ICS-ER-2026-001');
-  const output = renderToStaticMarkup(React.createElement(PublicationFooter, { record, references, referenceStyle: 'apa', referenceOrder: 'citation' }));
+  const output = renderToStaticMarkup(React.createElement(PublicationFooter, { record, references }));
   const entries = [...output.matchAll(/<li[^>]*id="ref-(\d+)"[^>]*><span class="paper-reference-number">\[(\d+)\]<\/span>/g)];
   assert.equal(entries.length, 52);
   entries.forEach((entry, index) => {

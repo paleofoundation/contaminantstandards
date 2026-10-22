@@ -3219,6 +3219,8 @@ a:focus-visible {
   padding: 30px 0 100px;
 }
 
+/* Canonical article presentation: reuse these shared styles for future articles.
+   See docs/article-authoring.md; do not fork per-page typography. */
 .paper-abstract {
   margin: 30px 0 90px;
   padding: 35px 0;

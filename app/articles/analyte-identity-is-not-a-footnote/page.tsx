@@ -180,8 +180,6 @@ export default function AnalyteIdentityArticle() {
         <PublicationFooter
           record={article}
           references={references}
-          referenceStyle="apa"
-          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

@@ -192,8 +192,6 @@ export default function IndependentIndexArticle() {
         <PublicationFooter
           record={article}
           references={references}
-          referenceStyle="apa"
-          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

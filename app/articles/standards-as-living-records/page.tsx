@@ -178,8 +178,6 @@ export default function StandardsAsLivingRecordsArticle() {
         <PublicationFooter
           record={article}
           references={references}
-          referenceStyle="apa"
-          referenceOrder="citation"
         />
       </main>
     </SiteFrame>

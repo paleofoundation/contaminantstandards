@@ -418,7 +418,7 @@ export default function ContaminantsInBabyWipesReview() {
           </ArticleSection>
         </article>
 
-        <PublicationFooter record={article} references={references} referenceStyle="apa" referenceOrder="citation" />
+        <PublicationFooter record={article} references={references} />
       </main>
     </SiteFrame>
   );

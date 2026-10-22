@@ -165,9 +165,10 @@ export function ArticleSection({
 export type PublicationReference = {
   label: string;
   href: string;
-  /** Stable key used by inline citation markers. Optional for pages without inline markers. */
-  id?: string;
-  apa?: {
+  /** Stable source identity. References are stored in first-citation order. */
+  id: string;
+  /** APA bibliographic fields are mandatory for every article reference. */
+  apa: {
     authors: string;
     date: string;
     title: string;
@@ -184,7 +185,9 @@ export type PublicationReference = {
 
 function ApaReference({ reference }: { reference: PublicationReference }) {
   const entry = reference.apa;
-  if (!entry) return <a href={reference.href}>{reference.label}</a>;
+  if (!entry?.title?.trim() || !entry.date?.trim()) {
+    throw new Error(`Missing APA bibliographic fields for reference: ${reference.id}`);
+  }
   const author = entry.authors === "Pendergrass, K."
     ? <PersonName person="karen">{entry.authors}</PersonName>
     : entry.authors;
@@ -216,7 +219,7 @@ export function referenceAnchor(n: number) {
 export function createCite(references: PublicationReference[]) {
   const numbers = new Map<string, number>();
   references.forEach((reference, index) => {
-    if (!reference.id) return;
+    if (!reference.id) throw new Error("Every article reference needs a stable id");
     if (numbers.has(reference.id)) {
       throw new Error(`Duplicate reference id: ${reference.id}`);
     }
@@ -249,43 +252,25 @@ export function createCite(references: PublicationReference[]) {
 export function PublicationFooter({
   record,
   references,
-  referenceStyle,
-  referenceOrder,
 }: {
   record: PublicationRecord;
   references: PublicationReference[];
-  referenceStyle?: "apa";
-  referenceOrder?: "citation" | "alphabetical";
 }) {
   const series = seriesOf(record);
   const evidenceReview = record.series === "ICS-ER";
-  const entries = references.map((reference, index) => ({ reference, index }));
-  if (referenceStyle === "apa" && referenceOrder !== "citation") {
-    entries.sort((a, b) => {
-      const key = (reference: PublicationReference) => {
-        const entry = reference.apa;
-        return entry ? `${entry.authors || entry.title} ${entry.date} ${entry.title}` : reference.label;
-      };
-      return key(a.reference).localeCompare(key(b.reference), "en", { sensitivity: "base" });
-    });
-  }
 
   return (
     <>
-      <section className={`paper-references${referenceStyle === "apa" ? " paper-references--apa" : ""}`}>
+      <section className="paper-references paper-references--apa">
         <div>
           <p className="section-kicker">{evidenceReview ? "SOURCES REVIEWED" : "REFERENCES & INSTITUTIONAL RECORDS"}</p>
-          <h2>{referenceStyle === "apa" ? "References" : evidenceReview ? "Sources for this evidence review" : "Sources used in this analysis"}</h2>
+          <h2>References</h2>
         </div>
         <ol>
-          {entries.map(({ reference, index }) => (
+          {references.map((reference, index) => (
             <li key={reference.href} id={referenceAnchor(index + 1)}>
-              {referenceStyle === "apa" ? <>
-                <span className="paper-reference-number">[{index + 1}]</span>
-                <div className="paper-reference-entry"><ApaReference reference={reference} /></div>
-              </> : <a href={reference.href} target="_blank" rel="noopener">
-                {reference.label} ↗
-              </a>}
+              <span className="paper-reference-number">[{index + 1}]</span>
+              <div className="paper-reference-entry"><ApaReference reference={reference} /></div>
             </li>
           ))}
         </ol>

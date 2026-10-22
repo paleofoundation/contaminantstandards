@@ -1,3 +1,25 @@
+# Article defaults (owner instruction, 22 October 2026)
+
+Every new or revised article must use the approved article typography, light
+reference section, APA-formatted entries, and sequential numeric citations.
+Follow [the article authoring contract](docs/article-authoring.md).
+
+- Use the shared `PublicationHeader`, `ArticleSection`, `PublicationFooter`,
+  `.paper-body`, `.paper-abstract`, and `.paper-table` styles. Do not fork their
+  fonts, sizes, or colors for an individual article without an explicit request.
+- Store complete, verified bibliography fields in the article's `references.json`.
+  Use `createCite(references)` for inline citations and keep references in order
+  of first citation. New sources receive [1], [2], [3], etc.; repeated sources keep
+  their number. Matching visible numbers and working anchors are required.
+- APA describes the bibliographic entries here; numeric citations and citation
+  order are the owner's chosen presentation. Do not switch to author–date
+  markers, alphabetical ordering, or unnumbered entries.
+- Use `PublicationFooter` without style/order flags; the approved presentation is
+  its default. Never bypass its required APA fields with shorthand labels.
+- Register each article in `app/site-data.ts`. `npm run lint:article-citations`
+  automatically discovers every article page and blocks builds on missing
+  bibliographies, numbering gaps, or departures from the shared components.
+
 # Researcher names and ORCID
 
 Every visible mention of Karen Pendergrass, Kimberly Eyer, or Jonathan D.
