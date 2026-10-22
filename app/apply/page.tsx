@@ -1,55 +1,28 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { PORTAL, httpsUrl } from "../../lib/site-registry"
-import { PageHero, SiteFrame } from "../site-chrome"
-
-// Apply hub — a single SSO entry point to the authenticated portal. The parent's
-// CTA is always a REFERRAL to the portal, never a conversion page on the parent
-// (keeps the parent off the child's transactional term). One account, one brand
-// profile, a multi-program cart across verticals, one billing cycle.
+import type { Metadata } from "next";
+import { PORTAL, httpsUrl } from "../../lib/site-registry";
+import { PageHero, SiteFrame } from "../site-chrome";
 
 export const metadata: Metadata = {
-  title: "Apply for certification",
-  description:
-    "Apply for contaminant certification through one account and one application, across every ICS program.",
+  title: "Certification applications",
+  description: "One ICS account for your certification journey. Start with Heavy Metal Tested & Certified; PFAS and microplastics programs are in development.",
   alternates: { canonical: "/apply" },
-}
+};
 
 export default function ApplyPage() {
-  const portalUrl = httpsUrl(PORTAL.domain)
-  return (
-    <SiteFrame>
-      <main>
-        <PageHero
-          index="09 / APPLY"
-          eyebrow="Program-routed application"
-          title={<>One account.<br /><em>One governed pathway.</em></>}
-          description="Applications, private evidence, and billing remain outside the public institutional record."
-        />
-        <section className="utility-section">
-          <p className="utility-lead">
-            Add products once, assign them to the programs in scope, satisfy the
-            evidence checklist, and review one quote and invoice.
-          </p>
-          <a href={portalUrl} className="button button-primary">
-            Start an application <span aria-hidden="true">→</span>
-          </a>
-          <div className="utility-process">
-            <h2>How it works</h2>
-            <ol>
-              <li>Sign in through the authenticated application portal.</li>
-              <li>Create or select the brand profile used across ICS programs.</li>
-              <li>Add products and assign the relevant program lines.</li>
-              <li>Upload accredited laboratory evidence against the program checklist.</li>
-              <li>Review the combined quote, payment, and mark issuance record.</li>
-            </ol>
-          </div>
-          <p className="utility-note">
-            Application documents are not public. To confirm an existing relationship,
-            use <Link href="/registry">the registry</Link> or <Link href="/verify">certificate verification</Link>.
-          </p>
-        </section>
-      </main>
-    </SiteFrame>
-  )
+  const portal = httpsUrl(PORTAL.domain);
+  return <SiteFrame><main>
+    <PageHero index="ICS / CERTIFICATION" eyebrow="One account. A connected certification journey." title={<>Your next standard.<br /><em>Starts here.</em></>} description="Manage your brand, products, laboratory evidence, and applications in the ICS certification portal." aside={<a className="ics-button gold" href={`${portal}/login`}>Already registered? Log in <span aria-hidden="true">↗</span></a>} />
+    <section className="application-hub wrap">
+      <p className="label">CHOOSE YOUR PROGRAM</p>
+      <h2>One home for your certifications.</h2>
+      <p className="utility-lead">Existing Heavy Metal Tested &amp; Certified members can use their current account. Each program keeps its own evidence requirements and certification decisions.</p>
+      <div className="contaminant-grid">
+        <article className="contaminant-card metals"><div className="card-top"><span className="label">01 / HEAVY METALS</span><span className="program-state active">Available now</span></div><h3>Heavy Metal Tested<br />&amp; Certified</h3><p>Build your brand profile, add products and lab evidence, assess readiness, and apply when your baseline qualifies.</p><a className="ics-button navy" href={`${portal}/hmt/get-started`}>Get started <span aria-hidden="true">↗</span></a><a className="text-link" style={{marginTop:18,alignSelf:"start"}} href={`${portal}/login?returnTo=/portal/readiness`}>Continue in your workspace →</a></article>
+        <article className="contaminant-card"><div className="card-top"><span className="label">02 / PFAS</span><span className="program-state">In development</span></div><h3>PFAS<br />certification</h3><p>A future certification pathway for forever chemicals, planned within the same ICS account.</p><span className="program-unavailable">Applications are not yet open.</span></article>
+        <article className="contaminant-card"><div className="card-top"><span className="label">03 / MICROPLASTICS</span><span className="program-state">In development</span></div><h3>Microplastics<br />certification</h3><p>A future certification pathway for microplastics, planned within the same ICS account.</p><span className="program-unavailable">Applications are not yet open.</span></article>
+      </div>
+      <div className="utility-process"><h2>From first step to application.</h2><ol><li>Learn about the program and create your account.</li><li>Add your brand, products, and laboratory records.</li><li>Review readiness and any additional evidence needed.</li><li>Submit your application when the program requirements are met.</li></ol></div>
+      <p className="utility-note">Read the <a href="https://heavymetalcertified.com">Heavy Metal Tested &amp; Certified program information</a>. Your application documents stay in the private portal. Public research, governance, and certificate verification remain separate.</p>
+    </section>
+  </main></SiteFrame>;
 }

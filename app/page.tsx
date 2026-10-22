@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { authorityStats } from "../lib/feeds";
 import { SiteFrame } from "./site-chrome";
 import { publications } from "./site-data";
@@ -8,20 +9,6 @@ const fields = [
   { n: "03", code: "PF", title: "PFAS", text: "The forever chemicals evidence index and its developing certification pathway.", index: "Forever Chemicals Index", href: "/network#pfas", program: "PFAS certification", programHref: "/network#pfas", status: "In development", style: "pfas" },
 ];
 
-function NetworkFigure() {
-  return <div className="network-figure" aria-label="ICS connects independent evidence, certification programs, and shared verification and exchange infrastructure">
-    <div className="figure-caption"><span>THE ICS FRAMEWORK</span><span>01 — 04</span></div>
-    <div className="framework-core"><span className="core-mark" aria-hidden="true">I<span>C</span>S</span><div><b>One institution.</b><span>A connected standard of trust.</span></div></div>
-    <div className="framework-branches">
-      <a href="#indexes"><span className="node-icon" aria-hidden="true">01</span><span><b>Evidence indexes</b><small>Research, in context</small></span><i aria-hidden="true">↗</i></a>
-      <a href="#indexes"><span className="node-icon" aria-hidden="true">02</span><span><b>Certification programs</b><small>Standards, in practice</small></span><i aria-hidden="true">↗</i></a>
-      <a href="https://tecrid.com"><span className="node-icon" aria-hidden="true">03</span><span><b>TECRID</b><small>Evidence, made verifiable</small></span><i aria-hidden="true">↗</i></a>
-      <a href="https://vle.exchange"><span className="node-icon" aria-hidden="true">04</span><span><b>Verified Lot Exchange</b><small>Sourcing, with evidence</small></span><i aria-hidden="true">↗</i></a>
-    </div>
-    <div className="figure-foot"><span className="signal-dot" />Shared governance. Distinct responsibilities.</div>
-  </div>;
-}
-
 export default function Home() {
   const evidence = authorityStats();
   const evidenceCounts = [["Peer-reviewed studies", evidence.peer_reviewed], ["Source records", evidence.sources_total], ["Jurisdictions represented", evidence.jurisdictions], ["Sources with a DOI", evidence.dois]] as const;
@@ -29,18 +16,20 @@ export default function Home() {
   return <SiteFrame>
     <main id="top" className="institute-home">
       <section className="institute-hero" aria-labelledby="hero-title">
-        <div className="hero-grid-lines" aria-hidden="true" />
+
         <div className="institute-hero-inner">
           <div className="institute-hero-copy">
             <p className="label light"><span className="signal-dot" />INSTITUTE OF CONTAMINANT STANDARDS</p>
-            <h1 id="hero-title">Better evidence.<br />Higher standards.<br /><em>Greater trust.</em></h1>
-            <p className="institute-dek">The institution connecting contaminant research, certification, and verifiable evidence. A shared foundation for more informed decisions.</p>
-            <div className="institute-actions"><a className="ics-button lime" href="#network">Explore the ICS network <span aria-hidden="true">↘</span></a><a className="hero-text-link" href="/governance">Our governance <span aria-hidden="true">→</span></a></div>
+            <h1 id="hero-title">Small things.<br /><em>Extraordinary</em><br />standards.</h1>
+            <p className="institute-dek">What we cannot see still matters. We connect contaminant research, independent standards, and certification—so evidence can become action.</p>
+            <div className="institute-actions"><a className="ics-button gold" href="/apply">Explore certification <span aria-hidden="true">↗</span></a><a className="hero-text-link" href="#network">Meet the network <span aria-hidden="true">↓</span></a></div>
           </div>
-          <NetworkFigure />
+          <div className="hero-botanical"><Image src="/ics-marigold.webp" alt="Golden marigolds among richly textured blue-gray foliage" fill sizes="(max-width: 800px) 100vw, 50vw" priority /><div className="botanical-caption"><span>LOOK CLOSER.</span><span>Evidence is in the details.</span></div><div className="botanical-seal" aria-hidden="true"><span>ICS</span><small>RESEARCH<br />TO REAL WORLD</small></div></div>
         </div>
-        <div className="hero-baseline"><span>RESEARCH → STANDARDS → VERIFICATION</span><a href="/about">Meet the institution behind the network <span aria-hidden="true">↗</span></a></div>
+        <div className="hero-baseline"><span>RESEARCH. STANDARDS. REAL-WORLD CONFIDENCE.</span><a href="/about">The Institute of Contaminant Standards <span aria-hidden="true">↗</span></a></div>
       </section>
+
+      <section className="certification-entry" aria-labelledby="portal-heading"><div className="wrap certification-entry-inner"><div><p className="label">THE ICS CERTIFICATION PORTAL</p><h2 id="portal-heading">Your certifications.<br /><em>One place.</em></h2></div><div><p>One account for your brand, products, laboratory evidence, and certification journey. Start with Heavy Metal Tested &amp; Certified. PFAS and microplastics programs are in development.</p><div className="portal-entry-actions"><a className="ics-button navy" href="/apply">Start an application <span aria-hidden="true">↗</span></a><a className="text-link" href="/login">Already registered? Log in <span aria-hidden="true">→</span></a></div></div></div></section>
 
       <section className="institute-intro wrap" aria-labelledby="intro-title">
         <p className="label">OUR PURPOSE</p>
@@ -89,7 +78,7 @@ export default function Home() {
         <div className="journal-grid">{latestPublications.map(p => <a className="journal-entry" href={`/articles/${p.slug}`} key={p.identifier}><div className="journal-meta"><span>{p.topic}</span><span>{p.readingTime}</span></div><h3>{p.shortTitle}</h3><p>{p.description}</p><span className="journal-bottom">{p.identifier}<b aria-hidden="true">↗</b></span></a>)}</div>
         <a className="governance-register" href="/governance/notes"><span><span className="label">THE EVIDENCE GOVERNANCE REGISTER</span><b>From a research finding to a visible governance consequence.</b></span><span aria-hidden="true">↗</span></a>
       </div></section>
-      <section className="institute-closing wrap"><p className="label">FIND YOUR STARTING POINT</p><h2>Follow the evidence.<br /><em>Find your next step.</em></h2><div className="closing-paths"><a href="#indexes"><span>FOR RESEARCHERS &amp; READERS</span><b>Explore the indexes ↗</b></a><a href="https://heavymetalcertified.com"><span>FOR BRANDS &amp; PRODUCERS</span><b>Find a certification pathway ↗</b></a><a href="https://vle.exchange"><span>FOR BUYERS &amp; SUPPLIERS</span><b>Explore the lot exchange ↗</b></a></div></section>
+      <section className="institute-closing wrap"><p className="label">FIND YOUR STARTING POINT</p><h2>Follow the evidence.<br /><em>Find your next step.</em></h2><div className="closing-paths"><a href="#indexes"><span>FOR RESEARCHERS &amp; READERS</span><b>Explore the indexes ↗</b></a><a href="/apply"><span>FOR BRANDS &amp; PRODUCERS</span><b>Start your certification journey ↗</b></a><a href="https://vle.exchange"><span>FOR BUYERS &amp; SUPPLIERS</span><b>Explore the lot exchange ↗</b></a></div></section>
     </main>
   </SiteFrame>;
 }
