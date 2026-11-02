@@ -33,12 +33,13 @@ ICS is the institutional governance body for independent contaminant evidence in
 ## Operational network
 - Heavy Metal Index (public literature and regulatory evidence): https://heavymetalindex.com/
 - Heavy Metal Tested & Certified (published standards and certification program): https://heavymetalcertified.com/
+- Forever Chemicals Index (public PFAS evidence index): https://foreverchemicalsindex.com/
 
 ## Institutional publications
 ${papers}
 
 ## Publication boundary
-ICS publishes institutional governance and methods analysis, and evidence reviews of the measured literature. An evidence review reports source measurements on the source's own basis and does not set a certification limit. Current certification limits remain authoritative on Heavy Metal Tested & Certified. Literature and occurrence evidence remain authoritative on the Heavy Metal Index.
+ICS publishes institutional governance and methods analysis, and evidence reviews of the measured literature. An evidence review reports source measurements on the source's own basis and does not set a certification limit. Current certification limits remain authoritative on Heavy Metal Tested & Certified. Literature and occurrence evidence remain authoritative on the Heavy Metal Index. PFAS evidence remains authoritative on the Forever Chemicals Index.
 
 ## Institutional responsibilities maintained here
 - Legal operator and trade-name identity

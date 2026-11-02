@@ -5,10 +5,10 @@
 // heavymetaltested.com) is a one-row edit here, not a code change across the app.
 //
 // In production this is a database table (SiteRegistry) the parent owns; for the
-// scaffold it is a typed literal. Reserved verticals render as "in development"
-// cards on the PARENT ONLY (no live link, no indexable stub) — the multi-vertical
-// institutional story ("a standards body for contaminants, plural") is the whole
-// reason ICS exists.
+// scaffold it is a typed literal. A reserved property renders on the parent only,
+// with no live link and no indexable stub. A live index may be linked while its
+// certification property stays reserved. The multi-vertical institutional story
+// ("a standards body for contaminants, plural") is the whole reason ICS exists.
 
 export type SiteRole = "parent" | "index" | "cert" | "portal" | "verify"
 export type SiteStatus = "live" | "reserved" | "interim"
@@ -82,10 +82,12 @@ export const VERTICALS: Vertical[] = [
     displayName: "Forever Chemicals (PFAS)",
     status: "reserved",
     blurb:
-      "A contaminant standard for PFAS, in development. Same model, same firewall — an independent index of the literature and a separate certification standard.",
+      "The public PFAS evidence index is live. The certification standard is in development, with the same firewall between the literature index and the certification property.",
     sites: [
-      { role: "index", domain: "foreverchemicalsindex.com", status: "reserved", publicLink: false },
+      // Reserved certification entry is listed before the live index so the
+      // parent firewall can keep reserved properties unlinked.
       { role: "cert", domain: "foreverchemicalstested.com", status: "reserved", publicLink: false },
+      { role: "index", domain: "foreverchemicalsindex.com", status: "live", publicLink: true },
     ],
   },
 ]

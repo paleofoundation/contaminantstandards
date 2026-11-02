@@ -123,6 +123,12 @@ export default function ApplyPage() {
                   A future pathway for forever chemicals. Applications are not
                   yet open.
                 </p>
+                <a
+                  className="inside-sub-link"
+                  href="https://foreverchemicalsindex.com"
+                >
+                  Forever Chemicals Index ↗
+                </a>
               </div>
             </article>
             <article>

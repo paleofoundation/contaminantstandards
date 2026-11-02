@@ -38,7 +38,7 @@ export function parentOrganizationJsonLd() {
     alternateName: "ICS",
     url: PARENT_BASE,
     description:
-      "An independent standards body that operates per-contaminant certification programs, each backed by a separate, independent literature index. Governs heavy metals, with microplastics and PFAS in development.",
+      "An independent standards body that operates per-contaminant certification programs, each backed by a separate, independent literature index. Heavy metals certification is operational. The Forever Chemicals Index is the public PFAS evidence index. Microplastics and PFAS certification programs are in development.",
     subOrganization: subOrgs,
   }
 }

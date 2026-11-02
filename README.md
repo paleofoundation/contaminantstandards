@@ -16,7 +16,7 @@ The parent owns **institutional / governance** intent ("who certifies contaminan
 
 ## Structure
 
-- `lib/site-registry.ts` — role→domain source of truth; reserved verticals (microplastics, PFAS) render as parent-only "in development" cards.
+- `lib/site-registry.ts` — role→domain source of truth; reserved properties (microplastics, and the PFAS certification property) render as parent-only "in development" cards. The Forever Chemicals Index is live and publicly linked.
 - `lib/org-schema.ts` — the cross-site `@id` Organization graph.
 - `lib/brands.ts` — Class A brand projection + the firewall-safe `resolveBrand` (no enumeration).
 - `app/` — homepage hub, `/network`, `/registry` (search-only), `/registry/[slug]`, `/verify` (noindex), `/governance`, `/apply` (referral), `/articles`.
