@@ -44,6 +44,7 @@ const programs = [
       domain: "heavymetalindex.com",
       href: "https://heavymetalindex.com",
       note: "Independent literature and regulatory evidence",
+      linked: true,
     },
     standard: {
       label: "Heavy Metal Tested & Certified",
@@ -64,6 +65,7 @@ const programs = [
       domain: "microplasticsindex.com",
       href: "https://microplasticsindex.com",
       note: "Literature index in development",
+      linked: false,
     },
     standard: {
       label: "Microplastics Tested",
@@ -78,12 +80,13 @@ const programs = [
     status: "In development",
     tone: "quiet" as const,
     description:
-      "A PFAS evidence and conformity system, designed as separate public properties with the same data-class firewall and common institutional rules.",
+      "A public PFAS evidence index, with a certification pathway in development. The index and the certification property stay separate under the same data-class firewall.",
     index: {
       label: "Forever Chemicals Index",
       domain: "foreverchemicalsindex.com",
       href: "https://foreverchemicalsindex.com",
-      note: "Literature index in development",
+      note: "Public PFAS evidence index",
+      linked: true,
     },
     standard: {
       label: "Forever Chemicals Tested",
@@ -184,12 +187,12 @@ export default function NetworkPage() {
                     ? "A public research index and an active certification pathway for heavy metals in products."
                     : i === 1
                       ? "A dedicated evidence index and certification pathway for microplastics are in development."
-                      : "Evidence and certification pathways for forever chemicals are in development."}
+                      : "A public PFAS evidence index, with a certification pathway in development."}
                 </p>
                 <div className="network-destinations">
                   <div>
                     <span className="inside-label">EXPLORE THE EVIDENCE</span>
-                    {p.tone === "live" ? (
+                    {p.index.linked ? (
                       <a href={p.index.href}>
                         {p.index.label}
                         <span aria-hidden="true">↗</span>
@@ -199,7 +202,7 @@ export default function NetworkPage() {
                     )}
                     <small>
                       {p.index.domain}
-                      {p.tone !== "live" ? " · In development" : ""}
+                      {p.index.linked ? "" : " · In development"}
                     </small>
                   </div>
                   <div>

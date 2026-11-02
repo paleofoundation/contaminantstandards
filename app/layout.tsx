@@ -112,6 +112,11 @@ export default function RootLayout({
                   url: "https://heavymetalindex.com/",
                 },
                 {
+                  "@type": "WebSite",
+                  name: "Forever Chemicals Index",
+                  url: "https://foreverchemicalsindex.com/",
+                },
+                {
                   "@type": "Organization",
                   name: "Heavy Metal Tested & Certified",
                   url: "https://heavymetalcertified.com/",
@@ -120,6 +125,7 @@ export default function RootLayout({
               knowsAbout: [
                 "Contaminant standards",
                 "Heavy metals",
+                "PFAS",
                 "Food metallomics",
                 "Microbial metallomics",
                 "Certification governance",

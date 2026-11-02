@@ -78,6 +78,7 @@ for (const f of sourceFiles) {
 // display-name (as rendered) → the domain a link to it must contain.
 const SIBLINGS = [
   { name: /Heavy Metal Index/g, domain: "heavymetalindex.com", label: "index" },
+  { name: /Forever Chemicals Index/g, domain: "foreverchemicalsindex.com", label: "index" },
   { name: /Heavy Metal Tested\s*&(?:amp;)?\s*Certified/g, domain: "heavymetalcertified.com", label: "cert" },
   { name: /Heavy Metal Certified/g, domain: "heavymetalcertified.com", label: "cert" },
 ]

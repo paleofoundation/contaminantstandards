@@ -6,7 +6,7 @@ import { publications } from "./site-data";
 const fields = [
   { n: "01", code: "HM", title: "Heavy metals", text: "Trace the evidence. Understand the standard. Find the certification pathway.", index: "Heavy Metal Index", href: "https://heavymetalindex.com", program: "Heavy Metal Certified", programHref: "https://heavymetalcertified.com", status: "Established program", style: "metals" },
   { n: "02", code: "MP", title: "Microplastics", text: "A dedicated evidence index and a distinct certification program for microplastics.", index: "Microplastics Index", href: "/network#microplastics", program: "Microplastics certification", programHref: "/network#microplastics", status: "In development", style: "plastics" },
-  { n: "03", code: "PF", title: "PFAS", text: "The forever chemicals evidence index and its developing certification pathway.", index: "Forever Chemicals Index", href: "/network#pfas", program: "PFAS certification", programHref: "/network#pfas", status: "In development", style: "pfas" },
+  { n: "03", code: "PF", title: "PFAS", text: "A public PFAS evidence index, with a certification pathway in development.", index: "Forever Chemicals Index", href: "https://foreverchemicalsindex.com", program: "PFAS certification", programHref: "/network#pfas", status: "In development", style: "pfas" },
 ];
 
 export default function Home() {
